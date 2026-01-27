@@ -1,0 +1,408 @@
+/**
+ * Dark Theme CSS Variables
+ * Sistema de colores para modo oscuro - NEURIAX
+ * Optimizado para pantallas OLED con negros puros
+ */
+
+/* ==================== TEMA OSCURO OLED ==================== */
+:root.dark-theme {
+  /* Colores base - Optimizados OLED (negro puro #000000) */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0f;
+  --bg-tertiary: #0f0f1a;
+  --bg-card: #121218;
+  --bg-hover: #1a1a24;
+  --bg-input: #0a0a0f;
+  --bg-elevated: #161620;
+  
+  /* OLED específicos */
+  --oled-black: #000000;
+  --oled-near-black: #050508;
+  --oled-surface: #0a0a0f;
+  
+  /* Bordes */
+  --border-color: #2d2d4a;
+  --border-light: #3d3d5c;
+  --border-input: #3d3d5c;
+  
+  /* Texto */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0c0;
+  --text-muted: #6b6b8a;
+  --text-inverse: #0f0f1a;
+  
+  /* Colores de acento */
+  --accent-primary: #6c5ce7;
+  --accent-primary-hover: #5a4bd4;
+  --accent-secondary: #00cec9;
+  --accent-tertiary: #fd79a8;
+  
+  /* Estados */
+  --success-color: #00b894;
+  --success-bg: rgba(0, 184, 148, 0.15);
+  --warning-color: #fdcb6e;
+  --warning-bg: rgba(253, 203, 110, 0.15);
+  --error-color: #e74c3c;
+  --error-bg: rgba(231, 76, 60, 0.15);
+  --info-color: #74b9ff;
+  --info-bg: rgba(116, 185, 255, 0.15);
+  
+  /* Sombras - Optimizadas para contraste OLED */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 20px rgba(108, 92, 231, 0.4);
+  --shadow-glow-accent: 0 0 30px rgba(108, 92, 231, 0.5);
+  
+  /* Gradientes - Con transición desde negro OLED */
+  --gradient-primary: linear-gradient(135deg, #6c5ce7 0%, #a855f7 100%);
+  --gradient-secondary: linear-gradient(135deg, #00cec9 0%, #00b894 100%);
+  --gradient-card: linear-gradient(145deg, #121218 0%, #0a0a0f 100%);
+  --gradient-sidebar: linear-gradient(180deg, #0a0a0f 0%, #000000 100%);
+  --gradient-header: linear-gradient(90deg, #000000 0%, #0a0a0f 50%, #000000 100%);
+  
+  /* Overlay */
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+  --overlay-light: rgba(255, 255, 255, 0.05);
+  
+  /* Scrollbar */
+  --scrollbar-bg: #1a1a2e;
+  --scrollbar-thumb: #3d3d5c;
+  --scrollbar-thumb-hover: #5d5d7c;
+}
+
+/* ==================== TEMA CLARO ==================== */
+:root.light-theme,
+:root:not(.dark-theme) {
+  /* Colores base */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f0f2f5;
+  --bg-card: #ffffff;
+  --bg-hover: #f0f2f5;
+  --bg-input: #ffffff;
+  
+  /* Bordes */
+  --border-color: #e0e0e0;
+  --border-light: #eeeeee;
+  --border-input: #d0d0d0;
+  
+  /* Texto */
+  --text-primary: #1a1a2e;
+  --text-secondary: #5a5a7a;
+  --text-muted: #9a9ab0;
+  --text-inverse: #ffffff;
+  
+  /* Colores de acento */
+  --accent-primary: #6c5ce7;
+  --accent-primary-hover: #5a4bd4;
+  --accent-secondary: #00b894;
+  --accent-tertiary: #e84393;
+  
+  /* Estados */
+  --success-color: #00b894;
+  --success-bg: rgba(0, 184, 148, 0.1);
+  --warning-color: #f39c12;
+  --warning-bg: rgba(243, 156, 18, 0.1);
+  --error-color: #e74c3c;
+  --error-bg: rgba(231, 76, 60, 0.1);
+  --info-color: #3498db;
+  --info-bg: rgba(52, 152, 219, 0.1);
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 20px rgba(108, 92, 231, 0.15);
+  
+  /* Gradientes */
+  --gradient-primary: linear-gradient(135deg, #6c5ce7 0%, #a855f7 100%);
+  --gradient-secondary: linear-gradient(135deg, #00cec9 0%, #00b894 100%);
+  --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  --gradient-sidebar: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  
+  /* Overlay */
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-light: rgba(0, 0, 0, 0.02);
+  
+  /* Scrollbar */
+  --scrollbar-bg: #f0f2f5;
+  --scrollbar-thumb: #c0c0c0;
+  --scrollbar-thumb-hover: #a0a0a0;
+}
+
+/* ==================== ESTILOS GLOBALES ==================== */
+
+/* Transiciones suaves para cambio de tema */
+body,
+.dashboard-container,
+.sidebar,
+.main-content,
+.module-card,
+.stat-card,
+.pos-container,
+.pos-checkout,
+.service-card,
+.cart-item,
+.clients-container,
+.appointments-container,
+.services-container,
+.inventory-container,
+.reports-container,
+.settings-container,
+input,
+button,
+select,
+textarea {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Body */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ==================== COMPONENTES ==================== */
+
+/* Cards */
+.dark-theme .module-card,
+.dark-theme .stat-card,
+.dark-theme .card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+/* Inputs */
+.dark-theme input,
+.dark-theme select,
+.dark-theme textarea {
+  background-color: var(--bg-input);
+  border-color: var(--border-input);
+  color: var(--text-primary);
+}
+
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.dark-theme input:focus,
+.dark-theme select:focus,
+.dark-theme textarea:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+/* Buttons */
+.dark-theme button {
+  transition: all 0.2s ease;
+}
+
+.dark-theme .btn-primary,
+.dark-theme .primary-btn {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  border: none;
+}
+
+.dark-theme .btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Tables */
+.dark-theme table {
+  border-color: var(--border-color);
+}
+
+.dark-theme th {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.dark-theme td {
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.dark-theme tr:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Modals */
+.dark-theme .modal-overlay {
+  background: var(--overlay-dark);
+}
+
+.dark-theme .modal-content {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+/* Sidebar específico */
+.dark-theme .sidebar {
+  background: var(--gradient-sidebar);
+  border-right-color: var(--border-color);
+}
+
+.dark-theme .sidebar-item:hover {
+  background: var(--bg-hover);
+}
+
+.dark-theme .sidebar-item.active {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* Header */
+.dark-theme .dashboard-header {
+  background: var(--bg-secondary);
+  border-bottom-color: var(--border-color);
+}
+
+/* Stats Cards */
+.dark-theme .stat-card {
+  background: var(--gradient-card);
+  border-color: var(--border-color);
+}
+
+.dark-theme .stat-value {
+  color: var(--text-primary);
+}
+
+.dark-theme .stat-label {
+  color: var(--text-muted);
+}
+
+/* POS Module */
+.dark-theme .pos-services {
+  background: var(--bg-secondary);
+}
+
+.dark-theme .pos-checkout {
+  background: var(--bg-card);
+  border-left-color: var(--border-color);
+}
+
+.dark-theme .service-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+.dark-theme .service-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.dark-theme .cart-item {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+/* Empty states */
+.dark-theme .empty-state,
+.dark-theme .empty-cart {
+  color: var(--text-muted);
+}
+
+/* Badges */
+.dark-theme .badge {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.dark-theme .badge-success {
+  background: var(--success-bg);
+  color: var(--success-color);
+}
+
+.dark-theme .badge-warning {
+  background: var(--warning-bg);
+  color: var(--warning-color);
+}
+
+.dark-theme .badge-error {
+  background: var(--error-bg);
+  color: var(--error-color);
+}
+
+/* Tooltips */
+.dark-theme .tooltip {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Dropdowns */
+.dark-theme .dropdown-menu {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.dark-theme .dropdown-item:hover {
+  background: var(--bg-hover);
+}
+
+/* Notifications */
+.dark-theme .notification-toast {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+/* Theme toggle animation */
+.theme-toggle-icon {
+  transition: transform 0.5s ease;
+}
+
+.dark-theme .theme-toggle-icon {
+  transform: rotate(180deg);
+}

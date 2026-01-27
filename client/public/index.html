@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="description" content="NEURIAX - Plataforma SaaS de Gestión Profesional" />
+    
+    <!-- Fuentes Premium de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Iconos Lucide -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💈</text></svg>">
+    
+    <title>NEURIAX | Plataforma SaaS de Gestión Profesional</title>
+    
+    <style>
+      /* Loader inicial ultra-profesional */
+      #initial-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+      
+      #initial-loader.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+      
+      .loader-logo {
+        font-size: 64px;
+        margin-bottom: 24px;
+        animation: bounce 1s infinite;
+      }
+      
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      .loader-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
+      }
+      
+      .loader-subtext {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        color: #64748b;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      
+      .loader-bar {
+        width: 200px;
+        height: 4px;
+        background: #1e293b;
+        border-radius: 2px;
+        margin-top: 32px;
+        overflow: hidden;
+      }
+      
+      .loader-progress {
+        height: 100%;
+        background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+        border-radius: 2px;
+        animation: loading 1.5s ease-in-out infinite;
+      }
+      
+      @keyframes loading {
+        0% { width: 0%; transform: translateX(0); }
+        50% { width: 70%; }
+        100% { width: 100%; transform: translateX(0); }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loader inicial -->
+    <div id="initial-loader">
+      <div class="loader-logo">💈</div>
+      <div class="loader-text">NEURIAX</div>
+      <div class="loader-subtext">Sistema de Gestión Profesional</div>
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+    </div>
+    
+    <noscript>Necesitas habilitar JavaScript para ejecutar esta aplicación.</noscript>
+    <div id="root"></div>
+    
+    <script>
+      // Ocultar loader cuando React esté listo
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var loader = document.getElementById('initial-loader');
+          if (loader) {
+            loader.classList.add('fade-out');
+            setTimeout(function() {
+              loader.style.display = 'none';
+            }, 500);
+          }
+        }, 800);
+      });
+    </script>
+  </body>
+</html>

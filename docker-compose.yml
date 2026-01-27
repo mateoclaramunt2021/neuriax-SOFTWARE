@@ -1,0 +1,199 @@
+# ============================================================
+# PASO 58: Docker Compose - NEURIAX Platform
+# Configuración de Despliegue en Producción
+# ============================================================
+
+version: '3.8'
+
+services:
+  # ============================================================
+  # BASE DE DATOS POSTGRESQL
+  # ============================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: begona_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-begona_gomez_db}
+      POSTGRES_USER: ${DB_USER:-begona_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Database password required}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./server/database/migrations:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    networks:
+      - begona_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-begona_admin} -d ${DB_NAME:-begona_gomez_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ============================================================
+  # API BACKEND (Node.js / Express)
+  # ============================================================
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: begona_api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-begona_gomez_db}
+      DB_USER: ${DB_USER:-begona_admin}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_SSL: "false"
+      JWT_SECRET: ${JWT_SECRET:?JWT secret required}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-8h}
+    volumes:
+      - api_logs:/app/server/logs
+      - api_backups:/app/backups
+    ports:
+      - "3001:3001"
+    networks:
+      - begona_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ============================================================
+  # FRONTEND (React - Servido por Nginx)
+  # ============================================================
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: begona_client
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    networks:
+      - begona_network
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ============================================================
+  # NGINX REVERSE PROXY + SSL
+  # ============================================================
+  nginx:
+    image: nginx:alpine
+    container_name: begona_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+      - nginx_logs:/var/log/nginx
+    networks:
+      - begona_network
+    depends_on:
+      - client
+      - api
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+  # ============================================================
+  # CERTBOT (SSL/Let's Encrypt)
+  # ============================================================
+  certbot:
+    image: certbot/certbot
+    container_name: begona_certbot
+    restart: unless-stopped
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - begona_network
+
+  # ============================================================
+  # REDIS (Cache - Opcional)
+  # ============================================================
+  redis:
+    image: redis:7-alpine
+    container_name: begona_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - begona_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    profiles:
+      - with-cache
+
+  # ============================================================
+  # PGADMIN (Administración BD - Solo desarrollo)
+  # ============================================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: begona_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@neuriax.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin123}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - begona_network
+    depends_on:
+      - postgres
+    profiles:
+      - development
+
+# ============================================================
+# VOLÚMENES PERSISTENTES
+# ============================================================
+volumes:
+  postgres_data:
+    driver: local
+  api_logs:
+    driver: local
+  api_backups:
+    driver: local
+  nginx_logs:
+    driver: local
+  redis_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+# ============================================================
+# RED INTERNA
+# ============================================================
+networks:
+  begona_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16

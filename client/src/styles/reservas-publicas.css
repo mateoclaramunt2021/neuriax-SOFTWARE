@@ -1,0 +1,1205 @@
+/**
+ * Estilos para Sistema de Reservas Públicas
+ * Marketplace de Salones de Belleza
+ */
+
+/* ==================== VARIABLES ==================== */
+:root {
+  --public-primary: #8b5cf6;
+  --public-primary-dark: #7c3aed;
+  --public-secondary: #ec4899;
+  --public-accent: #06b6d4;
+  --public-success: #10b981;
+  --public-warning: #f59e0b;
+  --public-error: #ef4444;
+  --public-bg: #0f0f23;
+  --public-bg-card: #1a1a2e;
+  --public-bg-elevated: #252542;
+  --public-text: #ffffff;
+  --public-text-secondary: #a0a0b2;
+  --public-border: rgba(255, 255, 255, 0.1);
+  --public-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  --public-radius: 16px;
+  --public-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== LAYOUT BASE ==================== */
+.public-page {
+  min-height: 100vh;
+  background: var(--public-bg);
+  color: var(--public-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.public-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==================== HEADER ==================== */
+.public-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 15, 35, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--public-border);
+  padding: 16px 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--public-text);
+}
+
+.header-logo-icon {
+  font-size: 32px;
+}
+
+.header-logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--public-primary), var(--public-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-search {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+}
+
+.header-search input {
+  width: 100%;
+  padding: 12px 20px 12px 48px;
+  background: var(--public-bg-card);
+  border: 1px solid var(--public-border);
+  border-radius: 50px;
+  color: var(--public-text);
+  font-size: 15px;
+  transition: var(--public-transition);
+}
+
+.header-search input:focus {
+  outline: none;
+  border-color: var(--public-primary);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.header-search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--public-text-secondary);
+  font-size: 18px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-btn {
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--public-transition);
+  text-decoration: none;
+}
+
+.header-btn-outline {
+  background: transparent;
+  border: 2px solid var(--public-primary);
+  color: var(--public-primary);
+}
+
+.header-btn-outline:hover {
+  background: var(--public-primary);
+  color: white;
+}
+
+.header-btn-primary {
+  background: linear-gradient(135deg, var(--public-primary), var(--public-secondary));
+  border: none;
+  color: white;
+}
+
+.header-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+/* ==================== HERO SECTION ==================== */
+.public-hero {
+  padding: 80px 0;
+  text-align: center;
+  background: linear-gradient(180deg, var(--public-bg) 0%, var(--public-bg-card) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.public-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--public-text) 0%, var(--public-text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: var(--public-text-secondary);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.hero-search {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  background: var(--public-bg-card);
+  padding: 8px;
+  border-radius: 60px;
+  border: 1px solid var(--public-border);
+}
+
+.hero-search-input {
+  flex: 1;
+  padding: 16px 24px;
+  background: transparent;
+  border: none;
+  color: var(--public-text);
+  font-size: 16px;
+}
+
+.hero-search-input:focus {
+  outline: none;
+}
+
+.hero-search-input::placeholder {
+  color: var(--public-text-secondary);
+}
+
+.hero-search-btn {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--public-primary), var(--public-secondary));
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--public-transition);
+}
+
+.hero-search-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--public-primary);
+}
+
+.hero-stat-label {
+  font-size: 14px;
+  color: var(--public-text-secondary);
+  margin-top: 4px;
+}
+
+/* ==================== FILTROS ==================== */
+.filters-section {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--public-border);
+}
+
+.filters-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 10px 20px;
+  background: var(--public-bg-card);
+  border: 1px solid var(--public-border);
+  border-radius: 50px;
+  color: var(--public-text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--public-transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+  background: var(--public-primary);
+  border-color: var(--public-primary);
+  color: white;
+}
+
+.filter-chip-icon {
+  font-size: 16px;
+}
+
+.filter-select {
+  padding: 10px 16px;
+  background: var(--public-bg-card);
+  border: 1px solid var(--public-border);
+  border-radius: 12px;
+  color: var(--public-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--public-primary);
+}
+
+/* ==================== GRID DE SALONES ==================== */
+.salones-section {
+  padding: 48px 0;
+}
+
+.salones-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.salones-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.salones-count {
+  color: var(--public-text-secondary);
+  font-size: 15px;
+}
+
+.salones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+/* ==================== CARD DE SALÓN ==================== */
+.salon-card {
+  background: var(--public-bg-card);
+  border-radius: var(--public-radius);
+  overflow: hidden;
+  border: 1px solid var(--public-border);
+  transition: var(--public-transition);
+  cursor: pointer;
+}
+
+.salon-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--public-primary);
+  box-shadow: var(--public-shadow);
+}
+
+.salon-card-image {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, var(--public-bg-elevated), var(--public-bg));
+  overflow: hidden;
+}
+
+.salon-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--public-transition);
+}
+
+.salon-card:hover .salon-card-image img {
+  transform: scale(1.1);
+}
+
+.salon-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, var(--public-primary), var(--public-secondary));
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+
+.salon-card-rating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.salon-card-rating-star {
+  color: #fbbf24;
+}
+
+.salon-card-content {
+  padding: 20px;
+}
+
+.salon-card-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--public-text);
+}
+
+.salon-card-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--public-text-secondary);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.salon-card-location-icon {
+  color: var(--public-primary);
+}
+
+.salon-card-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.salon-card-service-tag {
+  padding: 4px 10px;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--public-primary);
+}
+
+.salon-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--public-border);
+}
+
+.salon-card-price {
+  font-size: 14px;
+  color: var(--public-text-secondary);
+}
+
+.salon-card-price span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--public-success);
+}
+
+.salon-card-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--public-primary), var(--public-secondary));
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--public-transition);
+}
+
+.salon-card-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== PÁGINA DE SALÓN INDIVIDUAL ==================== */
+.salon-page {
+  padding-bottom: 100px;
+}
+
+.salon-hero {
+  position: relative;
+  height: 400px;
+  background: var(--public-bg-card);
+  overflow: hidden;
+}
+
+.salon-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.salon-hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+}
+
+.salon-hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.salon-hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.salon-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.salon-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--public-text-secondary);
+  font-size: 15px;
+}
+
+.salon-meta-icon {
+  color: var(--public-primary);
+}
+
+.salon-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+  padding-top: 40px;
+}
+
+.salon-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.salon-section {
+  background: var(--public-bg-card);
+  border-radius: var(--public-radius);
+  padding: 28px;
+  border: 1px solid var(--public-border);
+}
+
+.salon-section-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.salon-section-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--public-primary);
+  font-size: 18px;
+}
+
+.salon-description {
+  color: var(--public-text-secondary);
+  line-height: 1.7;
+}
+
+/* Servicios */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: var(--public-bg-elevated);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--public-transition);
+  border: 1px solid transparent;
+}
+
+.service-item:hover,
+.service-item.selected {
+  border-color: var(--public-primary);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.service-item.selected {
+  box-shadow: 0 0 0 2px var(--public-primary);
+}
+
+.service-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--public-primary), var(--public-secondary));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.service-details h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.service-details p {
+  font-size: 13px;
+  color: var(--public-text-secondary);
+}
+
+.service-meta {
+  text-align: right;
+}
+
+.service-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--public-success);
+}
+
+.service-duration {
+  font-size: 13px;
+  color: var(--public-text-secondary);
+}
+
+/* Empleados */
+.employees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.employee-card {
+  text-align: center;
+  padding: 20px;
+  background: var(--public-bg-elevated);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--public-transition);
+  border: 2px solid transparent;
+}
+
+.employee-card:hover,
+.employee-card.selected {
+  border-color: var(--public-primary);
+}
+
+.employee-card.selected {
+  background: rgba(139, 92, 246, 0.15);
+}
+
+.employee-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--public-primary), var(--public-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 12px;
+  color: white;
+}
+
+.employee-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.employee-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.employee-specialty {
+  font-size: 12px;
+  color: var(--public-text-secondary);
+}
+
+/* Horario */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.schedule-day {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: var(--public-bg-elevated);
+  border-radius: 8px;
+}
+
+.schedule-day-name {
+  font-weight: 600;
+}
+
+.schedule-day-hours {
+  color: var(--public-text-secondary);
+}
+
+.schedule-day.closed .schedule-day-hours {
+  color: var(--public-error);
+}
+
+/* ==================== SIDEBAR DE RESERVA ==================== */
+.booking-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.booking-card {
+  background: var(--public-bg-card);
+  border-radius: var(--public-radius);
+  padding: 28px;
+  border: 1px solid var(--public-border);
+}
+
+.booking-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.booking-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.booking-steps::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--public-border);
+}
+
+.booking-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.booking-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--public-bg-elevated);
+  border: 2px solid var(--public-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--public-transition);
+}
+
+.booking-step.active .booking-step-number,
+.booking-step.completed .booking-step-number {
+  background: var(--public-primary);
+  border-color: var(--public-primary);
+  color: white;
+}
+
+.booking-step.completed .booking-step-number {
+  background: var(--public-success);
+  border-color: var(--public-success);
+}
+
+.booking-step-label {
+  font-size: 12px;
+  color: var(--public-text-secondary);
+}
+
+.booking-step.active .booking-step-label {
+  color: var(--public-primary);
+  font-weight: 600;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-date-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.booking-date-input {
+  padding: 14px 16px;
+  background: var(--public-bg-elevated);
+  border: 1px solid var(--public-border);
+  border-radius: 12px;
+  color: var(--public-text);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.booking-date-input:focus {
+  outline: none;
+  border-color: var(--public-primary);
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.time-slot {
+  padding: 12px;
+  text-align: center;
+  background: var(--public-bg-elevated);
+  border: 1px solid var(--public-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--public-transition);
+  font-size: 14px;
+}
+
+.time-slot:hover,
+.time-slot.selected {
+  background: var(--public-primary);
+  border-color: var(--public-primary);
+  color: white;
+}
+
+.time-slot.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.booking-input {
+  padding: 14px 16px;
+  background: var(--public-bg-elevated);
+  border: 1px solid var(--public-border);
+  border-radius: 12px;
+  color: var(--public-text);
+  font-size: 15px;
+  width: 100%;
+}
+
+.booking-input:focus {
+  outline: none;
+  border-color: var(--public-primary);
+}
+
+.booking-input::placeholder {
+  color: var(--public-text-secondary);
+}
+
+.booking-summary {
+  background: var(--public-bg-elevated);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.booking-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.booking-summary-row.total {
+  border-top: 1px solid var(--public-border);
+  margin-top: 8px;
+  padding-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.booking-summary-row.total span:last-child {
+  color: var(--public-success);
+}
+
+.booking-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--public-primary), var(--public-secondary));
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--public-transition);
+}
+
+.booking-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+.booking-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.booking-note {
+  font-size: 12px;
+  color: var(--public-text-secondary);
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* ==================== CONFIRMACIÓN DE RESERVA ==================== */
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.confirmation-content {
+  background: var(--public-bg-card);
+  border-radius: var(--public-radius);
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.confirmation-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--public-success), #34d399);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto 24px;
+  animation: scaleIn 0.5s ease 0.2s both;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.confirmation-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.confirmation-message {
+  color: var(--public-text-secondary);
+  margin-bottom: 24px;
+}
+
+.confirmation-code {
+  background: var(--public-bg-elevated);
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--public-primary);
+  margin-bottom: 24px;
+}
+
+.confirmation-details {
+  text-align: left;
+  background: var(--public-bg-elevated);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.confirmation-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.confirmation-detail span:first-child {
+  color: var(--public-text-secondary);
+}
+
+/* ==================== LOADING & EMPTY STATES ==================== */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--public-border);
+  border-top-color: var(--public-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  margin-top: 16px;
+  color: var(--public-text-secondary);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.empty-state-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.empty-state-message {
+  color: var(--public-text-secondary);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .salon-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    background: var(--public-bg-card);
+    border-radius: var(--public-radius) var(--public-radius) 0 0;
+    border: 1px solid var(--public-border);
+    border-bottom: none;
+    padding: 20px;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+  
+  .booking-card {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+  
+  .salon-page {
+    padding-bottom: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .hero-search {
+    flex-direction: column;
+    border-radius: 24px;
+    padding: 12px;
+  }
+  
+  .hero-search-btn {
+    width: 100%;
+  }
+  
+  .hero-stats {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .header-search {
+    display: none;
+  }
+  
+  .salones-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .salon-hero {
+    height: 280px;
+  }
+  
+  .salon-hero-title {
+    font-size: 28px;
+  }
+  
+  .time-slots {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .public-container {
+    padding: 0 16px;
+  }
+  
+  .hero-title {
+    font-size: 28px;
+  }
+  
+  .salon-section {
+    padding: 20px;
+  }
+  
+  .employees-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .time-slots {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

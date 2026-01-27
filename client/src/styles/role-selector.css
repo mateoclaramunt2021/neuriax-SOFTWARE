@@ -1,0 +1,347 @@
+/**
+ * RoleSelector Styles
+ * Estilos para la pantalla de selección de rol
+ */
+
+.role-selector-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.role-selector-bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.role-selector-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Header */
+.role-selector-header {
+  text-align: center;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.role-selector-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.neuriax-brand {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.role-selector-header > p:first-of-type {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.role-selector-header .subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+/* Cards Container */
+.role-selector-cards {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Role Card */
+.role-card {
+  background: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.role-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 15px 15px 0 0;
+  transition: all 0.3s ease;
+}
+
+.role-card-cliente::before {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.role-card-profesional::before {
+  background: linear-gradient(90deg, #f093fb, #f5576c);
+}
+
+.role-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.role-card.hovered {
+  transform: translateY(-10px);
+}
+
+/* Icon */
+.role-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Titles */
+.role-card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #1a1a1a;
+}
+
+.role-subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0 0 25px 0;
+  font-weight: 500;
+}
+
+/* Features List */
+.role-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: left;
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.role-card-profesional .feature-icon {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+/* Button */
+.role-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  color: white;
+}
+
+.role-btn-cliente {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.role-btn-cliente:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.role-btn-profesional {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.role-btn-profesional:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+}
+
+/* Divider */
+.role-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  color: #999;
+  font-weight: 600;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.role-selector-footer {
+  text-align: center;
+  color: white;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 5px;
+  padding: 0;
+  font-size: 0.95rem;
+  transition: opacity 0.3s ease;
+}
+
+.link-btn:hover {
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .role-selector-header h1 {
+    font-size: 2rem;
+  }
+
+  .role-selector-header > p:first-of-type {
+    font-size: 1.2rem;
+  }
+
+  .role-selector-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .role-divider {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .role-card {
+    padding: 30px 20px;
+  }
+
+  .role-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .feature {
+    font-size: 0.85rem;
+  }
+
+  .role-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-selector-container {
+    padding: 10px;
+  }
+
+  .role-selector-header {
+    margin-bottom: 30px;
+  }
+
+  .role-selector-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+
+  .role-selector-header > p:first-of-type {
+    font-size: 1rem;
+  }
+
+  .role-selector-header .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .role-card {
+    padding: 20px 15px;
+  }
+
+  .role-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .role-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .feature {
+    font-size: 0.8rem;
+    gap: 8px;
+  }
+
+  .feature-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+  }
+
+  .role-features {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .role-btn {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+  }
+}

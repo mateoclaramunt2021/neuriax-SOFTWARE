@@ -1,0 +1,29 @@
+{
+  "clientes": [],
+  "citas": [],
+  "servicios": [],
+  "productos": [],
+  "ventas": [],
+  "empleados": [
+    {
+      "id": 1,
+      "nombre": "MATEO",
+      "email": "mateoclaramunt2021@gmail.com",
+      "telefono": "640791041",
+      "rol": "propietario",
+      "activo": 1,
+      "fecha_creacion": "2026-01-26T19:13:15.423Z"
+    }
+  ],
+  "configuracion": {
+    "nombre_negocio": "SALON PRUEBA",
+    "logo_url": null,
+    "color_primario": "#6366f1",
+    "color_secundario": "#8b5cf6",
+    "timezone": "Europe/Madrid",
+    "idioma": "es",
+    "moneda": "EUR",
+    "formato_fecha": "DD/MM/YYYY",
+    "formato_hora": "24h"
+  }
+}

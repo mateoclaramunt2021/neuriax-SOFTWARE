@@ -1,0 +1,662 @@
+/**
+ * FeedbackAnimations.css - Estilos para animaciones de feedback
+ * Success, Error, Warning, Info, Toasts, Confetti
+ */
+
+/* ===========================================
+   VARIABLES
+   =========================================== */
+:root {
+  --feedback-success: #00b894;
+  --feedback-error: #e74c3c;
+  --feedback-warning: #f39c12;
+  --feedback-info: #3498db;
+  --feedback-success-bg: rgba(0, 184, 148, 0.1);
+  --feedback-error-bg: rgba(231, 76, 60, 0.1);
+  --feedback-warning-bg: rgba(243, 156, 18, 0.1);
+  --feedback-info-bg: rgba(52, 152, 219, 0.1);
+}
+
+/* ===========================================
+   FEEDBACK ANIMATION BASE
+   =========================================== */
+.feedback-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.feedback-message {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+/* ===========================================
+   TAMAÑOS
+   =========================================== */
+.success-animation--small .success-svg,
+.error-animation--small .error-svg,
+.warning-animation--small .warning-svg,
+.info-animation--small .info-svg {
+  width: 48px;
+  height: 48px;
+}
+
+.success-animation--medium .success-svg,
+.error-animation--medium .error-svg,
+.warning-animation--medium .warning-svg,
+.info-animation--medium .info-svg {
+  width: 80px;
+  height: 80px;
+}
+
+.success-animation--large .success-svg,
+.error-animation--large .error-svg,
+.warning-animation--large .warning-svg,
+.info-animation--large .info-svg {
+  width: 120px;
+  height: 120px;
+}
+
+/* ===========================================
+   SUCCESS ANIMATION
+   =========================================== */
+.success-animation .feedback-message {
+  color: var(--feedback-success);
+}
+
+.success-svg {
+  display: block;
+}
+
+.success-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: var(--feedback-success);
+  animation: successCircle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.success-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: var(--feedback-success);
+  animation: successCheck 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+@keyframes successCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes successCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ===========================================
+   ERROR ANIMATION
+   =========================================== */
+.error-animation .feedback-message {
+  color: var(--feedback-error);
+}
+
+.error-svg {
+  display: block;
+}
+
+.error-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: var(--feedback-error);
+  animation: errorCircle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.error-x {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: var(--feedback-error);
+  animation: errorX 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
+}
+
+@keyframes errorCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes errorX {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Shake animation */
+.animate-shake {
+  animation: feedbackShake 0.5s ease 0.8s;
+}
+
+@keyframes feedbackShake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* ===========================================
+   WARNING ANIMATION
+   =========================================== */
+.warning-animation .feedback-message {
+  color: var(--feedback-warning);
+}
+
+.warning-svg {
+  display: block;
+}
+
+.warning-triangle {
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: var(--feedback-warning);
+  animation: warningTriangle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.warning-exclamation-line {
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke: var(--feedback-warning);
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: warningLine 0.3s ease 0.6s forwards;
+}
+
+.warning-exclamation-dot {
+  fill: var(--feedback-warning);
+  opacity: 0;
+  animation: warningDot 0.2s ease 0.8s forwards;
+}
+
+@keyframes warningTriangle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes warningLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes warningDot {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Pulse animation for warning */
+.animate-pulse {
+  animation: feedbackPulse 1s ease-in-out 1s infinite;
+}
+
+@keyframes feedbackPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ===========================================
+   INFO ANIMATION
+   =========================================== */
+.info-animation .feedback-message {
+  color: var(--feedback-info);
+}
+
+.info-svg {
+  display: block;
+}
+
+.info-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: var(--feedback-info);
+  animation: infoCircle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.info-dot {
+  fill: var(--feedback-info);
+  opacity: 0;
+  animation: infoDot 0.3s ease 0.5s forwards;
+}
+
+.info-line {
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke: var(--feedback-info);
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
+  animation: infoLine 0.3s ease 0.7s forwards;
+}
+
+@keyframes infoCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes infoDot {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes infoLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ===========================================
+   FEEDBACK TOAST
+   =========================================== */
+.feedback-toast {
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 300px;
+  max-width: 450px;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Posiciones */
+.feedback-toast--top-right {
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.feedback-toast--top-left {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.feedback-toast--bottom-right {
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+.feedback-toast--bottom-left {
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.feedback-toast--top-center {
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.feedback-toast--bottom-center {
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Animaciones de entrada/salida */
+.feedback-toast.is-entering {
+  animation: toastEnter 0.3s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
+}
+
+.feedback-toast.is-leaving {
+  animation: toastLeave 0.3s cubic-bezier(0.06, 0.71, 0.55, 1) forwards;
+}
+
+@keyframes toastEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastLeave {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+/* Variantes con posición específica para animación */
+.feedback-toast--top-center.is-entering,
+.feedback-toast--bottom-center.is-entering {
+  animation-name: toastEnterCenter;
+}
+
+.feedback-toast--top-center.is-leaving,
+.feedback-toast--bottom-center.is-leaving {
+  animation-name: toastLeaveCenter;
+}
+
+@keyframes toastEnterCenter {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes toastLeaveCenter {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px) scale(0.95);
+  }
+}
+
+/* Tipos de toast */
+.feedback-toast--success {
+  border-left: 4px solid var(--feedback-success);
+}
+
+.feedback-toast--success .toast-icon {
+  background: var(--feedback-success-bg);
+  color: var(--feedback-success);
+}
+
+.feedback-toast--error {
+  border-left: 4px solid var(--feedback-error);
+}
+
+.feedback-toast--error .toast-icon {
+  background: var(--feedback-error-bg);
+  color: var(--feedback-error);
+}
+
+.feedback-toast--warning {
+  border-left: 4px solid var(--feedback-warning);
+}
+
+.feedback-toast--warning .toast-icon {
+  background: var(--feedback-warning-bg);
+  color: var(--feedback-warning);
+}
+
+.feedback-toast--info {
+  border-left: 4px solid var(--feedback-info);
+}
+
+.feedback-toast--info .toast-icon {
+  background: var(--feedback-info-bg);
+  color: var(--feedback-info);
+}
+
+/* Icono del toast */
+.toast-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Contenido del toast */
+.toast-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.toast-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.toast-message {
+  font-size: 0.875rem;
+  color: #718096;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Botón cerrar */
+.toast-close {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  color: #a0aec0;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.toast-close:hover {
+  background: #edf2f7;
+  color: #4a5568;
+}
+
+/* Barra de progreso */
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.3;
+  animation: toastProgress linear forwards;
+}
+
+.feedback-toast--success .toast-progress {
+  background: var(--feedback-success);
+}
+
+.feedback-toast--error .toast-progress {
+  background: var(--feedback-error);
+}
+
+.feedback-toast--warning .toast-progress {
+  background: var(--feedback-warning);
+}
+
+.feedback-toast--info .toast-progress {
+  background: var(--feedback-info);
+}
+
+@keyframes toastProgress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* ===========================================
+   CONFETTI EFFECT
+   =========================================== */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 99999;
+}
+
+.confetti-particle {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ===========================================
+   COUNT UP ANIMATION
+   =========================================== */
+.count-up {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+}
+
+/* ===========================================
+   TYPEWRITER ANIMATION
+   =========================================== */
+.typewriter {
+  display: inline;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: cursorBlink 0.7s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===========================================
+   FADE IN UP HELPER
+   =========================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================================
+   REDUCED MOTION
+   =========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .success-circle,
+  .success-check,
+  .error-circle,
+  .error-x,
+  .warning-triangle,
+  .warning-exclamation-line,
+  .warning-exclamation-dot,
+  .info-circle,
+  .info-dot,
+  .info-line {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  .animate-shake,
+  .animate-pulse {
+    animation: none;
+  }
+
+  .feedback-toast.is-entering,
+  .feedback-toast.is-leaving {
+    animation: none;
+  }
+
+  .confetti-particle {
+    display: none;
+  }
+
+  .typewriter-cursor {
+    animation: none;
+    opacity: 1;
+  }
+
+  .toast-progress {
+    animation: none;
+    width: 0;
+  }
+}
+
+/* ===========================================
+   DARK MODE SUPPORT
+   =========================================== */
+@media (prefers-color-scheme: dark) {
+  .feedback-toast {
+    background: #1a202c;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .toast-title {
+    color: #f7fafc;
+  }
+
+  .toast-message {
+    color: #a0aec0;
+  }
+
+  .toast-close:hover {
+    background: #2d3748;
+    color: #e2e8f0;
+  }
+}

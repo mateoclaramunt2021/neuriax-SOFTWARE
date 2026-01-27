@@ -1,0 +1,214 @@
+/**
+ * AdaptiveIcon.css - Estilos para iconos adaptativos
+ * Colores y transiciones según el tema
+ */
+
+/* ==================== ADAPTIVE ICON ==================== */
+.adaptive-icon {
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Colores según tema */
+.adaptive-icon.is-light {
+  color: var(--text-primary, #1a1a2e);
+}
+
+.adaptive-icon.is-dark {
+  color: var(--text-primary, #ffffff);
+}
+
+/* Tamaños */
+.adaptive-icon--xs { width: 12px; height: 12px; }
+.adaptive-icon--sm { width: 16px; height: 16px; }
+.adaptive-icon--md { width: 20px; height: 20px; }
+.adaptive-icon--lg { width: 24px; height: 24px; }
+.adaptive-icon--xl { width: 32px; height: 32px; }
+.adaptive-icon--2xl { width: 40px; height: 40px; }
+
+/* Animaciones */
+.adaptive-icon--animated {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Hover effects heredados del padre */
+button:hover .adaptive-icon,
+a:hover .adaptive-icon {
+  transform: scale(1.1);
+}
+
+button:active .adaptive-icon,
+a:active .adaptive-icon {
+  transform: scale(0.95);
+}
+
+/* ==================== ICON BUTTON ==================== */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+/* Tamaños del botón */
+.icon-button--sm {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+}
+
+.icon-button--md {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+
+.icon-button--lg {
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+}
+
+/* Variantes */
+.icon-button--default {
+  background: var(--bg-tertiary);
+}
+
+.icon-button--default:hover {
+  background: var(--bg-hover);
+  transform: scale(1.05);
+}
+
+.icon-button--primary {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.icon-button--primary:hover {
+  background: var(--accent-primary-hover);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
+.icon-button--ghost {
+  background: transparent;
+}
+
+.icon-button--ghost:hover {
+  background: var(--bg-tertiary);
+}
+
+.icon-button--danger {
+  background: var(--error-bg);
+  color: var(--error-color);
+}
+
+.icon-button--danger:hover {
+  background: var(--error-color);
+  color: white;
+}
+
+/* Estados */
+.icon-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Dark mode adjustments */
+.icon-button.is-dark {
+  --bg-tertiary: #0f0f1a;
+  --bg-hover: #1a1a24;
+}
+
+/* ==================== ICON WITH BADGE ==================== */
+.icon-with-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  color: white;
+  background: var(--error-color);
+  border-radius: 8px;
+  animation: badgePop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes badgePop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+/* ==================== THEMED ICON COLORS ==================== */
+/* Colores semánticos para iconos */
+.adaptive-icon.icon-success {
+  color: var(--success-color);
+}
+
+.adaptive-icon.icon-warning {
+  color: var(--warning-color);
+}
+
+.adaptive-icon.icon-error {
+  color: var(--error-color);
+}
+
+.adaptive-icon.icon-info {
+  color: var(--info-color);
+}
+
+.adaptive-icon.icon-accent {
+  color: var(--accent-primary);
+}
+
+.adaptive-icon.icon-muted {
+  color: var(--text-muted);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .icon-button--md {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .icon-button--lg {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .adaptive-icon,
+  .icon-button,
+  .adaptive-icon--animated {
+    animation: none;
+    transition-duration: 0.1s;
+  }
+}

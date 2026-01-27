@@ -1,0 +1,351 @@
+/**
+ * PageTransition.css - Estilos para transiciones de página
+ */
+
+/* ==================== BASE TRANSITION ==================== */
+.page-transition {
+  will-change: opacity, transform;
+}
+
+/* ==================== FADE TRANSITION ==================== */
+.page-transition--fade.page-transition--entering {
+  animation: fadeIn var(--transition-duration) ease-out forwards;
+  animation-delay: var(--transition-delay, 0ms);
+}
+
+.page-transition--fade.page-transition--exiting {
+  animation: fadeOut var(--transition-duration) ease-in forwards;
+}
+
+.page-transition--fade.page-transition--entered {
+  opacity: 1;
+}
+
+.page-transition--fade.page-transition--exited {
+  opacity: 0;
+}
+
+/* ==================== SLIDE UP TRANSITION ==================== */
+.page-transition--slide-up.page-transition--entering {
+  animation: slideInUp var(--transition-duration) ease-out forwards;
+  animation-delay: var(--transition-delay, 0ms);
+}
+
+.page-transition--slide-up.page-transition--exiting {
+  animation: slideOutUp var(--transition-duration) ease-in forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+/* ==================== SLIDE DOWN TRANSITION ==================== */
+.page-transition--slide-down.page-transition--entering {
+  animation: slideInDown var(--transition-duration) ease-out forwards;
+  animation-delay: var(--transition-delay, 0ms);
+}
+
+.page-transition--slide-down.page-transition--exiting {
+  animation: slideOutDown var(--transition-duration) ease-in forwards;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+/* ==================== SLIDE LEFT TRANSITION ==================== */
+.page-transition--slide-left.page-transition--entering {
+  animation: slideInLeft var(--transition-duration) ease-out forwards;
+  animation-delay: var(--transition-delay, 0ms);
+}
+
+.page-transition--slide-left.page-transition--exiting {
+  animation: slideOutLeft var(--transition-duration) ease-in forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+/* ==================== SLIDE RIGHT TRANSITION ==================== */
+.page-transition--slide-right.page-transition--entering {
+  animation: slideInRight var(--transition-duration) ease-out forwards;
+  animation-delay: var(--transition-delay, 0ms);
+}
+
+.page-transition--slide-right.page-transition--exiting {
+  animation: slideOutRight var(--transition-duration) ease-in forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+/* ==================== SCALE TRANSITION ==================== */
+.page-transition--scale.page-transition--entering {
+  animation: scaleIn var(--transition-duration) cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: var(--transition-delay, 0ms);
+}
+
+.page-transition--scale.page-transition--exiting {
+  animation: scaleOut var(--transition-duration) ease-in forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* ==================== ZOOM TRANSITION ==================== */
+.page-transition--zoom.page-transition--entering {
+  animation: zoomIn var(--transition-duration) ease-out forwards;
+  animation-delay: var(--transition-delay, 0ms);
+}
+
+.page-transition--zoom.page-transition--exiting {
+  animation: zoomOut var(--transition-duration) ease-in forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* ==================== FLIP TRANSITION ==================== */
+.page-transition--flip.page-transition--entering {
+  animation: flipIn var(--transition-duration) ease-out forwards;
+  animation-delay: var(--transition-delay, 0ms);
+}
+
+.page-transition--flip.page-transition--exiting {
+  animation: flipOut var(--transition-duration) ease-in forwards;
+}
+
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateY(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0);
+  }
+}
+
+@keyframes flipOut {
+  from {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: perspective(400px) rotateY(90deg);
+  }
+}
+
+/* ==================== MODULE TRANSITION ==================== */
+.module-transition {
+  width: 100%;
+  height: 100%;
+}
+
+.module-transition--fade.module-transition--entering {
+  animation: fadeIn var(--transition-duration) ease-out forwards;
+}
+
+.module-transition--fade.module-transition--exiting {
+  animation: fadeOut calc(var(--transition-duration) / 2) ease-in forwards;
+}
+
+.module-transition--slide-up.module-transition--entering {
+  animation: slideInUp var(--transition-duration) ease-out forwards;
+}
+
+.module-transition--slide-up.module-transition--exiting {
+  animation: slideOutUp calc(var(--transition-duration) / 2) ease-in forwards;
+}
+
+/* ==================== STAGGERED LIST ==================== */
+.staggered-list {
+  display: contents;
+}
+
+.staggered-item {
+  opacity: 0;
+}
+
+.staggered-item.animate-fadeInUp {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.staggered-item.animate-fadeInLeft {
+  animation: fadeInLeft 0.4s ease-out forwards;
+}
+
+.staggered-item.animate-fadeInRight {
+  animation: fadeInRight 0.4s ease-out forwards;
+}
+
+.staggered-item.animate-scaleIn {
+  animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition,
+  .module-transition,
+  .staggered-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,263 @@
+/**
+ * PullToRefresh.css - Estilos para el componente Pull-to-Refresh
+ */
+
+/* ===========================================
+   PULL TO REFRESH CONTAINER
+   =========================================== */
+.pull-to-refresh-container {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===========================================
+   INDICATOR
+   =========================================== */
+.ptr-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f8f9fa 0%, transparent 100%);
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Pulling state */
+.ptr-pulling,
+.ptr-release,
+.ptr-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #6c5ce7;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Arrow */
+.ptr-arrow {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.ptr-arrow--up {
+  color: #00b894;
+  animation: ptrBounce 0.5s ease infinite;
+}
+
+@keyframes ptrBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Spinner */
+.ptr-spinner {
+  width: 28px;
+  height: 28px;
+  animation: ptrSpin 1s linear infinite;
+}
+
+.ptr-spinner svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ptr-spinner circle {
+  stroke: #6c5ce7;
+  stroke-dasharray: 80;
+  stroke-dashoffset: 60;
+  stroke-linecap: round;
+}
+
+@keyframes ptrSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===========================================
+   CONTENT
+   =========================================== */
+.ptr-content {
+  position: relative;
+  min-height: 100%;
+  background: white;
+}
+
+/* ===========================================
+   REFRESHING STATE
+   =========================================== */
+.pull-to-refresh-container.is-refreshing .ptr-indicator {
+  height: 60px !important;
+  opacity: 1 !important;
+}
+
+.pull-to-refresh-container.is-refreshing .ptr-content {
+  transform: translateY(60px) !important;
+}
+
+/* ===========================================
+   SWIPE REFRESH
+   =========================================== */
+.swipe-refresh {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.swipe-refresh-indicator {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -20px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.swipe-refresh-spinner {
+  width: 24px;
+  height: 24px;
+}
+
+.swipe-refresh-spinner svg {
+  width: 100%;
+  height: 100%;
+}
+
+.swipe-refresh-spinner circle {
+  stroke: #6c5ce7;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 40;
+  stroke-linecap: round;
+  transform-origin: center;
+}
+
+.swipe-refresh-spinner.is-spinning {
+  animation: swipeSpinnerSpin 1s linear infinite;
+}
+
+.swipe-refresh-spinner.is-spinning circle {
+  animation: swipeSpinnerDash 1.5s ease-in-out infinite;
+}
+
+@keyframes swipeSpinnerSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes swipeSpinnerDash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.swipe-refresh-content {
+  min-height: 100%;
+  transition: transform 0.15s ease-out;
+}
+
+.swipe-refresh.is-refreshing .swipe-refresh-indicator {
+  transform: translateY(20px) scale(1) !important;
+  opacity: 1 !important;
+}
+
+.swipe-refresh.is-refreshing .swipe-refresh-content {
+  transform: translateY(60px);
+}
+
+/* ===========================================
+   REDUCED MOTION
+   =========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .ptr-spinner,
+  .swipe-refresh-spinner,
+  .swipe-refresh-spinner.is-spinning {
+    animation: none;
+  }
+
+  .swipe-refresh-spinner circle,
+  .swipe-refresh-spinner.is-spinning circle {
+    animation: none;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+  }
+
+  .ptr-arrow--up {
+    animation: none;
+  }
+
+  .ptr-content,
+  .swipe-refresh-content,
+  .swipe-refresh-indicator {
+    transition: none;
+  }
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (min-width: 768px) {
+  /* En desktop, ocultar el pull-to-refresh visual */
+  .ptr-indicator {
+    display: none;
+  }
+
+  .ptr-content {
+    transform: none !important;
+  }
+
+  .swipe-refresh-indicator {
+    display: none;
+  }
+
+  .swipe-refresh-content {
+    transform: none !important;
+  }
+}
+
+/* ===========================================
+   DARK MODE
+   =========================================== */
+@media (prefers-color-scheme: dark) {
+  .ptr-indicator {
+    background: linear-gradient(180deg, #1a202c 0%, transparent 100%);
+  }
+
+  .ptr-content {
+    background: #1a202c;
+  }
+
+  .swipe-refresh-indicator {
+    background: #2d3748;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}

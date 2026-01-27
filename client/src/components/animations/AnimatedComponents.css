@@ -1,0 +1,363 @@
+/**
+ * AnimatedComponents.css - Estilos para componentes animados
+ */
+
+/* ==================== ANIMATED CARD ==================== */
+.animated-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.animated-card.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Lift variant */
+.animated-card--lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.dark-theme .animated-card--lift:hover {
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(108, 92, 231, 0.2);
+}
+
+/* Glow variant */
+.animated-card--glow {
+  position: relative;
+}
+
+.animated-card--glow .card-glow-effect {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 14px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.animated-card--glow:hover .card-glow-effect {
+  opacity: 0.5;
+}
+
+.animated-card--glow:hover {
+  border-color: transparent;
+}
+
+/* Tilt variant */
+.animated-card--tilt {
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Scale variant */
+.animated-card--scale:hover {
+  transform: scale(1.03);
+}
+
+/* Border variant */
+.animated-card--border {
+  position: relative;
+}
+
+.animated-card--border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.animated-card--border:hover::before {
+  opacity: 1;
+}
+
+.animated-card--border:hover {
+  border-color: transparent;
+}
+
+/* ==================== ANIMATED BUTTON ==================== */
+.animated-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+/* Sizes */
+.animated-button--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  min-height: 36px;
+}
+
+.animated-button--medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+.animated-button--large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  min-height: 52px;
+}
+
+/* Variants */
+.animated-button--primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: 0 4px 14px rgba(108, 92, 231, 0.4);
+}
+
+.animated-button--primary:hover:not(.is-disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.5);
+}
+
+.animated-button--secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.animated-button--secondary:hover:not(.is-disabled) {
+  background: var(--bg-hover);
+  border-color: var(--accent-primary);
+}
+
+.animated-button--ghost {
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.animated-button--ghost:hover:not(.is-disabled) {
+  background: var(--bg-tertiary);
+}
+
+.animated-button--danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  box-shadow: 0 4px 14px rgba(231, 76, 60, 0.4);
+}
+
+.animated-button--danger:hover:not(.is-disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+}
+
+.animated-button--success {
+  background: linear-gradient(135deg, #00b894, #00a085);
+  color: white;
+  box-shadow: 0 4px 14px rgba(0, 184, 148, 0.4);
+}
+
+.animated-button--success:hover:not(.is-disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 184, 148, 0.5);
+}
+
+/* States */
+.animated-button.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.animated-button.is-loading {
+  pointer-events: none;
+}
+
+/* Content */
+.button-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.button-content.is-hidden {
+  opacity: 0;
+}
+
+.button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-icon--left {
+  margin-right: 0.25rem;
+}
+
+.button-icon--right {
+  margin-left: 0.25rem;
+}
+
+/* Spinner */
+.button-spinner {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Ripple Effect */
+.ripple-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Effect: Pulse */
+.animated-button--effect-pulse:hover:not(.is-disabled) {
+  animation: buttonPulse 0.5s ease;
+}
+
+@keyframes buttonPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Effect: Scale */
+.animated-button--effect-scale:active:not(.is-disabled) {
+  transform: scale(0.95);
+}
+
+/* Effect: Glow */
+.animated-button--effect-glow:hover:not(.is-disabled) {
+  box-shadow: 0 0 20px var(--accent-primary), 0 0 40px rgba(108, 92, 231, 0.3);
+}
+
+/* ==================== RIPPLE WRAPPER ==================== */
+.ripple-wrapper {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--ripple-color, rgba(255, 255, 255, 0.3));
+  transform: scale(0);
+  animation: rippleEffect var(--ripple-duration, 600ms) ease-out;
+  pointer-events: none;
+}
+
+/* ==================== HOVER CARD ==================== */
+.hover-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ==================== MAGNETIC BUTTON ==================== */
+.magnetic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+}
+
+.magnetic-button:hover {
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+}
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .animated-card,
+  .animated-button,
+  .ripple,
+  .ripple-circle,
+  .hover-card,
+  .magnetic-button,
+  .spinner-circle {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

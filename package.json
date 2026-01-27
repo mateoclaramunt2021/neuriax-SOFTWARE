@@ -1,0 +1,90 @@
+{
+  "name": "sistema-cobros-neuriax",
+  "version": "1.0.0",
+  "description": "Sistema Profesional de Gestión Integral para Peluquerías - NEURIAX | Incluye POS, CRM, Inventario, Citas, Reportes y más",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "server": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "init-db": "node server/database/init.js",
+    "install-all": "npm install && cd client && npm install",
+    "test": "node server/tests/api.test.js",
+    "test:api": "node server/tests/api.test.js",
+    "migrate": "node server/scripts/migrate.js",
+    "migrate:check": "node server/scripts/migrate.js --check",
+    "migrate:full": "node server/scripts/migrate.js --full"
+  },
+  "keywords": [
+    "pos",
+    "punto-de-venta",
+    "salon",
+    "peluqueria",
+    "cobros",
+    "gestion",
+    "crm",
+    "inventario",
+    "citas",
+    "reportes",
+    "facturacion",
+    "begona-gomez",
+    "sistema-profesional",
+    "react",
+    "nodejs",
+    "express"
+  ],
+  "author": {
+    "name": "NEURIAX Platform",
+    "email": "neuriax@peluqueria.com",
+    "url": "https://neuriax-peluqueria.com"
+  },
+  "license": "PROPRIETARY",
+  "private": true,
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "privado"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bull": "^4.16.5",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^7.0.12",
+    "pg": "^8.17.2",
+    "qrcode": "^1.5.4",
+    "speakeasy": "^2.0.0",
+    "stripe": "^20.2.0",
+    "twilio": "^5.12.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "nodemon": "^3.0.2"
+  },
+  "config": {
+    "port": 3001,
+    "clientPort": 3000
+  },
+  "metadata": {
+    "proyecto": "Sistema de Gestión Integral v1.0",
+    "cliente": "NEURIAX Salon Manager",
+    "valor": "5000€",
+    "fases": "12/12 completadas",
+    "estado": "Producción",
+    "calidad": "Premium",
+    "ultimaActualizacion": "Diciembre 2024"
+  }
+}

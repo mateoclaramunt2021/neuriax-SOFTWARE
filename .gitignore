@@ -1,0 +1,41 @@
+# Dependencias
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Base de datos
+server/database/*.db
+server/database/*.db-shm
+server/database/*.db-wal
+
+# Ambiente
+.env
+.env.local
+.env.production
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+server/logs/*.log
+
+# Build
+client/build/
+dist/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Archivos temporales
+*.tmp
+*.bak

@@ -1,0 +1,193 @@
+/* Validated Input Styles */
+.validated-input-wrapper {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary, #333);
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+
+.input-label .input-icon {
+  font-size: 1.2rem;
+}
+
+.input-label .required {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-left: 0.2rem;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.validated-input {
+  width: 100%;
+  padding: 0.75rem;
+  padding-right: 2.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--bg-input, #fff);
+  color: var(--text-primary, #333);
+  transition: all 0.3s ease;
+}
+
+.validated-input:hover {
+  border-color: #bbb;
+}
+
+.validated-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background-color: var(--bg-input-focus, #f9fafb);
+}
+
+.validated-input:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Error State */
+.validated-input-wrapper.error .validated-input {
+  border-color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.05);
+}
+
+.validated-input-wrapper.error .validated-input:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+  border-color: #c0392b;
+}
+
+.input-error-icon {
+  position: absolute;
+  right: 0.75rem;
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.input-error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.input-error-message::before {
+  content: '⚠';
+  font-size: 1rem;
+}
+
+/* Success State */
+.validated-input-wrapper.success .validated-input {
+  border-color: #27ae60;
+  background-color: rgba(39, 174, 96, 0.02);
+}
+
+.validated-input-wrapper.success .validated-input:focus {
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+  border-color: #229954;
+}
+
+.input-success-icon {
+  position: absolute;
+  right: 0.75rem;
+  color: #27ae60;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.input-success-message {
+  color: #27ae60;
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.input-success-message::before {
+  content: '✓';
+  font-weight: bold;
+}
+
+/* Hint */
+.input-hint {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  font-style: italic;
+}
+
+/* Counter */
+.input-counter {
+  color: #999;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  text-align: right;
+}
+
+/* Focus State */
+.validated-input-wrapper.focused .input-label {
+  color: #3b82f6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .validated-input {
+    padding: 0.6rem;
+    padding-right: 2rem;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .input-error-icon,
+  .input-success-icon {
+    right: 0.5rem;
+  }
+
+  .input-label {
+    font-size: 0.85rem;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .validated-input {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-color: #444;
+  }
+
+  .validated-input:focus {
+    background-color: #3a3a3a;
+    border-color: #5b9cf5;
+  }
+
+  .input-label {
+    color: #e0e0e0;
+  }
+
+  .input-hint {
+    color: #a0a0a0;
+  }
+
+  .input-counter {
+    color: #777;
+  }
+}

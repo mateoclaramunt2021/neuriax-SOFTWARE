@@ -1,0 +1,254 @@
+/**
+ * TermsPage - Términos y Condiciones
+ * NEURIAX Platform
+ * Proyecto en Desarrollo
+ */
+
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './legal.css';
+
+const TermsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="legal-page">
+      {/* Header */}
+      <header className="legal-header">
+        <div className="legal-header-content">
+          <Link to="/" className="legal-logo">
+            <span className="logo-icon">💇</span>
+            <span className="logo-text">NEURIAX</span>
+          </Link>
+          <nav className="legal-nav">
+            <Link to="/privacy">Privacidad</Link>
+            <Link to="/cookies">Cookies</Link>
+            <Link to="/login">Iniciar Sesión</Link>
+          </nav>
+        </div>
+      </header>
+
+      {/* Content */}
+      <main className="legal-content">
+        <div className="legal-container">
+          {/* Development Notice */}
+          <div className="legal-notice-box" style={{
+            background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1))',
+            border: '2px solid rgba(139, 92, 246, 0.3)',
+            borderRadius: '16px',
+            padding: '24px',
+            marginBottom: '32px',
+            textAlign: 'center'
+          }}>
+            <span style={{ fontSize: '48px', display: 'block', marginBottom: '16px' }}>🚧</span>
+            <h2 style={{ color: '#8b5cf6', marginBottom: '12px' }}>Proyecto en Desarrollo</h2>
+            <p style={{ color: '#a0a0b2', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6' }}>
+              NEURIAX es un proyecto de software en fase de desarrollo. 
+              Actualmente no está registrado como empresa ni opera comercialmente.
+              Estos términos son un borrador orientativo.
+            </p>
+          </div>
+
+          {/* Title */}
+          <div className="legal-title-section">
+            <h1>Términos y Condiciones</h1>
+            <p className="legal-subtitle">NEURIAX Platform - Versión Borrador</p>
+            <div className="legal-update-date">
+              <span className="date-icon">📅</span>
+              <span>Última actualización: Enero 2026</span>
+            </div>
+          </div>
+
+          {/* Intro */}
+          <section className="legal-section">
+            <h2>AVISO IMPORTANTE</h2>
+            <p>
+              Este documento es un <strong>borrador</strong> de los términos y condiciones que se implementarán 
+              cuando NEURIAX esté operativo como servicio comercial.
+            </p>
+            <p>
+              <strong>Estado actual del proyecto:</strong>
+            </p>
+            <ul>
+              <li>✅ En fase de desarrollo y pruebas</li>
+              <li>⏳ Pendiente de registro mercantil</li>
+              <li>⏳ Pendiente de estructura legal definitiva</li>
+              <li>⏳ Los precios y planes son provisionales</li>
+            </ul>
+          </section>
+
+          {/* Section 1 */}
+          <section id="descripcion" className="legal-section">
+            <h2>1. DESCRIPCIÓN DEL PROYECTO</h2>
+            <p>
+              NEURIAX es un software de gestión integral diseñado para peluquerías y salones de belleza.
+              El proyecto incluye:
+            </p>
+            <ul>
+              <li>Sistema de gestión de citas y reservas</li>
+              <li>Punto de venta (POS)</li>
+              <li>Gestión de clientes (CRM)</li>
+              <li>Control de inventario</li>
+              <li>Gestión de empleados</li>
+              <li>Facturación electrónica</li>
+              <li>Reportes y análisis</li>
+              <li>Sistema de reservas online para clientes</li>
+            </ul>
+          </section>
+
+          {/* Section 2 */}
+          <section id="estado" className="legal-section">
+            <h2>2. ESTADO DEL PROYECTO</h2>
+            
+            <div className="legal-info-box">
+              <table className="legal-table">
+                <tbody>
+                  <tr>
+                    <td><strong>Nombre del proyecto</strong></td>
+                    <td>NEURIAX</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Estado legal</strong></td>
+                    <td>No registrado como empresa</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fase</strong></td>
+                    <td>Desarrollo y pruebas</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Operativo comercialmente</strong></td>
+                    <td>No</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="legal-highlight-box" style={{
+              background: 'rgba(245, 158, 11, 0.1)',
+              border: '1px solid rgba(245, 158, 11, 0.3)',
+              borderRadius: '12px',
+              padding: '16px',
+              marginTop: '16px'
+            }}>
+              <p style={{ margin: 0, color: '#f59e0b' }}>
+                <strong>⚠️ Importante:</strong> Al tratarse de un proyecto en desarrollo, 
+                no se realizan cobros ni se ofrecen garantías comerciales en este momento.
+              </p>
+            </div>
+          </section>
+
+          {/* Section 3 */}
+          <section id="uso" className="legal-section">
+            <h2>3. USO DEL SOFTWARE (VERSIÓN BETA)</h2>
+            <p>Durante la fase de desarrollo:</p>
+            <ul>
+              <li>El acceso es gratuito para pruebas</li>
+              <li>No hay garantía de disponibilidad continua</li>
+              <li>Los datos pueden ser eliminados sin previo aviso</li>
+              <li>Las funcionalidades pueden cambiar</li>
+              <li>Se recomienda no usar con datos reales de producción</li>
+            </ul>
+          </section>
+
+          {/* Section 4 */}
+          <section id="planes-futuros" className="legal-section">
+            <h2>4. PLANES FUTUROS (ORIENTATIVOS)</h2>
+            <p>Cuando NEURIAX esté operativo, se ofrecerán diferentes planes:</p>
+            
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '16px',
+              marginTop: '20px'
+            }}>
+              {[
+                { name: 'Trial', price: '7 días gratis', desc: 'Prueba todas las funciones' },
+                { name: 'Básico', price: 'Por definir', desc: 'Para pequeños salones' },
+                { name: 'Profesional', price: 'Por definir', desc: 'Para salones medianos' },
+                { name: 'Enterprise', price: 'Por definir', desc: 'Para cadenas' }
+              ].map((plan, i) => (
+                <div key={i} style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  textAlign: 'center',
+                  border: '1px solid rgba(255,255,255,0.1)'
+                }}>
+                  <h4 style={{ color: '#8b5cf6', marginBottom: '8px' }}>{plan.name}</h4>
+                  <p style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>{plan.price}</p>
+                  <p style={{ fontSize: '13px', color: '#a0a0b2', margin: 0 }}>{plan.desc}</p>
+                </div>
+              ))}
+            </div>
+            
+            <p style={{ color: '#a0a0b2', fontSize: '14px', marginTop: '16px', textAlign: 'center' }}>
+              * Los precios definitivos se publicarán cuando el proyecto esté operativo
+            </p>
+          </section>
+
+          {/* Section 5 */}
+          <section id="propiedad" className="legal-section">
+            <h2>5. PROPIEDAD INTELECTUAL</h2>
+            <p>
+              Todo el código, diseño, marca y contenido de NEURIAX es propiedad de sus desarrolladores.
+              Queda prohibida la copia, distribución o modificación sin autorización expresa.
+            </p>
+          </section>
+
+          {/* Section 6 */}
+          <section id="limitaciones" className="legal-section">
+            <h2>6. LIMITACIÓN DE RESPONSABILIDAD</h2>
+            <p>Durante la fase de desarrollo:</p>
+            <ul>
+              <li>El software se proporciona "tal cual"</li>
+              <li>No hay garantías de funcionamiento</li>
+              <li>No nos hacemos responsables de pérdida de datos</li>
+              <li>El uso es bajo responsabilidad del usuario</li>
+            </ul>
+          </section>
+
+          {/* Section 7 */}
+          <section id="contacto" className="legal-section">
+            <h2>7. CONTACTO</h2>
+            <div className="legal-info-box">
+              <p><strong>Email:</strong> contacto@neuriax.com (provisional)</p>
+              <p style={{ color: '#a0a0b2', fontSize: '14px', marginTop: '12px' }}>
+                * Los datos de contacto definitivos se publicarán cuando NEURIAX esté registrado legalmente.
+              </p>
+            </div>
+          </section>
+
+          {/* Footer Note */}
+          <div style={{
+            background: 'rgba(139, 92, 246, 0.1)',
+            borderRadius: '12px',
+            padding: '20px',
+            marginTop: '40px',
+            textAlign: 'center'
+          }}>
+            <p style={{ margin: 0, color: '#a0a0b2' }}>
+              Estos términos se actualizarán completamente cuando NEURIAX esté operativo 
+              como empresa registrada. Gracias por tu interés en el proyecto.
+            </p>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="legal-footer">
+        <div className="legal-footer-content">
+          <p>© 2026 NEURIAX - Proyecto en Desarrollo</p>
+          <div className="legal-footer-links">
+            <Link to="/terms">Términos</Link>
+            <Link to="/privacy">Privacidad</Link>
+            <Link to="/cookies">Cookies</Link>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default TermsPage;

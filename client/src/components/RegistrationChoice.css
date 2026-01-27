@@ -1,0 +1,350 @@
+.registration-choice-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.registration-choice-content {
+  width: 100%;
+  max-width: 900px;
+}
+
+.registration-choice-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.registration-choice-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.registration-choice-header p {
+  font-size: 1.1rem;
+  color: #b0b0c8;
+}
+
+.registration-choice-cards {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.choice-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 16px;
+  padding: 40px 30px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.choice-card:hover {
+  border-color: rgba(99, 102, 241, 0.8);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+}
+
+.choice-card.hovered::before {
+  opacity: 1;
+}
+
+.choice-card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.client-icon {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.1));
+  color: #6366f1;
+  border: 2px solid rgba(99, 102, 241, 0.3);
+}
+
+.business-icon {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.1));
+  color: #8b5cf6;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+}
+
+.choice-card:hover .client-icon {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(139, 92, 246, 0.2));
+  border-color: rgba(99, 102, 241, 0.6);
+  transform: scale(1.1);
+}
+
+.choice-card:hover .business-icon {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(236, 72, 153, 0.2));
+  border-color: rgba(139, 92, 246, 0.6);
+  transform: scale(1.1);
+}
+
+.choice-card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.choice-subtitle {
+  font-size: 0.95rem;
+  color: #9090a8;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.choice-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.benefit {
+  font-size: 0.9rem;
+  color: #c0c0d8;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.benefit:last-child {
+  border-bottom: none;
+}
+
+.choice-btn {
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.client-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.client-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.business-btn {
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.business-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+}
+
+.choice-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.2rem;
+  color: #6366f1;
+  font-weight: 700;
+  user-select: none;
+}
+
+.registration-choice-footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.registration-choice-footer p {
+  color: #b0b0c8;
+  font-size: 0.95rem;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #6366f1;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: inherit;
+  padding: 0 4px;
+}
+
+.link-btn:hover {
+  color: #8b5cf6;
+  text-decoration: underline;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .registration-choice-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .choice-divider {
+    display: none;
+  }
+
+  .registration-choice-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .choice-card {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .registration-choice-container {
+    padding: 15px;
+  }
+
+  .registration-choice-header {
+    margin-bottom: 30px;
+  }
+
+  .registration-choice-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .registration-choice-header p {
+    font-size: 0.95rem;
+  }
+
+  .choice-card {
+    padding: 25px 20px;
+  }
+
+  .choice-card-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .choice-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .choice-benefits {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .benefit {
+    font-size: 0.85rem;
+  }
+
+  .choice-btn {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .registration-choice-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .choice-card {
+    padding: 20px 15px;
+  }
+
+  .choice-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .choice-card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .choice-benefits {
+    gap: 6px;
+  }
+
+  .benefit {
+    font-size: 0.8rem;
+    padding: 6px 0;
+  }
+}

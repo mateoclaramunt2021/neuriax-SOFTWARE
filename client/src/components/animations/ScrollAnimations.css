@@ -1,0 +1,490 @@
+/**
+ * ScrollAnimations.css - Estilos para animaciones de scroll
+ * Reveal, Parallax, Progress, Stagger
+ */
+
+/* ===========================================
+   SCROLL REVEAL - BASE
+   =========================================== */
+.scroll-reveal {
+  opacity: 0;
+  transition: opacity var(--reveal-duration, 600ms) ease,
+              transform var(--reveal-duration, 600ms) ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate(0) scale(1) rotate(0);
+}
+
+/* Fade Up */
+.scroll-reveal--fadeUp {
+  transform: translateY(30px);
+}
+
+/* Fade Down */
+.scroll-reveal--fadeDown {
+  transform: translateY(-30px);
+}
+
+/* Fade Left */
+.scroll-reveal--fadeLeft {
+  transform: translateX(30px);
+}
+
+/* Fade Right */
+.scroll-reveal--fadeRight {
+  transform: translateX(-30px);
+}
+
+/* Zoom In */
+.scroll-reveal--zoomIn {
+  transform: scale(0.9);
+}
+
+/* Zoom Out */
+.scroll-reveal--zoomOut {
+  transform: scale(1.1);
+}
+
+/* Flip */
+.scroll-reveal--flip {
+  transform: perspective(600px) rotateX(-30deg);
+  transform-origin: center bottom;
+}
+
+/* Slide Scale */
+.scroll-reveal--slideScale {
+  transform: translateY(50px) scale(0.95);
+}
+
+/* Rotate In */
+.scroll-reveal--rotateIn {
+  transform: rotate(-10deg) scale(0.9);
+}
+
+/* ===========================================
+   STAGGER REVEAL
+   =========================================== */
+.stagger-reveal .stagger-item {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: calc(var(--stagger-index) * var(--stagger-delay, 100ms));
+}
+
+.stagger-reveal.is-visible .stagger-item {
+  opacity: 1;
+}
+
+/* Stagger Fade Up */
+.stagger-reveal .stagger-item--fadeUp {
+  transform: translateY(20px);
+}
+
+.stagger-reveal.is-visible .stagger-item--fadeUp {
+  transform: translateY(0);
+}
+
+/* Stagger Fade Left */
+.stagger-reveal .stagger-item--fadeLeft {
+  transform: translateX(20px);
+}
+
+.stagger-reveal.is-visible .stagger-item--fadeLeft {
+  transform: translateX(0);
+}
+
+/* Stagger Fade Right */
+.stagger-reveal .stagger-item--fadeRight {
+  transform: translateX(-20px);
+}
+
+.stagger-reveal.is-visible .stagger-item--fadeRight {
+  transform: translateX(0);
+}
+
+/* Stagger Scale */
+.stagger-reveal .stagger-item--scale {
+  transform: scale(0.8);
+}
+
+.stagger-reveal.is-visible .stagger-item--scale {
+  transform: scale(1);
+}
+
+/* ===========================================
+   PARALLAX ELEMENT
+   =========================================== */
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ===========================================
+   SCROLL PROGRESS BAR
+   =========================================== */
+.scroll-progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: var(--progress-height, 4px);
+  background: var(--progress-bg, transparent);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.scroll-progress--top {
+  top: 0;
+}
+
+.scroll-progress--bottom {
+  bottom: 0;
+}
+
+.scroll-progress::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--progress-width, 0%);
+  background: var(--progress-color, #6c5ce7);
+  transition: width 0.1s linear;
+}
+
+/* Gradient variant */
+.scroll-progress--gradient::after {
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe, #fd79a8);
+}
+
+/* ===========================================
+   REVEAL ON SCROLL
+   =========================================== */
+.reveal-on-scroll {
+  will-change: opacity, transform;
+}
+
+/* ===========================================
+   COUNT ON SCROLL
+   =========================================== */
+.count-on-scroll {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+}
+
+/* ===========================================
+   SCROLL FADE SECTION
+   =========================================== */
+.scroll-fade-section {
+  will-change: opacity;
+  transition: opacity 0.1s linear;
+}
+
+/* ===========================================
+   STICKY REVEAL
+   =========================================== */
+.sticky-reveal-container {
+  position: relative;
+}
+
+.sticky-reveal-content {
+  position: sticky;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===========================================
+   SCROLL TRIGGERED ANIMATIONS
+   =========================================== */
+
+/* Bounce In */
+@keyframes scrollBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll-reveal--bounceIn.is-visible {
+  animation: scrollBounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Elastic In */
+@keyframes scrollElasticIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll-reveal--elasticIn.is-visible {
+  animation: scrollElasticIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Slide Rotate */
+@keyframes scrollSlideRotate {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+.scroll-reveal--slideRotate.is-visible {
+  animation: scrollSlideRotate 0.7s ease-out forwards;
+}
+
+/* Pop */
+@keyframes scrollPop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll-reveal--pop.is-visible {
+  animation: scrollPop 0.5s ease-out forwards;
+}
+
+/* ===========================================
+   SCROLL UTILITIES
+   =========================================== */
+
+/* Hide header on scroll down */
+.scroll-header {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.scroll-header--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Show element only when scrolled */
+.show-on-scroll {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.show-on-scroll.is-scrolled {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===========================================
+   SCROLL SNAP SECTIONS
+   =========================================== */
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.scroll-snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===========================================
+   SMOOTH SCROLL TO ANCHOR
+   =========================================== */
+html.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.smooth-scroll {
+    scroll-behavior: auto;
+  }
+}
+
+/* ===========================================
+   SCROLL INDICATOR
+   =========================================== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: scrollIndicatorBounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator-mouse {
+  width: 24px;
+  height: 40px;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-indicator-mouse::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: scrollIndicatorWheel 2s ease-in-out infinite;
+}
+
+.scroll-indicator-arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.scroll-indicator-arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: scrollIndicatorArrow 2s ease-in-out infinite;
+}
+
+.scroll-indicator-arrow:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.scroll-indicator-arrow:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes scrollIndicatorBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes scrollIndicatorWheel {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes scrollIndicatorArrow {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translateY(-5px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translateY(5px);
+  }
+}
+
+/* ===========================================
+   REDUCED MOTION
+   =========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .stagger-reveal .stagger-item,
+  .parallax-element,
+  .reveal-on-scroll,
+  .scroll-fade-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .scroll-progress::after {
+    transition: none;
+  }
+
+  .scroll-indicator {
+    animation: none;
+  }
+
+  .scroll-indicator-mouse::after,
+  .scroll-indicator-arrow {
+    animation: none;
+  }
+}
+
+/* ===========================================
+   RESPONSIVE ADJUSTMENTS
+   =========================================== */
+@media (max-width: 768px) {
+  .scroll-reveal--fadeUp,
+  .scroll-reveal--fadeDown {
+    transform: translateY(20px);
+  }
+
+  .scroll-reveal--fadeLeft,
+  .scroll-reveal--fadeRight {
+    transform: translateX(20px);
+  }
+
+  .stagger-reveal .stagger-item {
+    --stagger-delay: 80ms;
+  }
+}
+
+/* ===========================================
+   PERFORMANCE HINTS
+   =========================================== */
+.scroll-reveal,
+.stagger-reveal .stagger-item,
+.parallax-element,
+.reveal-on-scroll {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}

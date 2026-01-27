@@ -1,0 +1,81 @@
+/* ============================================
+   NEURIAX - Trial Banner
+   ============================================ */
+
+.trial-banner {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.trial-banner.warning {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(251, 191, 36, 0.1));
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.trial-banner.urgent {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(248, 113, 113, 0.1));
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.trial-banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.trial-icon {
+  font-size: 16px;
+}
+
+.trial-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.trial-text strong {
+  color: #fff;
+}
+
+.upgrade-btn {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upgrade-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.trial-banner.warning .upgrade-btn {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.trial-banner.urgent .upgrade-btn {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .trial-banner-content {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .trial-text {
+    font-size: 13px;
+  }
+}

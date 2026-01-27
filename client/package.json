@@ -1,0 +1,87 @@
+{
+  "name": "neuriax-client",
+  "version": "1.0.0",
+  "description": "Frontend React - NEURIAX Platform Peluquería",
+  "private": true,
+  "author": {
+    "name": "NEURIAX Platform",
+    "email": "neuriax@peluqueria.com"
+  },
+  "license": "PROPRIETARY",
+  "dependencies": {
+    "@sentry/react": "^10.36.0",
+    "@sentry/tracing": "^7.120.4",
+    "axios": "^1.6.2",
+    "bcryptjs": "^3.0.3",
+    "chart.js": "^4.5.1",
+    "jsonwebtoken": "^9.0.3",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "5.0.1",
+    "shepherd.js": "^14.5.1",
+    "web-vitals": "^5.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci --coverage --maxWorkers=2",
+    "eject": "react-scripts eject",
+    "clean": "rm -rf build node_modules",
+    "rebuild": "npm run clean && npm install && npm run build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "Chrome >= 90",
+      "Firefox >= 88",
+      "Safari >= 14",
+      "Edge >= 90"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:3001",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "keywords": [
+    "react",
+    "frontend",
+    "pos",
+    "crm",
+    "gestion-peluqueria",
+    "begona-gomez"
+  ],
+  "metadata": {
+    "proyecto": "Frontend React v1.0",
+    "componentes": "11 módulos completos",
+    "estado": "Producción",
+    "fase": "FASE 12 COMPLETADA",
+    "calidad": "Ultra Profesional"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.6",
+    "@babel/preset-react": "^7.28.5",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "babel-jest": "^30.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1"
+  }
+}

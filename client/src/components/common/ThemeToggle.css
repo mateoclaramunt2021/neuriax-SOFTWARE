@@ -1,0 +1,426 @@
+/**
+ * ThemeToggle.css - Estilos para Toggle Animado Día/Noche
+ * Animaciones profesionales y diseño premium
+ */
+
+/* ==================== THEME TOGGLE WRAPPER ==================== */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ==================== MAIN TOGGLE BUTTON ==================== */
+.theme-toggle {
+  position: relative;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  background: linear-gradient(135deg, #87CEEB 0%, #FFE4B5 100%);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.theme-toggle--dark {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+  box-shadow: 
+    0 4px 15px rgba(108, 92, 231, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.05);
+}
+
+/* Tamaños */
+.theme-toggle--small {
+  width: 48px;
+  height: 24px;
+}
+
+.theme-toggle--medium {
+  width: 64px;
+  height: 32px;
+}
+
+.theme-toggle--large {
+  width: 80px;
+  height: 40px;
+}
+
+/* ==================== SOL ==================== */
+.theme-toggle__sun {
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 1;
+}
+
+.theme-toggle--dark .theme-toggle__sun {
+  transform: translateY(-50%) translateX(-30px) scale(0.5);
+  opacity: 0;
+}
+
+.sun-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-core {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #FFD700, 0 0 20px rgba(255, 215, 0, 0.5);
+  animation: sunPulse 3s ease-in-out infinite;
+}
+
+.theme-toggle--medium .sun-core {
+  width: 22px;
+  height: 22px;
+}
+
+.theme-toggle--large .sun-core {
+  width: 28px;
+  height: 28px;
+}
+
+.sun-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sun-ray {
+  position: absolute;
+  width: 3px;
+  height: 6px;
+  background: #FFD700;
+  border-radius: 2px;
+  transform-origin: center 16px;
+  transform: rotate(calc(var(--i) * 45deg));
+  animation: rayRotate 8s linear infinite;
+}
+
+@keyframes sunPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 10px #FFD700, 0 0 20px rgba(255, 215, 0, 0.5); }
+  50% { transform: scale(1.05); box-shadow: 0 0 15px #FFD700, 0 0 30px rgba(255, 215, 0, 0.6); }
+}
+
+@keyframes rayRotate {
+  from { transform: rotate(calc(var(--i) * 45deg)); }
+  to { transform: rotate(calc(var(--i) * 45deg + 360deg)); }
+}
+
+/* ==================== LUNA ==================== */
+.theme-toggle__moon {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%) translateX(30px) scale(0.5);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.theme-toggle--dark .theme-toggle__moon {
+  transform: translateY(-50%) translateX(0) scale(1);
+  opacity: 1;
+}
+
+.moon-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moon-surface {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #f0f0f0 0%, #d4d4d4 100%);
+  border-radius: 50%;
+  box-shadow: 
+    inset -3px -3px 6px rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle--medium .moon-surface {
+  width: 22px;
+  height: 22px;
+}
+
+.theme-toggle--large .moon-surface {
+  width: 28px;
+  height: 28px;
+}
+
+/* Cráteres */
+.moon-craters {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.crater {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.crater--1 {
+  width: 4px;
+  height: 4px;
+  top: 3px;
+  left: 4px;
+}
+
+.crater--2 {
+  width: 3px;
+  height: 3px;
+  top: 10px;
+  left: 8px;
+}
+
+.crater--3 {
+  width: 2px;
+  height: 2px;
+  top: 6px;
+  left: 12px;
+}
+
+/* Estrellas */
+.stars {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: starTwinkle 1.5s ease-in-out infinite;
+}
+
+.star--1 {
+  top: 2px;
+  left: -10px;
+  animation-delay: 0s;
+}
+
+.star--2 {
+  top: -5px;
+  left: 5px;
+  animation-delay: 0.5s;
+}
+
+.star--3 {
+  top: 5px;
+  left: 25px;
+  animation-delay: 1s;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* ==================== LABEL ==================== */
+.theme-toggle__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* ==================== COMPACT VERSION ==================== */
+.theme-toggle-compact {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-compact:hover {
+  background: var(--accent-primary);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
+.theme-toggle-compact:active {
+  transform: scale(0.95);
+}
+
+.toggle-icon-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.toggle-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.sun-icon-svg {
+  color: #FFD700;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon-icon-svg {
+  color: #a0a0c0;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.theme-toggle-compact.is-dark .sun-icon-svg {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.theme-toggle-compact.is-dark .moon-icon-svg {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle-compact:hover .toggle-icon {
+  color: white;
+}
+
+/* ==================== SWITCH VERSION ==================== */
+.theme-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.theme-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-switch__slider {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: linear-gradient(135deg, #87CEEB 0%, #FFE4B5 100%);
+  border-radius: 30px;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-switch input:checked + .theme-switch__slider {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+}
+
+.theme-switch__slider::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  left: 3px;
+}
+
+.theme-switch input:checked + .theme-switch__slider::before {
+  transform: translateX(30px);
+  background: linear-gradient(135deg, #f0f0f0 0%, #d4d4d4 100%);
+}
+
+.theme-switch__icon {
+  position: absolute;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+}
+
+.theme-switch__icon--sun {
+  left: 8px;
+  opacity: 1;
+}
+
+.theme-switch__icon--moon {
+  right: 8px;
+  opacity: 0.5;
+}
+
+.theme-switch input:checked + .theme-switch__slider .theme-switch__icon--sun {
+  opacity: 0.5;
+}
+
+.theme-switch input:checked + .theme-switch__slider .theme-switch__icon--moon {
+  opacity: 1;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .theme-toggle--medium {
+    width: 56px;
+    height: 28px;
+  }
+  
+  .theme-toggle-compact {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ==================== FOCUS STATES ==================== */
+.theme-toggle:focus-visible,
+.theme-toggle-compact:focus-visible,
+.theme-switch input:focus-visible + .theme-switch__slider {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle__sun,
+  .theme-toggle__moon,
+  .theme-toggle-compact,
+  .toggle-icon,
+  .theme-switch__slider,
+  .theme-switch__slider::before,
+  .sun-core,
+  .sun-ray,
+  .star {
+    animation: none;
+    transition-duration: 0.1s;
+  }
+}
