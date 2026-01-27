@@ -8,6 +8,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/landing-beautystyle.css';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 export default function LandingPage() {
   const navigate = useNavigate();
   const [planes, setPlanes] = useState([]);
@@ -15,7 +17,7 @@ export default function LandingPage() {
 
   const cargarPlanes = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/plans');
+      const response = await fetch(`${API_URL}/api/plans`);
       const data = await response.json();
       if (data.data && data.data.length > 0) {
         const planesActivos = data.data.filter(p => p.id !== 'trial');

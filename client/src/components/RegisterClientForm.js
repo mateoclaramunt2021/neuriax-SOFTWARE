@@ -65,7 +65,8 @@ const RegisterClientForm = () => {
     setLoading(true);
     try {
       // Usar el nuevo endpoint de registro para clientes
-      const response = await fetch('http://localhost:3001/api/auth/register-client-new', {
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/auth/register-client-new`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

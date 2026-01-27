@@ -81,7 +81,8 @@ const RegisterBusinessForm = () => {
     setLoading(true);
     try {
       // Usar el nuevo endpoint para registro de profesionales
-      const response = await fetch('http://localhost:3001/api/auth/register-professional', {
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/auth/register-professional`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

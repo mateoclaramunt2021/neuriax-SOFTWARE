@@ -57,15 +57,23 @@ const stripeRouter = require('./routes/stripe'); // SEMANA 1 - Pagos con Stripe
 const cambioCitasRouter = require('./routes/cambio-citas'); // SEMANA 1 - Cambio de citas online
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const DB_PATH = path.join(__dirname, 'database', 'database.json');
 const JWT_SECRET = process.env.JWT_SECRET || 'NEURIAX_SaaS_Platform_2026_SecretKey';
 const JWT_EXPIRY = '8h';
 
+// CORS configuration for production
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Tenant-ID']
+};
+
 // Middleware
 app.use(compression()); // Compression middleware - GZIP enabled
 app.use(helmet()); // Helmet security middleware - HTTP headers protection
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 

@@ -11,6 +11,9 @@ import './styles/responsive.css';
 import './styles/dashboardpro-final.css';
 import './App.css';
 
+// API URL configuración
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 // Lazy load componentes grandes
 const LandingPage = lazy(() => import('./components/LandingPage'));
 const LoginCliente = lazy(() => import('./components/LoginCliente'));
@@ -63,7 +66,7 @@ function AppContent() {
 
       setCheckingTrial(true);
       try {
-        const response = await fetch('http://localhost:3001/api/trial/status', {
+        const response = await fetch(`${API_URL}/api/trial/status`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
