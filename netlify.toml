@@ -11,3 +11,4 @@
 [build.environment]
   NODE_VERSION = "18"
   CI = "false"
+  REACT_APP_API_URL = "https://neuriax-software.onrender.com/api"
