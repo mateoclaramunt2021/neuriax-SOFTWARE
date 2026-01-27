@@ -11,7 +11,7 @@ import '../styles/login-premium.css';
 
 export default function Login() {
   const navigate = useNavigate();
-  const { login, verify2FA, cancel2FA, isAuthenticated, usuario } = useAuth();
+  const { loginProfessional, verify2FA, cancel2FA, isAuthenticated, usuario } = useAuth();
   const { error: notifyError, success: notifySuccess } = useNotification();
 
   // Redirigir al dashboard de profesional cuando isAuthenticated sea true
@@ -59,7 +59,7 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const response = await login(formData.username, formData.password, rememberMe);
+      const response = await loginProfessional(formData.username, formData.password, rememberMe);
       
       // PASO 9: Verificar si requiere 2FA
       if (response && response.require2FA) {
