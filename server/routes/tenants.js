@@ -159,7 +159,7 @@ router.post('/register', async (req, res) => {
     });
     
     // Crear usuario administrador para el tenant
-    const hashedPassword = bcrypt.hashSync(password, 10);
+    const hashedPassword = bcrypt.hashSync(password, 12);
     const fs = require('fs');
     const path = require('path');
     
@@ -517,7 +517,7 @@ router.post('/register', (req, res) => {
       id: Math.max(...platform_users.map(u => u.id || 0), 0) + 1,
       tenant_id: tenant_id,
       username: email_admin.split('@')[0],
-      password: bcrypt.hashSync(password_admin, 10),
+      password: bcrypt.hashSync(password_admin, 12),
       nombre_completo: email_admin,
       email: email_admin,
       rol: 'administrador',

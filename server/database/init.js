@@ -60,7 +60,7 @@ function initDatabase() {
   
   if (!adminExists) {
     // Crear usuario administrador por defecto
-    const hashedPassword = bcrypt.hashSync('admin123', 10);
+    const hashedPassword = bcrypt.hashSync('admin123', 12);
     db.usuarios.push({
       id: 1,
       username: 'admin',

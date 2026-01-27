@@ -72,7 +72,7 @@ router.post('/', async (req, res) => {
     };
 
     // 2. Crear usuario administrador
-    const hashedPassword = bcrypt.hashSync(admin_password, 10);
+    const hashedPassword = bcrypt.hashSync(admin_password, 12);
     const newAdmin = {
       id: (db.platform_users && db.platform_users.length) ? Math.max(...db.platform_users.map(u => u.id)) + 1 : 1,
       tenant_id: tenantId,

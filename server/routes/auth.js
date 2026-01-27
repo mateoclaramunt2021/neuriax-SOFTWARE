@@ -222,7 +222,7 @@ router.post('/register-client', async (req, res) => {
       id: nuevoId,
       username: username,
       email: email,
-      password: bcrypt.hashSync(password, 10),
+      password: bcrypt.hashSync(password, 12),
       nombre_completo: nombre,
       telefono: telefono || '',
       tipo_usuario: 'cliente',
@@ -329,7 +329,7 @@ router.post('/register-business', async (req, res) => {
       id: nuevoId,
       username: username,
       email: email,
-      password: bcrypt.hashSync(password, 10),
+      password: bcrypt.hashSync(password, 12),
       nombre_completo: nombreDueno,
       nombre_empresa: nombreEmpresa,
       telefono: telefono || '',
@@ -813,7 +813,7 @@ router.post('/reset-password', (req, res) => {
     }
 
     // Actualizar contraseña
-    usuario.password = bcrypt.hashSync(newPassword, 10);
+    usuario.password = bcrypt.hashSync(newPassword, 12);
     
     // Limpiar códigos de recuperación
     delete usuario.reset_code;
@@ -1397,7 +1397,7 @@ router.post('/security/change-password', async (req, res) => {
     }
 
     // Actualizar contraseña
-    usuario.password = bcrypt.hashSync(newPassword, 10);
+    usuario.password = bcrypt.hashSync(newPassword, 12);
     usuario.password_updated_at = new Date().toISOString();
     saveDatabase();
 
@@ -1475,7 +1475,7 @@ router.post('/debug/create-test-user', (req, res) => {
       id: nuevoId,
       username: nuevoUsername,
       email: email,
-      password: bcrypt.hashSync(password, 10),
+      password: bcrypt.hashSync(password, 12),
       nombre_completo: nombre || 'Test User',
       telefono: '',
       tipo_usuario: 'cliente',
@@ -1743,7 +1743,7 @@ router.post('/register-professional', async (req, res) => {
       id: profesionalId,
       username: username,
       email: email,
-      password: bcrypt.hashSync(password, 10),
+      password: bcrypt.hashSync(password, 12),
       nombre_completo: nombre_completo,
       telefono: telefono || '',
       nombre_negocio: nombre_negocio,
@@ -1866,7 +1866,7 @@ router.post('/register-client-new', async (req, res) => {
       id: clienteId,
       username: username,
       email: email,
-      password: bcrypt.hashSync(password, 10),
+      password: bcrypt.hashSync(password, 12),
       nombre_completo: nombre_completo,
       telefono: telefono || '',
       tipo_usuario: 'cliente',

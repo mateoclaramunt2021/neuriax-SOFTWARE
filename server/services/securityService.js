@@ -8,9 +8,12 @@
  * - Detección de sesiones activas
  * - Sistema 2FA preparado (TOTP)
  * - Rate limiting inteligente
+ * - Encriptación AES-256-GCM para datos sensibles
+ * - Hashing bcrypt con cost 12
  */
 
 const crypto = require('crypto');
+const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
 
@@ -38,7 +41,178 @@ const SECURITY_CONFIG = {
   
   // Tokens
   rememberMeTokenLength: 64,
-  secureTokenLength: 32
+  secureTokenLength: 32,
+  
+  // Hashing
+  bcryptRounds: 12, // Aumentado de 10 a 12 para mayor seguridad
+  
+  // Encriptación AES-256
+  encryptionAlgorithm: 'aes-256-gcm',
+  ivLength: 16,
+  tagLength: 16
+};
+
+// Clave de encriptación (usar variable de entorno en producción)
+const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY || 'NEURIAX_AES256_KEY_2026_SecureProduction!';
+
+// ==========================================================
+// FUNCIONES DE ENCRIPTACIÓN AES-256-GCM
+// ==========================================================
+
+/**
+ * Encriptar datos sensibles (email, teléfono, dirección)
+ * @param {string} text - Texto a encriptar
+ * @returns {string} - Texto encriptado en formato base64
+ */
+const encrypt = (text) => {
+  if (!text) return text;
+  
+  try {
+    const iv = crypto.randomBytes(SECURITY_CONFIG.ivLength);
+    const key = crypto.scryptSync(ENCRYPTION_KEY, 'neuriax-salt-2026', 32);
+    const cipher = crypto.createCipheriv(SECURITY_CONFIG.encryptionAlgorithm, key, iv);
+    
+    let encrypted = cipher.update(text, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
+    
+    const tag = cipher.getAuthTag();
+    const result = Buffer.concat([iv, tag, Buffer.from(encrypted, 'hex')]);
+    
+    return result.toString('base64');
+  } catch (error) {
+    console.error('[Security] Encryption error:', error.message);
+    return text;
+  }
+};
+
+/**
+ * Desencriptar datos
+ * @param {string} encryptedText - Texto encriptado en base64
+ * @returns {string} - Texto desencriptado
+ */
+const decrypt = (encryptedText) => {
+  if (!encryptedText) return encryptedText;
+  
+  try {
+    const buffer = Buffer.from(encryptedText, 'base64');
+    const iv = buffer.subarray(0, SECURITY_CONFIG.ivLength);
+    const tag = buffer.subarray(SECURITY_CONFIG.ivLength, SECURITY_CONFIG.ivLength + SECURITY_CONFIG.tagLength);
+    const encrypted = buffer.subarray(SECURITY_CONFIG.ivLength + SECURITY_CONFIG.tagLength);
+    
+    const key = crypto.scryptSync(ENCRYPTION_KEY, 'neuriax-salt-2026', 32);
+    const decipher = crypto.createDecipheriv(SECURITY_CONFIG.encryptionAlgorithm, key, iv);
+    decipher.setAuthTag(tag);
+    
+    let decrypted = decipher.update(encrypted);
+    decrypted = Buffer.concat([decrypted, decipher.final()]);
+    
+    return decrypted.toString('utf8');
+  } catch (error) {
+    return encryptedText; // No está encriptado o error
+  }
+};
+
+// ==========================================================
+// FUNCIONES DE HASHING DE CONTRASEÑAS
+// ==========================================================
+
+/**
+ * Hash de contraseña con bcrypt (cost 12)
+ */
+const hashPassword = async (password) => {
+  return bcrypt.hash(password, SECURITY_CONFIG.bcryptRounds);
+};
+
+const hashPasswordSync = (password) => {
+  return bcrypt.hashSync(password, SECURITY_CONFIG.bcryptRounds);
+};
+
+const verifyPassword = async (password, hash) => {
+  return bcrypt.compare(password, hash);
+};
+
+const verifyPasswordSync = (password, hash) => {
+  return bcrypt.compareSync(password, hash);
+};
+
+// ==========================================================
+// FUNCIONES DE VALIDACIÓN Y SANITIZACIÓN
+// ==========================================================
+
+/**
+ * Sanitizar string para prevenir XSS
+ */
+const sanitizeString = (str) => {
+  if (typeof str !== 'string') return str;
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .trim();
+};
+
+/**
+ * Validar email
+ */
+const isValidEmail = (email) => {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+};
+
+/**
+ * Validar contraseña fuerte
+ */
+const validatePasswordStrength = (password) => {
+  const errors = [];
+  if (!password || password.length < 8) errors.push('Mínimo 8 caracteres');
+  if (!/[A-Z]/.test(password)) errors.push('Requiere una mayúscula');
+  if (!/[a-z]/.test(password)) errors.push('Requiere una minúscula');
+  if (!/[0-9]/.test(password)) errors.push('Requiere un número');
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Enmascarar email: ejemplo@mail.com -> e***o@mail.com
+ */
+const maskEmail = (email) => {
+  if (!email || !email.includes('@')) return email;
+  const [local, domain] = email.split('@');
+  if (local.length <= 2) return email;
+  return `${local[0]}***${local[local.length - 1]}@${domain}`;
+};
+
+/**
+ * Enmascarar teléfono: 612345678 -> 612***678
+ */
+const maskPhone = (phone) => {
+  if (!phone || phone.length < 6) return phone;
+  const clean = phone.replace(/\s/g, '');
+  return clean.slice(0, 3) + '***' + clean.slice(-3);
+};
+
+/**
+ * Generar token seguro
+ */
+const generateSecureToken = (length = 32) => {
+  return crypto.randomBytes(length).toString('hex');
+};
+
+/**
+ * Generar código de verificación numérico
+ */
+const generateVerificationCode = (digits = 6) => {
+  const min = Math.pow(10, digits - 1);
+  const max = Math.pow(10, digits) - 1;
+  return crypto.randomInt(min, max).toString();
+};
+
+/**
+ * SHA-256 hash
+ */
+const sha256 = (str) => {
+  return crypto.createHash('sha256').update(str).digest('hex');
 };
 
 // ==========================================================
@@ -614,6 +788,26 @@ setInterval(cleanupExpiredData, 60 * 60 * 1000);
 module.exports = {
   // Configuración
   SECURITY_CONFIG,
+  
+  // Encriptación AES-256
+  encrypt,
+  decrypt,
+  
+  // Hashing de contraseñas (bcrypt)
+  hashPassword,
+  hashPasswordSync,
+  verifyPassword,
+  verifyPasswordSync,
+  
+  // Validación y sanitización
+  sanitizeString,
+  isValidEmail,
+  validatePasswordStrength,
+  maskEmail,
+  maskPhone,
+  generateSecureToken,
+  generateVerificationCode,
+  sha256,
   
   // Bloqueo por intentos fallidos
   recordFailedLogin,

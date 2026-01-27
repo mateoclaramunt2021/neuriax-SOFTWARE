@@ -194,7 +194,7 @@ router.post('/register', async (req, res) => {
     };
 
     // Crear usuario administrador del tenant
-    const hashedPassword = bcrypt.hashSync(password, 10);
+    const hashedPassword = bcrypt.hashSync(password, 12);
     const newUser = {
       id: userId,
       username: username.toLowerCase(),

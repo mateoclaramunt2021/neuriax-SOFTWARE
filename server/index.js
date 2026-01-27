@@ -12,6 +12,7 @@ const rateLimit = require('express-rate-limit');
 const crypto = require('crypto');
 const logger = require('./logger');
 const validation = require('./utils/validation');
+const validationMiddleware = require('./middleware/validation'); // Middleware de sanitización y seguridad
 require('dotenv').config();
 
 // 🔔 SEMANA 1: Servicios de SMS/Recordatorios
@@ -76,6 +77,10 @@ app.use(helmet()); // Helmet security middleware - HTTP headers protection
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
+// 🔒 SEGURIDAD: Middleware de sanitización y prevención de inyección
+app.use(validationMiddleware.sanitizeBody);
+app.use(validationMiddleware.preventInjection);
 
 // PASO 6 - Middleware de Tenant (obtener tenantId del request)
 app.use(getTenantFromRequest);
@@ -1072,7 +1077,7 @@ app.post('/api/auth/debug/create-test-user', (req, res) => {
       id: nuevoId,
       username: nuevoUsername,
       email: email,
-      password: bcrypt.hashSync(password, 10),
+      password: bcrypt.hashSync(password, 12),
       nombre_completo: nombre || 'Test User',
       telefono: '',
       tipo_usuario: 'cliente',
@@ -1214,7 +1219,7 @@ app.post('/api/auth/register', (req, res) => {
     const nuevoId = Math.max(...db.usuarios.map(u => u.id || 0), 0) + 1;
 
     // Hashear contraseña
-    const hashedPassword = bcrypt.hashSync(password, 10);
+    const hashedPassword = bcrypt.hashSync(password, 12);
 
     // Código de verificación
     const codigoVerificacion = Math.floor(100000 + Math.random() * 900000).toString();
@@ -1615,7 +1620,7 @@ app.put('/api/auth/reset-password', resetPasswordLimiter, (req, res) => {
     }
 
     // Hashear nueva contraseña
-    const hashedPassword = bcrypt.hashSync(new_password, 10);
+    const hashedPassword = bcrypt.hashSync(new_password, 12);
 
     // Actualizar contraseña y limpiar campos de reset
     usuario.password = hashedPassword;
