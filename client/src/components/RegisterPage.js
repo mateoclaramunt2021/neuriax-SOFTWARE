@@ -133,9 +133,10 @@ export default function RegisterPage() {
 
     setLoading(true);
     setError('');
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
     try {
-      const response = await fetch('http://localhost:3001/api/trial/register', {
+      const response = await fetch(`${API_URL}/trial/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

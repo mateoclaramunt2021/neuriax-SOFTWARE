@@ -223,9 +223,10 @@ export function FeatureRoute({
   React.useEffect(() => {
     // Verificar si la feature está habilitada
     const checkFeature = async () => {
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
       try {
         const token = localStorage.getItem('authToken');
-        const response = await fetch(`http://localhost:3001/api/features/${feature}`, {
+        const response = await fetch(`${API_URL}/features/${feature}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await response.json();

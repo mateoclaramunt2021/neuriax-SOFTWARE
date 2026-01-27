@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './ForgotPassword.css';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
+
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1); // 1: email, 2: código, 3: nueva contraseña
@@ -21,7 +23,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/forgot-password', {
+      const response = await fetch(`${API_URL}/auth/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
@@ -60,7 +62,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/verify-reset-code', {
+      const response = await fetch(`${API_URL}/auth/verify-reset-code`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, code })
@@ -99,7 +101,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/reset-password', {
+      const response = await fetch(`${API_URL}/auth/reset-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, code, newPassword })

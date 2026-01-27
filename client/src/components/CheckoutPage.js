@@ -45,10 +45,11 @@ export default function CheckoutPage() {
 
   const [step, setStep] = useState(1); // 1: Datos, 2: Pago, 3: Confirmación
   const [billingCycle, setBillingCycle] = useState('monthly'); // monthly / yearly
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
   const cargarPlan = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/plans/${planId}`);
+      const response = await fetch(`${API_URL}/plans/${planId}`);
       const data = await response.json();
       if (data.success) {
         setPlan(data.data);
@@ -170,7 +171,7 @@ export default function CheckoutPage() {
 
     try {
       // 1. Crear checkout session en el backend
-      const response = await fetch('http://localhost:3001/api/subscriptions/create-checkout', {
+      const response = await fetch(`${API_URL}/subscriptions/create-checkout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

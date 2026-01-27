@@ -10,6 +10,7 @@ function AuditLog() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
   const [dateRange, setDateRange] = useState('7d');
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
   useEffect(() => {
     loadAuditLogs();
@@ -20,7 +21,7 @@ function AuditLog() {
       setLoading(true);
       const token = localStorage.getItem('authToken');
       const response = await fetch(
-        `http://localhost:3001/api/rbac/audit?type=${filter}&range=${dateRange}`,
+        `${API_URL}/rbac/audit?type=${filter}&range=${dateRange}`,
         { headers: { 'Authorization': `Bearer ${token}` }}
       );
       

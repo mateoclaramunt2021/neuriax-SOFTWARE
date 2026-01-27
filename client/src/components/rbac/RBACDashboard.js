@@ -19,6 +19,7 @@ function RBACDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [stats, setStats] = useState({});
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
   // Cargar datos RBAC
   const loadData = useCallback(async () => {
@@ -32,7 +33,7 @@ function RBACDashboard() {
 
       // Cargar usuarios
       const token = localStorage.getItem('authToken');
-      const usersResponse = await fetch('http://localhost:3001/api/usuarios', {
+      const usersResponse = await fetch(`${API_URL}/usuarios`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const usersData = await usersResponse.json();
