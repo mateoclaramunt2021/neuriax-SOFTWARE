@@ -80,18 +80,6 @@ function initDatabase() {
     console.log('   Contraseña: admin123');
   }
 
-  // Datos de ejemplo para demostración
-  if (!db.servicios || db.servicios.length === 0) {
-    db.servicios = [
-      { id: 1, nombre: 'Corte de Cabello', categoria: 'Corte', precio: 15, duracion: 30, activo: 1 },
-      { id: 2, nombre: 'Tinte Completo', categoria: 'Tinte', precio: 50, duracion: 120, activo: 1 },
-      { id: 3, nombre: 'Mechas', categoria: 'Tinte', precio: 60, duracion: 150, activo: 1 },
-      { id: 4, nombre: 'Peinado', categoria: 'Peinado', precio: 25, duracion: 45, activo: 1 },
-      { id: 5, nombre: 'Tratamiento Capilar', categoria: 'Tratamiento', precio: 35, duracion: 60, activo: 1 }
-    ];
-    saveDatabase();
-  }
-
   // Crear usuario de demo si no existe (usando credenciales demo/admin123)
   const demoExists = db.usuarios.find(u => u.username === 'demo');
   if (!demoExists) {
@@ -114,6 +102,18 @@ function initDatabase() {
     console.log('✅ Usuario de demo creado:');
     console.log('   Usuario: demo');
     console.log('   Contraseña: admin123');
+  }
+
+  // Datos de ejemplo para demostración
+  if (!db.servicios || db.servicios.length === 0) {
+    db.servicios = [
+      { id: 1, nombre: 'Corte de Cabello', categoria: 'Corte', precio: 15, duracion: 30, activo: 1 },
+      { id: 2, nombre: 'Tinte Completo', categoria: 'Tinte', precio: 50, duracion: 120, activo: 1 },
+      { id: 3, nombre: 'Mechas', categoria: 'Tinte', precio: 60, duracion: 150, activo: 1 },
+      { id: 4, nombre: 'Peinado', categoria: 'Peinado', precio: 25, duracion: 45, activo: 1 },
+      { id: 5, nombre: 'Tratamiento Capilar', categoria: 'Tratamiento', precio: 35, duracion: 60, activo: 1 }
+    ];
+    saveDatabase();
   }
 
   // Agregar datos ficticios de 1 año para demostración
