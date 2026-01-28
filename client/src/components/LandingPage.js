@@ -197,15 +197,27 @@ export default function LandingPage() {
                 <span>SMS y Email automáticos</span>
               </div>
             </div>
-            <div className="hero-buttons-container">
-              <button className="btn-hero btn-hero-primary" onClick={() => navigate('/register-business')}>
-                <span>Empezar 7 Días Gratis</span>
-                <span className="btn-arrow">→</span>
-              </button>
-              <button className="btn-hero btn-hero-secondary" onClick={() => scrollToSection('how-it-works')}>
-                <span className="play-icon">▶</span>
-                Ver Cómo Funciona
-              </button>
+            {/* CTA Dual: Clientes y Profesionales */}
+            <div className="hero-cta-dual">
+              <div className="cta-label">¿Cómo quieres empezar?</div>
+              <div className="hero-buttons-container">
+                <button className="btn-hero btn-hero-client" onClick={() => navigate('/register-client')}>
+                  <span className="btn-icon">👤</span>
+                  <div className="btn-content">
+                    <span className="btn-title">Soy Cliente</span>
+                    <span className="btn-subtitle">Buscar y reservar en salones</span>
+                  </div>
+                  <span className="btn-arrow">→</span>
+                </button>
+                <button className="btn-hero btn-hero-primary" onClick={() => navigate('/register-business')}>
+                  <span className="btn-icon">💼</span>
+                  <div className="btn-content">
+                    <span className="btn-title">Soy Profesional</span>
+                    <span className="btn-subtitle">7 días de prueba GRATIS</span>
+                  </div>
+                  <span className="btn-arrow">→</span>
+                </button>
+              </div>
             </div>
             <div className="hero-trust">
               <span className="trust-text">🔒 Sin tarjeta de crédito</span>
@@ -214,6 +226,10 @@ export default function LandingPage() {
               <span className="trust-divider">•</span>
               <span className="trust-text">❌ Cancela cuando quieras</span>
             </div>
+            <button className="btn-hero-demo" onClick={() => scrollToSection('how-it-works')}>
+              <span className="play-icon">▶</span>
+              Ver Cómo Funciona
+            </button>
           </div>
           <div className="hero-visual">
             <div className="hero-dashboard-preview">

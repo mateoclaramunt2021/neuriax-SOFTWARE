@@ -1699,15 +1699,22 @@ router.post('/register-professional', async (req, res) => {
       email, 
       password, 
       passwordConfirm, 
-      nombre_completo, 
+      nombre_completo,
+      nombreDueno,      // Aceptar desde el formulario
+      nombreEmpresa,    // Aceptar desde el formulario
       telefono,
       nombre_negocio,
       tipo_negocio,
       plan
     } = req.body;
 
+    // Usar los campos del formulario o los originales
+    const nombreCompleto = nombre_completo || nombreDueno;
+    const nombreNegocio = nombre_negocio || nombreEmpresa;
+    const usernameGenerado = username || email.split('@')[0] + Math.floor(Math.random() * 1000);
+
     // Validaciones
-    if (!username || !email || !password || !nombre_completo || !nombre_negocio) {
+    if (!email || !password || !nombreCompleto || !nombreNegocio) {
       return res.status(400).json({
         success: false,
         message: 'Todos los campos obligatorios son requeridos'
@@ -1721,18 +1728,27 @@ router.post('/register-professional', async (req, res) => {
       });
     }
 
-    if (password.length < 8) {
+    if (password.length < 6) {
       return res.status(400).json({
         success: false,
-        message: 'La contraseña debe tener al menos 8 caracteres'
+        message: 'La contraseña debe tener al menos 6 caracteres'
       });
     }
 
     // Verificar email único en profesionales
+    if (!db.profesionales) db.profesionales = [];
     if (db.profesionales.find(p => p.email === email)) {
       return res.status(400).json({
         success: false,
         message: 'Este email ya está registrado como profesional'
+      });
+    }
+
+    // También verificar en usuarios generales
+    if (db.usuarios && db.usuarios.find(u => u.email === email)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Este email ya está registrado'
       });
     }
 
@@ -1741,16 +1757,18 @@ router.post('/register-professional', async (req, res) => {
 
     const nuevoProfesional = {
       id: profesionalId,
-      username: username,
+      username: usernameGenerado,
       email: email,
       password: bcrypt.hashSync(password, 12),
-      nombre_completo: nombre_completo,
+      nombre_completo: nombreCompleto,
       telefono: telefono || '',
-      nombre_negocio: nombre_negocio,
+      nombre_negocio: nombreNegocio,
       tipo_negocio: tipo_negocio || 'salon_belleza',
       rol: 'owner',
+      tipo_usuario: 'profesional',
       plan: 'trial',
       tenantId: tenantId,
+      tenant_id: tenantId,
       stripeCustomerId: null,
       activo: true,
       verificado: false,
@@ -1761,13 +1779,20 @@ router.post('/register-professional', async (req, res) => {
 
     db.profesionales.push(nuevoProfesional);
     
+    // También agregar a usuarios para el login unificado
+    if (!db.usuarios) db.usuarios = [];
+    db.usuarios.push({
+      ...nuevoProfesional,
+      tipo_usuario: 'profesional'
+    });
+    
     // Crear tenant para el profesional
     if (!db.tenants) db.tenants = [];
     db.tenants.push({
       id: tenantId,
       profesional_id: profesionalId,
-      nombre: nombre_negocio,
-      tipo_negocio: tipo_negocio,
+      nombre: nombreNegocio,
+      tipo_negocio: tipo_negocio || 'salon_belleza',
       plan: 'trial',
       dias_prueba: 7,
       activo: true,
@@ -1777,7 +1802,7 @@ router.post('/register-professional', async (req, res) => {
     saveDatabase();
 
     // Enviar email de bienvenida a profesional
-    emailService.enviarEmailBienvenidaProfesional(email, nombre_completo, nombre_negocio).catch(err => {
+    emailService.enviarEmailBienvenidaProfesional(email, nombreCompleto, nombreNegocio).catch(err => {
       console.error('Error enviando email a profesional:', err);
     });
 
@@ -1789,10 +1814,12 @@ router.post('/register-professional', async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: 'Cuenta de profesional creada exitosamente',
+      message: 'Cuenta de profesional creada exitosamente. ¡7 días de prueba gratis activados!',
       tipoUsuario: 'profesional',
+      firstTime: true,
       token: accessToken,
       refreshToken: refreshToken,
+      tenantId: tenantId,
       usuario: {
         id: nuevoProfesional.id,
         username: nuevoProfesional.username,
@@ -1802,7 +1829,9 @@ router.post('/register-professional', async (req, res) => {
         tipo_negocio: nuevoProfesional.tipo_negocio,
         rol: nuevoProfesional.rol,
         plan: nuevoProfesional.plan,
-        tenantId: tenantId
+        diasPruebaRestantes: 7,
+        tenantId: tenantId,
+        tenant_id: tenantId
       }
     });
 
