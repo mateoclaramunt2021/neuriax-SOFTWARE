@@ -363,23 +363,27 @@ export default function Login() {
 
             {/* Divider */}
             <div className="divider-premium">
-              <span>Demo</span>
+              <span>📱 DEMO</span>
             </div>
 
-            {/* Demo Credentials */}
+            {/* Demo Instructions */}
             <div className="demo-card-premium">
               <p className="demo-title-premium">
-                <span>🔑</span>
-                Credenciales de prueba
+                <span>🚀</span>
+                Cómo usar la DEMO
               </p>
               <div className="demo-credentials">
                 <div className="credential-item">
-                  <span className="credential-label">Usuario</span>
-                  <span className="credential-value">admin</span>
+                  <span className="credential-label">1️⃣ Inicia sesión</span>
+                  <span className="credential-value">Usuario: demo | Pass: admin123</span>
                 </div>
                 <div className="credential-item">
-                  <span className="credential-label">Contraseña</span>
-                  <span className="credential-value">admin123</span>
+                  <span className="credential-label">2️⃣ Explora el Dashboard</span>
+                  <span className="credential-value">✓ POS • Citas • Clientes • Reportes</span>
+                </div>
+                <div className="credential-item">
+                  <span className="credential-label">3️⃣ Prueba las funciones</span>
+                  <span className="credential-value">✓ 1 año de datos ficticios incluidos</span>
                 </div>
               </div>
             </div>

@@ -92,62 +92,97 @@ function initDatabase() {
     saveDatabase();
   }
 
-  // Crear usuario profesional de demo si no existe
-  const demoProExists = db.usuarios.find(u => u.email === 'demo@profesional.com');
-  if (!demoProExists) {
-    const hashedPassword = bcrypt.hashSync('demo123', 12);
-    const tenantId = 'tenant_demo_pro';
-    
-    // Fecha de creación hace 5 horas (para que tenga menos de 2 horas de prueba visible)
-    const createdAtTime = new Date(Date.now() - 5 * 60 * 60 * 1000);
+  // Crear usuario de demo si no existe (usando credenciales demo/admin123)
+  const demoExists = db.usuarios.find(u => u.username === 'demo');
+  if (!demoExists) {
+    const hashedPassword = bcrypt.hashSync('admin123', 12);
     
     db.usuarios.push({
-      id: 999,
-      username: 'demopro',
+      id: 2,
+      username: 'demo',
       password: hashedPassword,
       nombre_completo: 'Demo Profesional',
-      nombre_empresa: 'Salón de Belleza Premium Demo',
-      email: 'demo@profesional.com',
-      telefono: '600123456',
-      tipo_usuario: 'profesional',
+      email: 'demo@salon.com',
       rol: 'owner',
-      plan: 'trial',
-      tenant_id: tenantId,
-      tenantId: tenantId,
-      dias_prueba: 2,
       activo: 1,
-      verificado: 1,
-      fecha_creacion: createdAtTime.toISOString(),
-      ultimo_acceso: new Date().toISOString(),
-      perfil_completado: 1
+      fecha_creacion: new Date().toISOString(),
+      ultimo_acceso: null
     });
-
-    // Crear tenant para el profesional de demo
-    if (!db.tenants) db.tenants = [];
-    db.tenants.push({
-      id: tenantId,
-      nombre: 'Salón de Belleza Premium Demo',
-      plan: 'trial',
-      dias_trial: 2,
-      activo: 1,
-      fecha_creacion: createdAtTime.toISOString()
-    });
-
-    // Agregar datos de demo específicos para el profesional
-    if (!db.servicios_profesional) db.servicios_profesional = [];
-    db.servicios_profesional.push(
-      { id: 1, tenant_id: tenantId, nombre: 'Corte de Cabello', precio: 20, duracion: 30, activo: 1 },
-      { id: 2, tenant_id: tenantId, nombre: 'Tinte Completo', precio: 60, duracion: 120, activo: 1 },
-      { id: 3, tenant_id: tenantId, nombre: 'Mechas Balayage', precio: 80, duracion: 150, activo: 1 },
-      { id: 4, tenant_id: tenantId, nombre: 'Alisado Brasileño', precio: 100, duracion: 180, activo: 1 }
-    );
-
+    
     saveDatabase();
     
-    console.log('✅ Usuario profesional de demo creado:');
-    console.log('   Email: demo@profesional.com');
-    console.log('   Contraseña: demo123');
-    console.log('   Plan: Trial (2 horas)');
+    console.log('✅ Usuario de demo creado:');
+    console.log('   Usuario: demo');
+    console.log('   Contraseña: admin123');
+  }
+
+  // Agregar datos ficticios de 1 año para demostración
+  if (!db.clientes_demo || db.clientes_demo.length === 0) {
+    // Crear clientes ficticios
+    const clientesDemo = [
+      { id: 1, nombre: 'María García', telefono: '666111222', email: 'maria@email.com', fecha_registro: new Date(Date.now() - 365*24*60*60*1000).toISOString(), activo: 1 },
+      { id: 2, nombre: 'Carmen López', telefono: '666333444', email: 'carmen@email.com', fecha_registro: new Date(Date.now() - 330*24*60*60*1000).toISOString(), activo: 1 },
+      { id: 3, nombre: 'Ana Martínez', telefono: '666555666', email: 'ana@email.com', fecha_registro: new Date(Date.now() - 300*24*60*60*1000).toISOString(), activo: 1 },
+      { id: 4, nombre: 'Sofía Rodríguez', telefono: '666777888', email: 'sofia@email.com', fecha_registro: new Date(Date.now() - 250*24*60*60*1000).toISOString(), activo: 1 },
+      { id: 5, nombre: 'Lorena Fernández', telefono: '666999000', email: 'lorena@email.com', fecha_registro: new Date(Date.now() - 200*24*60*60*1000).toISOString(), activo: 1 },
+      { id: 6, nombre: 'Elena Pérez', telefono: '666111333', email: 'elena@email.com', fecha_registro: new Date(Date.now() - 150*24*60*60*1000).toISOString(), activo: 1 },
+      { id: 7, nombre: 'Patricia Jiménez', telefono: '666444555', email: 'patricia@email.com', fecha_registro: new Date(Date.now() - 100*24*60*60*1000).toISOString(), activo: 1 },
+      { id: 8, nombre: 'Rosa Torres', telefono: '666666777', email: 'rosa@email.com', fecha_registro: new Date(Date.now() - 60*24*60*60*1000).toISOString(), activo: 1 }
+    ];
+    
+    // Crear ventas ficticias de todo el año
+    const ventasDemo = [];
+    let ventaId = 1;
+    for (let mes = 0; mes < 12; mes++) {
+      for (let dia = 0; dia < 25; dia++) {
+        const fecha = new Date(Date.now() - (365-mes*30-dia)*24*60*60*1000);
+        const cliente = clientesDemo[Math.floor(Math.random() * clientesDemo.length)];
+        const monto = 20 + Math.floor(Math.random() * 100);
+        const metodos = ['efectivo', 'tarjeta', 'transferencia'];
+        
+        ventasDemo.push({
+          id: ventaId++,
+          cliente_id: cliente.id,
+          fecha: fecha.toISOString(),
+          monto: monto,
+          metodo_pago: metodos[Math.floor(Math.random() * metodos.length)],
+          descripcion: ['Corte', 'Tinte', 'Mechas', 'Alisado', 'Peinado'][Math.floor(Math.random() * 5)],
+          estado: 'completada'
+        });
+      }
+    }
+
+    // Crear citas ficticias de todo el año
+    const citasDemo = [];
+    let citaId = 1;
+    for (let mes = 0; mes < 12; mes++) {
+      for (let dia = 0; dia < 20; dia++) {
+        const fecha = new Date(Date.now() - (365-mes*30-dia)*24*60*60*1000);
+        const cliente = clientesDemo[Math.floor(Math.random() * clientesDemo.length)];
+        const servicios = ['Corte', 'Tinte Completo', 'Mechas', 'Alisado', 'Peinado'];
+        
+        citasDemo.push({
+          id: citaId++,
+          cliente_id: cliente.id,
+          fecha: fecha.toISOString().split('T')[0],
+          hora: '09:00,10:00,11:00,14:00,15:00'[Math.floor(Math.random() * 5)],
+          duracion: [30, 60, 120][Math.floor(Math.random() * 3)],
+          servicio: servicios[Math.floor(Math.random() * servicios.length)],
+          estado: ['completada', 'cancelada', 'no_asistio'][Math.floor(Math.random() * 3)],
+          monto: 20 + Math.floor(Math.random() * 80)
+        });
+      }
+    }
+
+    db.clientes_demo = clientesDemo;
+    db.ventas_demo = ventasDemo;
+    db.citas_demo = citasDemo;
+    
+    saveDatabase();
+    console.log('✅ Datos de demo de 1 año agregados');
+    console.log(`   - ${clientesDemo.length} clientes ficticios`);
+    console.log(`   - ${ventasDemo.length} ventas ficticias`);
+    console.log(`   - ${citasDemo.length} citas ficticias`);
   }
 
   if (db.clientes.length === 0) {

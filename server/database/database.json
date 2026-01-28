@@ -3,31 +3,24 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "$2a$10$7M/gTdl.btkFTMXhlRG7xO4eRPA5D/ZQoCeZe8AbVdAzSNcjhaMmG",
-      "nombre_completo": "Administrador del Sistema",
+      "password": "$2a$12$fGb9IKVHKa4HQ3EzX3RBwOqkwrZIBoQIHARS2W.AjBLUKJZcZs5NK",
+      "nombre_completo": "Administrador",
       "email": "admin@NEURIAX.com",
       "rol": "administrador",
-      "tipo_usuario": "admin",
       "activo": 1,
-      "plan": "trial",
-      "fecha_creacion": "2026-01-25T13:52:32.190Z",
-      "ultimo_acceso": "2026-01-27T16:35:21.987Z",
-      "dias_prueba": 7
+      "fecha_creacion": "2026-01-28T22:37:57.035Z",
+      "ultimo_acceso": null
     },
     {
       "id": 2,
-      "username": "cliente",
-      "password": "$2a$10$ANikUnK48QpBx1/91fg.dO7TBkb/bT93awRfAAmE7ktnOEnn9zuP2",
-      "nombre_completo": "Cliente Test",
-      "email": "cliente@test.com",
-      "rol": "cliente",
-      "tipo_usuario": "cliente",
+      "username": "demo",
+      "password": "$2a$12$iC0HaPv44ZCGJm3JFooI2Od553D/XwPuFRp01686hnrqsa1s2n0im",
+      "nombre_completo": "Demo Profesional",
+      "email": "demo@salon.com",
+      "rol": "owner",
       "activo": 1,
-      "plan": "trial",
-      "dias_prueba": 7,
-      "fecha_creacion": "2026-01-27T00:00:00.000Z",
-      "ultimo_acceso": "2026-01-27T16:05:04.223Z",
-      "telefono": "600123456"
+      "fecha_creacion": "2026-01-28T22:37:57.489Z",
+      "ultimo_acceso": null
     }
   ],
   "sesiones": [],
@@ -37,7 +30,7 @@
       "nombre": "María García",
       "telefono": "666111222",
       "email": "maria@email.com",
-      "fecha_registro": "2026-01-27T13:55:15.988Z",
+      "fecha_registro": "2026-01-28T22:37:57.497Z",
       "activo": 1
     },
     {
@@ -45,7 +38,7 @@
       "nombre": "Carmen López",
       "telefono": "666333444",
       "email": "carmen@email.com",
-      "fecha_registro": "2026-01-27T13:55:15.989Z",
+      "fecha_registro": "2026-01-28T22:37:57.497Z",
       "activo": 1
     },
     {
@@ -53,7 +46,43 @@
       "nombre": "Ana Martínez",
       "telefono": "666555666",
       "email": "ana@email.com",
-      "fecha_registro": "2026-01-27T13:55:15.989Z",
+      "fecha_registro": "2026-01-28T22:37:57.497Z",
+      "activo": 1
+    },
+    {
+      "id": 101,
+      "tenant_id": "tenant_demo_pro",
+      "nombre": "Sofía Rodríguez",
+      "telefono": "601234567",
+      "email": "sofia@email.com",
+      "fecha_registro": "2026-01-28T22:37:57.497Z",
+      "activo": 1
+    },
+    {
+      "id": 102,
+      "tenant_id": "tenant_demo_pro",
+      "nombre": "Lorena Fernández",
+      "telefono": "601234568",
+      "email": "lorena@email.com",
+      "fecha_registro": "2026-01-28T22:37:57.498Z",
+      "activo": 1
+    },
+    {
+      "id": 103,
+      "tenant_id": "tenant_demo_pro",
+      "nombre": "Elena Pérez",
+      "telefono": "601234569",
+      "email": "elena@email.com",
+      "fecha_registro": "2026-01-28T22:37:57.498Z",
+      "activo": 1
+    },
+    {
+      "id": 104,
+      "tenant_id": "tenant_demo_pro",
+      "nombre": "Patricia Jiménez",
+      "telefono": "601234570",
+      "email": "patricia@email.com",
+      "fecha_registro": "2026-01-28T22:37:57.498Z",
       "activo": 1
     }
   ],
@@ -99,7 +128,28 @@
       "activo": 1
     }
   ],
-  "ventas": [],
+  "ventas": [
+    {
+      "id": 1,
+      "tenant_id": "tenant_demo_pro",
+      "cliente_id": 101,
+      "fecha": "2026-01-28T22:37:57.498Z",
+      "monto": 20,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte de cabello",
+      "estado": "completada"
+    },
+    {
+      "id": 2,
+      "tenant_id": "tenant_demo_pro",
+      "cliente_id": 103,
+      "fecha": "2026-01-28T22:37:57.498Z",
+      "monto": 80,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas Balayage",
+      "estado": "completada"
+    }
+  ],
   "empleados": [
     {
       "id": 1,
@@ -124,7 +174,7 @@
         4,
         5
       ],
-      "fecha_contratacion": "2026-01-27T13:55:15.990Z",
+      "fecha_contratacion": "2026-01-28T22:37:57.500Z",
       "activo": 1
     },
     {
@@ -147,13 +197,50 @@
         1,
         4
       ],
-      "fecha_contratacion": "2026-01-27T13:55:15.990Z",
+      "fecha_contratacion": "2026-01-28T22:37:57.500Z",
       "activo": 1
     }
   ],
   "cajas": [],
   "gastos": [],
-  "citas": [],
+  "citas": [
+    {
+      "id": 1,
+      "tenant_id": "tenant_demo_pro",
+      "cliente_id": 101,
+      "servicio_id": 1,
+      "fecha": "2026-01-29",
+      "hora": "10:00",
+      "duracion": 30,
+      "estado": "confirmada",
+      "notas": "Corte estilo bob",
+      "fecha_creacion": "2026-01-28T22:37:57.498Z"
+    },
+    {
+      "id": 2,
+      "tenant_id": "tenant_demo_pro",
+      "cliente_id": 102,
+      "servicio_id": 2,
+      "fecha": "2026-01-29",
+      "hora": "14:00",
+      "duracion": 120,
+      "estado": "confirmada",
+      "notas": "Tinte cobertura completa",
+      "fecha_creacion": "2026-01-28T22:37:57.498Z"
+    },
+    {
+      "id": 3,
+      "tenant_id": "tenant_demo_pro",
+      "cliente_id": 103,
+      "servicio_id": 3,
+      "fecha": "2026-01-28",
+      "hora": "11:30",
+      "duracion": 150,
+      "estado": "completada",
+      "notas": "Mechas balayage",
+      "fecha_creacion": "2026-01-28T22:37:57.498Z"
+    }
+  ],
   "productos": [],
   "movimientos_inventario": [],
   "configuracion": {
@@ -162,36 +249,5174 @@
     "email": "",
     "direccion": ""
   },
-  "tenants": [],
-  "profesionales": [],
-  "clientes_registrados": [],
-  "factura": [],
-  "contabilidad": {},
-  "planes": [
+  "clientes_demo": [
     {
-      "id": "basic",
-      "nombre": "Plan Básico",
-      "precio": 0,
-      "caracteristicas": []
+      "id": 1,
+      "nombre": "María García",
+      "telefono": "666111222",
+      "email": "maria@email.com",
+      "fecha_registro": "2025-01-28T22:37:57.492Z",
+      "activo": 1
     },
     {
-      "id": "professional",
-      "nombre": "Plan Profesional",
-      "precio": 29,
-      "caracteristicas": []
+      "id": 2,
+      "nombre": "Carmen López",
+      "telefono": "666333444",
+      "email": "carmen@email.com",
+      "fecha_registro": "2025-03-04T22:37:57.492Z",
+      "activo": 1
     },
     {
-      "id": "enterprise",
-      "nombre": "Plan Empresarial",
-      "precio": 99,
-      "caracteristicas": []
+      "id": 3,
+      "nombre": "Ana Martínez",
+      "telefono": "666555666",
+      "email": "ana@email.com",
+      "fecha_registro": "2025-04-03T22:37:57.492Z",
+      "activo": 1
     },
     {
-      "id": "trial",
-      "nombre": "Período de Prueba",
-      "precio": 0,
-      "dias": 7,
-      "caracteristicas": []
+      "id": 4,
+      "nombre": "Sofía Rodríguez",
+      "telefono": "666777888",
+      "email": "sofia@email.com",
+      "fecha_registro": "2025-05-23T22:37:57.492Z",
+      "activo": 1
+    },
+    {
+      "id": 5,
+      "nombre": "Lorena Fernández",
+      "telefono": "666999000",
+      "email": "lorena@email.com",
+      "fecha_registro": "2025-07-12T22:37:57.492Z",
+      "activo": 1
+    },
+    {
+      "id": 6,
+      "nombre": "Elena Pérez",
+      "telefono": "666111333",
+      "email": "elena@email.com",
+      "fecha_registro": "2025-08-31T22:37:57.492Z",
+      "activo": 1
+    },
+    {
+      "id": 7,
+      "nombre": "Patricia Jiménez",
+      "telefono": "666444555",
+      "email": "patricia@email.com",
+      "fecha_registro": "2025-10-20T22:37:57.492Z",
+      "activo": 1
+    },
+    {
+      "id": 8,
+      "nombre": "Rosa Torres",
+      "telefono": "666666777",
+      "email": "rosa@email.com",
+      "fecha_registro": "2025-11-29T22:37:57.492Z",
+      "activo": 1
+    }
+  ],
+  "ventas_demo": [
+    {
+      "id": 1,
+      "cliente_id": 1,
+      "fecha": "2025-01-28T22:37:57.492Z",
+      "monto": 56,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 2,
+      "cliente_id": 8,
+      "fecha": "2025-01-29T22:37:57.492Z",
+      "monto": 65,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 3,
+      "cliente_id": 8,
+      "fecha": "2025-01-30T22:37:57.492Z",
+      "monto": 75,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 4,
+      "cliente_id": 2,
+      "fecha": "2025-01-31T22:37:57.492Z",
+      "monto": 44,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 5,
+      "cliente_id": 5,
+      "fecha": "2025-02-01T22:37:57.492Z",
+      "monto": 89,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 6,
+      "cliente_id": 2,
+      "fecha": "2025-02-02T22:37:57.492Z",
+      "monto": 98,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 7,
+      "cliente_id": 5,
+      "fecha": "2025-02-03T22:37:57.492Z",
+      "monto": 88,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 8,
+      "cliente_id": 3,
+      "fecha": "2025-02-04T22:37:57.492Z",
+      "monto": 108,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 9,
+      "cliente_id": 4,
+      "fecha": "2025-02-05T22:37:57.492Z",
+      "monto": 43,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 10,
+      "cliente_id": 3,
+      "fecha": "2025-02-06T22:37:57.492Z",
+      "monto": 44,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 11,
+      "cliente_id": 5,
+      "fecha": "2025-02-07T22:37:57.492Z",
+      "monto": 98,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 12,
+      "cliente_id": 4,
+      "fecha": "2025-02-08T22:37:57.492Z",
+      "monto": 61,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 13,
+      "cliente_id": 2,
+      "fecha": "2025-02-09T22:37:57.492Z",
+      "monto": 61,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 14,
+      "cliente_id": 7,
+      "fecha": "2025-02-10T22:37:57.492Z",
+      "monto": 71,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 15,
+      "cliente_id": 4,
+      "fecha": "2025-02-11T22:37:57.492Z",
+      "monto": 97,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 16,
+      "cliente_id": 2,
+      "fecha": "2025-02-12T22:37:57.492Z",
+      "monto": 83,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 17,
+      "cliente_id": 2,
+      "fecha": "2025-02-13T22:37:57.492Z",
+      "monto": 77,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 18,
+      "cliente_id": 6,
+      "fecha": "2025-02-14T22:37:57.492Z",
+      "monto": 108,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 19,
+      "cliente_id": 6,
+      "fecha": "2025-02-15T22:37:57.492Z",
+      "monto": 21,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 20,
+      "cliente_id": 1,
+      "fecha": "2025-02-16T22:37:57.492Z",
+      "monto": 99,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 21,
+      "cliente_id": 2,
+      "fecha": "2025-02-17T22:37:57.492Z",
+      "monto": 39,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 22,
+      "cliente_id": 6,
+      "fecha": "2025-02-18T22:37:57.492Z",
+      "monto": 69,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 23,
+      "cliente_id": 4,
+      "fecha": "2025-02-19T22:37:57.492Z",
+      "monto": 69,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 24,
+      "cliente_id": 3,
+      "fecha": "2025-02-20T22:37:57.492Z",
+      "monto": 38,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 25,
+      "cliente_id": 8,
+      "fecha": "2025-02-21T22:37:57.492Z",
+      "monto": 101,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 26,
+      "cliente_id": 7,
+      "fecha": "2025-02-27T22:37:57.492Z",
+      "monto": 74,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 27,
+      "cliente_id": 3,
+      "fecha": "2025-02-28T22:37:57.492Z",
+      "monto": 30,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 28,
+      "cliente_id": 7,
+      "fecha": "2025-03-01T22:37:57.492Z",
+      "monto": 93,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 29,
+      "cliente_id": 7,
+      "fecha": "2025-03-02T22:37:57.492Z",
+      "monto": 97,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 30,
+      "cliente_id": 7,
+      "fecha": "2025-03-03T22:37:57.492Z",
+      "monto": 105,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 31,
+      "cliente_id": 5,
+      "fecha": "2025-03-04T22:37:57.492Z",
+      "monto": 24,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 32,
+      "cliente_id": 4,
+      "fecha": "2025-03-05T22:37:57.492Z",
+      "monto": 72,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 33,
+      "cliente_id": 3,
+      "fecha": "2025-03-06T22:37:57.492Z",
+      "monto": 71,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 34,
+      "cliente_id": 4,
+      "fecha": "2025-03-07T22:37:57.492Z",
+      "monto": 64,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 35,
+      "cliente_id": 2,
+      "fecha": "2025-03-08T22:37:57.492Z",
+      "monto": 81,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 36,
+      "cliente_id": 4,
+      "fecha": "2025-03-09T22:37:57.492Z",
+      "monto": 53,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 37,
+      "cliente_id": 2,
+      "fecha": "2025-03-10T22:37:57.492Z",
+      "monto": 106,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 38,
+      "cliente_id": 8,
+      "fecha": "2025-03-11T22:37:57.492Z",
+      "monto": 77,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 39,
+      "cliente_id": 5,
+      "fecha": "2025-03-12T22:37:57.492Z",
+      "monto": 57,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 40,
+      "cliente_id": 1,
+      "fecha": "2025-03-13T22:37:57.492Z",
+      "monto": 34,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 41,
+      "cliente_id": 6,
+      "fecha": "2025-03-14T22:37:57.492Z",
+      "monto": 20,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 42,
+      "cliente_id": 2,
+      "fecha": "2025-03-15T22:37:57.492Z",
+      "monto": 28,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 43,
+      "cliente_id": 4,
+      "fecha": "2025-03-16T22:37:57.492Z",
+      "monto": 43,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 44,
+      "cliente_id": 2,
+      "fecha": "2025-03-17T22:37:57.492Z",
+      "monto": 88,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 45,
+      "cliente_id": 7,
+      "fecha": "2025-03-18T22:37:57.492Z",
+      "monto": 72,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 46,
+      "cliente_id": 2,
+      "fecha": "2025-03-19T22:37:57.492Z",
+      "monto": 108,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 47,
+      "cliente_id": 5,
+      "fecha": "2025-03-20T22:37:57.492Z",
+      "monto": 24,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 48,
+      "cliente_id": 3,
+      "fecha": "2025-03-21T22:37:57.492Z",
+      "monto": 90,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 49,
+      "cliente_id": 5,
+      "fecha": "2025-03-22T22:37:57.492Z",
+      "monto": 84,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 50,
+      "cliente_id": 3,
+      "fecha": "2025-03-23T22:37:57.492Z",
+      "monto": 29,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 51,
+      "cliente_id": 8,
+      "fecha": "2025-03-29T22:37:57.492Z",
+      "monto": 86,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 52,
+      "cliente_id": 4,
+      "fecha": "2025-03-30T22:37:57.492Z",
+      "monto": 46,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 53,
+      "cliente_id": 2,
+      "fecha": "2025-03-31T22:37:57.492Z",
+      "monto": 56,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 54,
+      "cliente_id": 4,
+      "fecha": "2025-04-01T22:37:57.492Z",
+      "monto": 50,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 55,
+      "cliente_id": 5,
+      "fecha": "2025-04-02T22:37:57.492Z",
+      "monto": 90,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 56,
+      "cliente_id": 8,
+      "fecha": "2025-04-03T22:37:57.492Z",
+      "monto": 119,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 57,
+      "cliente_id": 1,
+      "fecha": "2025-04-04T22:37:57.492Z",
+      "monto": 101,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 58,
+      "cliente_id": 2,
+      "fecha": "2025-04-05T22:37:57.492Z",
+      "monto": 60,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 59,
+      "cliente_id": 8,
+      "fecha": "2025-04-06T22:37:57.492Z",
+      "monto": 99,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 60,
+      "cliente_id": 1,
+      "fecha": "2025-04-07T22:37:57.492Z",
+      "monto": 85,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 61,
+      "cliente_id": 6,
+      "fecha": "2025-04-08T22:37:57.492Z",
+      "monto": 52,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 62,
+      "cliente_id": 5,
+      "fecha": "2025-04-09T22:37:57.492Z",
+      "monto": 64,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 63,
+      "cliente_id": 5,
+      "fecha": "2025-04-10T22:37:57.492Z",
+      "monto": 118,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 64,
+      "cliente_id": 7,
+      "fecha": "2025-04-11T22:37:57.492Z",
+      "monto": 91,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 65,
+      "cliente_id": 6,
+      "fecha": "2025-04-12T22:37:57.492Z",
+      "monto": 37,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 66,
+      "cliente_id": 1,
+      "fecha": "2025-04-13T22:37:57.492Z",
+      "monto": 103,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 67,
+      "cliente_id": 6,
+      "fecha": "2025-04-14T22:37:57.492Z",
+      "monto": 52,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 68,
+      "cliente_id": 2,
+      "fecha": "2025-04-15T22:37:57.492Z",
+      "monto": 73,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 69,
+      "cliente_id": 3,
+      "fecha": "2025-04-16T22:37:57.492Z",
+      "monto": 38,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 70,
+      "cliente_id": 1,
+      "fecha": "2025-04-17T22:37:57.492Z",
+      "monto": 78,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 71,
+      "cliente_id": 3,
+      "fecha": "2025-04-18T22:37:57.492Z",
+      "monto": 105,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 72,
+      "cliente_id": 5,
+      "fecha": "2025-04-19T22:37:57.492Z",
+      "monto": 29,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 73,
+      "cliente_id": 6,
+      "fecha": "2025-04-20T22:37:57.492Z",
+      "monto": 73,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 74,
+      "cliente_id": 7,
+      "fecha": "2025-04-21T22:37:57.492Z",
+      "monto": 55,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 75,
+      "cliente_id": 3,
+      "fecha": "2025-04-22T22:37:57.492Z",
+      "monto": 41,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 76,
+      "cliente_id": 4,
+      "fecha": "2025-04-28T22:37:57.492Z",
+      "monto": 104,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 77,
+      "cliente_id": 8,
+      "fecha": "2025-04-29T22:37:57.492Z",
+      "monto": 113,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 78,
+      "cliente_id": 1,
+      "fecha": "2025-04-30T22:37:57.492Z",
+      "monto": 33,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 79,
+      "cliente_id": 4,
+      "fecha": "2025-05-01T22:37:57.493Z",
+      "monto": 94,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 80,
+      "cliente_id": 2,
+      "fecha": "2025-05-02T22:37:57.493Z",
+      "monto": 36,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 81,
+      "cliente_id": 8,
+      "fecha": "2025-05-03T22:37:57.493Z",
+      "monto": 69,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 82,
+      "cliente_id": 5,
+      "fecha": "2025-05-04T22:37:57.493Z",
+      "monto": 82,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 83,
+      "cliente_id": 4,
+      "fecha": "2025-05-05T22:37:57.493Z",
+      "monto": 118,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 84,
+      "cliente_id": 1,
+      "fecha": "2025-05-06T22:37:57.493Z",
+      "monto": 39,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 85,
+      "cliente_id": 2,
+      "fecha": "2025-05-07T22:37:57.493Z",
+      "monto": 64,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 86,
+      "cliente_id": 3,
+      "fecha": "2025-05-08T22:37:57.493Z",
+      "monto": 77,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 87,
+      "cliente_id": 2,
+      "fecha": "2025-05-09T22:37:57.493Z",
+      "monto": 72,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 88,
+      "cliente_id": 4,
+      "fecha": "2025-05-10T22:37:57.493Z",
+      "monto": 107,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 89,
+      "cliente_id": 3,
+      "fecha": "2025-05-11T22:37:57.493Z",
+      "monto": 27,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 90,
+      "cliente_id": 1,
+      "fecha": "2025-05-12T22:37:57.493Z",
+      "monto": 80,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 91,
+      "cliente_id": 2,
+      "fecha": "2025-05-13T22:37:57.493Z",
+      "monto": 117,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 92,
+      "cliente_id": 5,
+      "fecha": "2025-05-14T22:37:57.493Z",
+      "monto": 64,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 93,
+      "cliente_id": 5,
+      "fecha": "2025-05-15T22:37:57.493Z",
+      "monto": 24,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 94,
+      "cliente_id": 6,
+      "fecha": "2025-05-16T22:37:57.493Z",
+      "monto": 35,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 95,
+      "cliente_id": 4,
+      "fecha": "2025-05-17T22:37:57.493Z",
+      "monto": 30,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 96,
+      "cliente_id": 1,
+      "fecha": "2025-05-18T22:37:57.493Z",
+      "monto": 24,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 97,
+      "cliente_id": 3,
+      "fecha": "2025-05-19T22:37:57.493Z",
+      "monto": 30,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 98,
+      "cliente_id": 2,
+      "fecha": "2025-05-20T22:37:57.493Z",
+      "monto": 105,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 99,
+      "cliente_id": 5,
+      "fecha": "2025-05-21T22:37:57.493Z",
+      "monto": 22,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 100,
+      "cliente_id": 2,
+      "fecha": "2025-05-22T22:37:57.493Z",
+      "monto": 53,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 101,
+      "cliente_id": 3,
+      "fecha": "2025-05-28T22:37:57.493Z",
+      "monto": 95,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 102,
+      "cliente_id": 4,
+      "fecha": "2025-05-29T22:37:57.493Z",
+      "monto": 39,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 103,
+      "cliente_id": 5,
+      "fecha": "2025-05-30T22:37:57.493Z",
+      "monto": 31,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 104,
+      "cliente_id": 3,
+      "fecha": "2025-05-31T22:37:57.493Z",
+      "monto": 58,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 105,
+      "cliente_id": 3,
+      "fecha": "2025-06-01T22:37:57.493Z",
+      "monto": 99,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 106,
+      "cliente_id": 7,
+      "fecha": "2025-06-02T22:37:57.493Z",
+      "monto": 40,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 107,
+      "cliente_id": 2,
+      "fecha": "2025-06-03T22:37:57.493Z",
+      "monto": 88,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 108,
+      "cliente_id": 2,
+      "fecha": "2025-06-04T22:37:57.493Z",
+      "monto": 91,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 109,
+      "cliente_id": 7,
+      "fecha": "2025-06-05T22:37:57.493Z",
+      "monto": 54,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 110,
+      "cliente_id": 7,
+      "fecha": "2025-06-06T22:37:57.493Z",
+      "monto": 91,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 111,
+      "cliente_id": 5,
+      "fecha": "2025-06-07T22:37:57.493Z",
+      "monto": 42,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 112,
+      "cliente_id": 4,
+      "fecha": "2025-06-08T22:37:57.493Z",
+      "monto": 62,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 113,
+      "cliente_id": 7,
+      "fecha": "2025-06-09T22:37:57.493Z",
+      "monto": 91,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 114,
+      "cliente_id": 2,
+      "fecha": "2025-06-10T22:37:57.493Z",
+      "monto": 28,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 115,
+      "cliente_id": 1,
+      "fecha": "2025-06-11T22:37:57.493Z",
+      "monto": 32,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 116,
+      "cliente_id": 8,
+      "fecha": "2025-06-12T22:37:57.493Z",
+      "monto": 95,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 117,
+      "cliente_id": 3,
+      "fecha": "2025-06-13T22:37:57.493Z",
+      "monto": 60,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 118,
+      "cliente_id": 6,
+      "fecha": "2025-06-14T22:37:57.493Z",
+      "monto": 105,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 119,
+      "cliente_id": 2,
+      "fecha": "2025-06-15T22:37:57.493Z",
+      "monto": 94,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 120,
+      "cliente_id": 1,
+      "fecha": "2025-06-16T22:37:57.493Z",
+      "monto": 76,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 121,
+      "cliente_id": 2,
+      "fecha": "2025-06-17T22:37:57.493Z",
+      "monto": 30,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 122,
+      "cliente_id": 7,
+      "fecha": "2025-06-18T22:37:57.493Z",
+      "monto": 35,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 123,
+      "cliente_id": 5,
+      "fecha": "2025-06-19T22:37:57.493Z",
+      "monto": 103,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 124,
+      "cliente_id": 4,
+      "fecha": "2025-06-20T22:37:57.493Z",
+      "monto": 108,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 125,
+      "cliente_id": 8,
+      "fecha": "2025-06-21T22:37:57.493Z",
+      "monto": 83,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 126,
+      "cliente_id": 4,
+      "fecha": "2025-06-27T22:37:57.493Z",
+      "monto": 78,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 127,
+      "cliente_id": 8,
+      "fecha": "2025-06-28T22:37:57.493Z",
+      "monto": 72,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 128,
+      "cliente_id": 3,
+      "fecha": "2025-06-29T22:37:57.493Z",
+      "monto": 95,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 129,
+      "cliente_id": 7,
+      "fecha": "2025-06-30T22:37:57.493Z",
+      "monto": 48,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 130,
+      "cliente_id": 1,
+      "fecha": "2025-07-01T22:37:57.493Z",
+      "monto": 100,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 131,
+      "cliente_id": 4,
+      "fecha": "2025-07-02T22:37:57.493Z",
+      "monto": 42,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 132,
+      "cliente_id": 2,
+      "fecha": "2025-07-03T22:37:57.493Z",
+      "monto": 20,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 133,
+      "cliente_id": 3,
+      "fecha": "2025-07-04T22:37:57.493Z",
+      "monto": 68,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 134,
+      "cliente_id": 3,
+      "fecha": "2025-07-05T22:37:57.493Z",
+      "monto": 101,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 135,
+      "cliente_id": 1,
+      "fecha": "2025-07-06T22:37:57.493Z",
+      "monto": 101,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 136,
+      "cliente_id": 3,
+      "fecha": "2025-07-07T22:37:57.493Z",
+      "monto": 57,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 137,
+      "cliente_id": 1,
+      "fecha": "2025-07-08T22:37:57.493Z",
+      "monto": 117,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 138,
+      "cliente_id": 5,
+      "fecha": "2025-07-09T22:37:57.493Z",
+      "monto": 26,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 139,
+      "cliente_id": 7,
+      "fecha": "2025-07-10T22:37:57.493Z",
+      "monto": 87,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 140,
+      "cliente_id": 3,
+      "fecha": "2025-07-11T22:37:57.493Z",
+      "monto": 94,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 141,
+      "cliente_id": 4,
+      "fecha": "2025-07-12T22:37:57.493Z",
+      "monto": 52,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 142,
+      "cliente_id": 4,
+      "fecha": "2025-07-13T22:37:57.493Z",
+      "monto": 30,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 143,
+      "cliente_id": 4,
+      "fecha": "2025-07-14T22:37:57.493Z",
+      "monto": 54,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 144,
+      "cliente_id": 6,
+      "fecha": "2025-07-15T22:37:57.493Z",
+      "monto": 104,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 145,
+      "cliente_id": 7,
+      "fecha": "2025-07-16T22:37:57.493Z",
+      "monto": 70,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 146,
+      "cliente_id": 6,
+      "fecha": "2025-07-17T22:37:57.493Z",
+      "monto": 52,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 147,
+      "cliente_id": 2,
+      "fecha": "2025-07-18T22:37:57.493Z",
+      "monto": 66,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 148,
+      "cliente_id": 6,
+      "fecha": "2025-07-19T22:37:57.493Z",
+      "monto": 39,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 149,
+      "cliente_id": 7,
+      "fecha": "2025-07-20T22:37:57.493Z",
+      "monto": 74,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 150,
+      "cliente_id": 3,
+      "fecha": "2025-07-21T22:37:57.493Z",
+      "monto": 64,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 151,
+      "cliente_id": 2,
+      "fecha": "2025-07-27T22:37:57.493Z",
+      "monto": 97,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 152,
+      "cliente_id": 6,
+      "fecha": "2025-07-28T22:37:57.493Z",
+      "monto": 97,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 153,
+      "cliente_id": 8,
+      "fecha": "2025-07-29T22:37:57.493Z",
+      "monto": 63,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 154,
+      "cliente_id": 5,
+      "fecha": "2025-07-30T22:37:57.493Z",
+      "monto": 105,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 155,
+      "cliente_id": 4,
+      "fecha": "2025-07-31T22:37:57.493Z",
+      "monto": 79,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 156,
+      "cliente_id": 1,
+      "fecha": "2025-08-01T22:37:57.493Z",
+      "monto": 44,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 157,
+      "cliente_id": 3,
+      "fecha": "2025-08-02T22:37:57.493Z",
+      "monto": 108,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 158,
+      "cliente_id": 7,
+      "fecha": "2025-08-03T22:37:57.493Z",
+      "monto": 37,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 159,
+      "cliente_id": 8,
+      "fecha": "2025-08-04T22:37:57.493Z",
+      "monto": 111,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 160,
+      "cliente_id": 5,
+      "fecha": "2025-08-05T22:37:57.493Z",
+      "monto": 26,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 161,
+      "cliente_id": 6,
+      "fecha": "2025-08-06T22:37:57.493Z",
+      "monto": 38,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 162,
+      "cliente_id": 3,
+      "fecha": "2025-08-07T22:37:57.493Z",
+      "monto": 111,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 163,
+      "cliente_id": 2,
+      "fecha": "2025-08-08T22:37:57.493Z",
+      "monto": 31,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 164,
+      "cliente_id": 5,
+      "fecha": "2025-08-09T22:37:57.493Z",
+      "monto": 20,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 165,
+      "cliente_id": 4,
+      "fecha": "2025-08-10T22:37:57.493Z",
+      "monto": 29,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 166,
+      "cliente_id": 8,
+      "fecha": "2025-08-11T22:37:57.493Z",
+      "monto": 116,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 167,
+      "cliente_id": 3,
+      "fecha": "2025-08-12T22:37:57.493Z",
+      "monto": 87,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 168,
+      "cliente_id": 1,
+      "fecha": "2025-08-13T22:37:57.493Z",
+      "monto": 44,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 169,
+      "cliente_id": 6,
+      "fecha": "2025-08-14T22:37:57.493Z",
+      "monto": 42,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 170,
+      "cliente_id": 2,
+      "fecha": "2025-08-15T22:37:57.493Z",
+      "monto": 69,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 171,
+      "cliente_id": 8,
+      "fecha": "2025-08-16T22:37:57.493Z",
+      "monto": 49,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 172,
+      "cliente_id": 4,
+      "fecha": "2025-08-17T22:37:57.493Z",
+      "monto": 62,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 173,
+      "cliente_id": 4,
+      "fecha": "2025-08-18T22:37:57.493Z",
+      "monto": 26,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 174,
+      "cliente_id": 1,
+      "fecha": "2025-08-19T22:37:57.493Z",
+      "monto": 77,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 175,
+      "cliente_id": 5,
+      "fecha": "2025-08-20T22:37:57.493Z",
+      "monto": 94,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 176,
+      "cliente_id": 5,
+      "fecha": "2025-08-26T22:37:57.493Z",
+      "monto": 66,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 177,
+      "cliente_id": 6,
+      "fecha": "2025-08-27T22:37:57.493Z",
+      "monto": 38,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 178,
+      "cliente_id": 1,
+      "fecha": "2025-08-28T22:37:57.493Z",
+      "monto": 107,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 179,
+      "cliente_id": 5,
+      "fecha": "2025-08-29T22:37:57.493Z",
+      "monto": 113,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 180,
+      "cliente_id": 4,
+      "fecha": "2025-08-30T22:37:57.493Z",
+      "monto": 40,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 181,
+      "cliente_id": 6,
+      "fecha": "2025-08-31T22:37:57.493Z",
+      "monto": 46,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 182,
+      "cliente_id": 6,
+      "fecha": "2025-09-01T22:37:57.493Z",
+      "monto": 101,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 183,
+      "cliente_id": 3,
+      "fecha": "2025-09-02T22:37:57.493Z",
+      "monto": 89,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 184,
+      "cliente_id": 2,
+      "fecha": "2025-09-03T22:37:57.493Z",
+      "monto": 60,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 185,
+      "cliente_id": 6,
+      "fecha": "2025-09-04T22:37:57.493Z",
+      "monto": 104,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 186,
+      "cliente_id": 2,
+      "fecha": "2025-09-05T22:37:57.493Z",
+      "monto": 115,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 187,
+      "cliente_id": 7,
+      "fecha": "2025-09-06T22:37:57.493Z",
+      "monto": 41,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 188,
+      "cliente_id": 6,
+      "fecha": "2025-09-07T22:37:57.493Z",
+      "monto": 48,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 189,
+      "cliente_id": 2,
+      "fecha": "2025-09-08T22:37:57.493Z",
+      "monto": 56,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 190,
+      "cliente_id": 4,
+      "fecha": "2025-09-09T22:37:57.493Z",
+      "monto": 56,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 191,
+      "cliente_id": 1,
+      "fecha": "2025-09-10T22:37:57.493Z",
+      "monto": 59,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 192,
+      "cliente_id": 7,
+      "fecha": "2025-09-11T22:37:57.493Z",
+      "monto": 37,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 193,
+      "cliente_id": 7,
+      "fecha": "2025-09-12T22:37:57.493Z",
+      "monto": 108,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 194,
+      "cliente_id": 7,
+      "fecha": "2025-09-13T22:37:57.493Z",
+      "monto": 119,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 195,
+      "cliente_id": 6,
+      "fecha": "2025-09-14T22:37:57.493Z",
+      "monto": 51,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 196,
+      "cliente_id": 5,
+      "fecha": "2025-09-15T22:37:57.493Z",
+      "monto": 94,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 197,
+      "cliente_id": 2,
+      "fecha": "2025-09-16T22:37:57.493Z",
+      "monto": 60,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 198,
+      "cliente_id": 8,
+      "fecha": "2025-09-17T22:37:57.493Z",
+      "monto": 104,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 199,
+      "cliente_id": 4,
+      "fecha": "2025-09-18T22:37:57.493Z",
+      "monto": 32,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 200,
+      "cliente_id": 2,
+      "fecha": "2025-09-19T22:37:57.493Z",
+      "monto": 34,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 201,
+      "cliente_id": 6,
+      "fecha": "2025-09-25T22:37:57.493Z",
+      "monto": 42,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 202,
+      "cliente_id": 1,
+      "fecha": "2025-09-26T22:37:57.493Z",
+      "monto": 48,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 203,
+      "cliente_id": 6,
+      "fecha": "2025-09-27T22:37:57.493Z",
+      "monto": 92,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 204,
+      "cliente_id": 7,
+      "fecha": "2025-09-28T22:37:57.493Z",
+      "monto": 118,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 205,
+      "cliente_id": 1,
+      "fecha": "2025-09-29T22:37:57.493Z",
+      "monto": 29,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 206,
+      "cliente_id": 3,
+      "fecha": "2025-09-30T22:37:57.493Z",
+      "monto": 113,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 207,
+      "cliente_id": 1,
+      "fecha": "2025-10-01T22:37:57.493Z",
+      "monto": 115,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 208,
+      "cliente_id": 1,
+      "fecha": "2025-10-02T22:37:57.493Z",
+      "monto": 80,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 209,
+      "cliente_id": 4,
+      "fecha": "2025-10-03T22:37:57.493Z",
+      "monto": 65,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 210,
+      "cliente_id": 2,
+      "fecha": "2025-10-04T22:37:57.493Z",
+      "monto": 47,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 211,
+      "cliente_id": 1,
+      "fecha": "2025-10-05T22:37:57.493Z",
+      "monto": 77,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 212,
+      "cliente_id": 1,
+      "fecha": "2025-10-06T22:37:57.493Z",
+      "monto": 57,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 213,
+      "cliente_id": 4,
+      "fecha": "2025-10-07T22:37:57.493Z",
+      "monto": 97,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 214,
+      "cliente_id": 8,
+      "fecha": "2025-10-08T22:37:57.493Z",
+      "monto": 93,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 215,
+      "cliente_id": 1,
+      "fecha": "2025-10-09T22:37:57.493Z",
+      "monto": 64,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 216,
+      "cliente_id": 3,
+      "fecha": "2025-10-10T22:37:57.493Z",
+      "monto": 50,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 217,
+      "cliente_id": 7,
+      "fecha": "2025-10-11T22:37:57.493Z",
+      "monto": 47,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 218,
+      "cliente_id": 8,
+      "fecha": "2025-10-12T22:37:57.493Z",
+      "monto": 78,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 219,
+      "cliente_id": 3,
+      "fecha": "2025-10-13T22:37:57.493Z",
+      "monto": 21,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 220,
+      "cliente_id": 6,
+      "fecha": "2025-10-14T22:37:57.493Z",
+      "monto": 86,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 221,
+      "cliente_id": 3,
+      "fecha": "2025-10-15T22:37:57.493Z",
+      "monto": 27,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 222,
+      "cliente_id": 2,
+      "fecha": "2025-10-16T22:37:57.493Z",
+      "monto": 117,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 223,
+      "cliente_id": 6,
+      "fecha": "2025-10-17T22:37:57.493Z",
+      "monto": 38,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 224,
+      "cliente_id": 1,
+      "fecha": "2025-10-18T22:37:57.493Z",
+      "monto": 50,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 225,
+      "cliente_id": 1,
+      "fecha": "2025-10-19T22:37:57.493Z",
+      "monto": 59,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 226,
+      "cliente_id": 4,
+      "fecha": "2025-10-25T22:37:57.493Z",
+      "monto": 117,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 227,
+      "cliente_id": 3,
+      "fecha": "2025-10-26T22:37:57.493Z",
+      "monto": 47,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 228,
+      "cliente_id": 4,
+      "fecha": "2025-10-27T22:37:57.493Z",
+      "monto": 103,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 229,
+      "cliente_id": 4,
+      "fecha": "2025-10-28T22:37:57.493Z",
+      "monto": 62,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 230,
+      "cliente_id": 4,
+      "fecha": "2025-10-29T22:37:57.493Z",
+      "monto": 101,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 231,
+      "cliente_id": 2,
+      "fecha": "2025-10-30T22:37:57.493Z",
+      "monto": 117,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 232,
+      "cliente_id": 1,
+      "fecha": "2025-10-31T22:37:57.493Z",
+      "monto": 43,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 233,
+      "cliente_id": 1,
+      "fecha": "2025-11-01T22:37:57.493Z",
+      "monto": 23,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 234,
+      "cliente_id": 4,
+      "fecha": "2025-11-02T22:37:57.493Z",
+      "monto": 86,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 235,
+      "cliente_id": 1,
+      "fecha": "2025-11-03T22:37:57.493Z",
+      "monto": 117,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 236,
+      "cliente_id": 1,
+      "fecha": "2025-11-04T22:37:57.493Z",
+      "monto": 74,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 237,
+      "cliente_id": 5,
+      "fecha": "2025-11-05T22:37:57.493Z",
+      "monto": 112,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 238,
+      "cliente_id": 8,
+      "fecha": "2025-11-06T22:37:57.493Z",
+      "monto": 110,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 239,
+      "cliente_id": 4,
+      "fecha": "2025-11-07T22:37:57.493Z",
+      "monto": 56,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 240,
+      "cliente_id": 3,
+      "fecha": "2025-11-08T22:37:57.493Z",
+      "monto": 23,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 241,
+      "cliente_id": 1,
+      "fecha": "2025-11-09T22:37:57.493Z",
+      "monto": 110,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 242,
+      "cliente_id": 1,
+      "fecha": "2025-11-10T22:37:57.493Z",
+      "monto": 52,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 243,
+      "cliente_id": 4,
+      "fecha": "2025-11-11T22:37:57.493Z",
+      "monto": 115,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 244,
+      "cliente_id": 2,
+      "fecha": "2025-11-12T22:37:57.493Z",
+      "monto": 117,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 245,
+      "cliente_id": 5,
+      "fecha": "2025-11-13T22:37:57.493Z",
+      "monto": 93,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 246,
+      "cliente_id": 1,
+      "fecha": "2025-11-14T22:37:57.493Z",
+      "monto": 25,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 247,
+      "cliente_id": 5,
+      "fecha": "2025-11-15T22:37:57.493Z",
+      "monto": 54,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 248,
+      "cliente_id": 1,
+      "fecha": "2025-11-16T22:37:57.493Z",
+      "monto": 54,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 249,
+      "cliente_id": 7,
+      "fecha": "2025-11-17T22:37:57.493Z",
+      "monto": 119,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 250,
+      "cliente_id": 3,
+      "fecha": "2025-11-18T22:37:57.493Z",
+      "monto": 66,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 251,
+      "cliente_id": 1,
+      "fecha": "2025-11-24T22:37:57.493Z",
+      "monto": 40,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 252,
+      "cliente_id": 2,
+      "fecha": "2025-11-25T22:37:57.493Z",
+      "monto": 88,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 253,
+      "cliente_id": 4,
+      "fecha": "2025-11-26T22:37:57.493Z",
+      "monto": 35,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 254,
+      "cliente_id": 7,
+      "fecha": "2025-11-27T22:37:57.493Z",
+      "monto": 30,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 255,
+      "cliente_id": 1,
+      "fecha": "2025-11-28T22:37:57.493Z",
+      "monto": 107,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 256,
+      "cliente_id": 4,
+      "fecha": "2025-11-29T22:37:57.493Z",
+      "monto": 104,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 257,
+      "cliente_id": 4,
+      "fecha": "2025-11-30T22:37:57.493Z",
+      "monto": 74,
+      "metodo_pago": "efectivo",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 258,
+      "cliente_id": 7,
+      "fecha": "2025-12-01T22:37:57.493Z",
+      "monto": 110,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 259,
+      "cliente_id": 8,
+      "fecha": "2025-12-02T22:37:57.493Z",
+      "monto": 106,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 260,
+      "cliente_id": 5,
+      "fecha": "2025-12-03T22:37:57.493Z",
+      "monto": 48,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 261,
+      "cliente_id": 1,
+      "fecha": "2025-12-04T22:37:57.493Z",
+      "monto": 34,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 262,
+      "cliente_id": 2,
+      "fecha": "2025-12-05T22:37:57.493Z",
+      "monto": 53,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 263,
+      "cliente_id": 5,
+      "fecha": "2025-12-06T22:37:57.493Z",
+      "monto": 87,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 264,
+      "cliente_id": 3,
+      "fecha": "2025-12-07T22:37:57.493Z",
+      "monto": 84,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 265,
+      "cliente_id": 8,
+      "fecha": "2025-12-08T22:37:57.493Z",
+      "monto": 112,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 266,
+      "cliente_id": 4,
+      "fecha": "2025-12-09T22:37:57.493Z",
+      "monto": 35,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 267,
+      "cliente_id": 8,
+      "fecha": "2025-12-10T22:37:57.493Z",
+      "monto": 103,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 268,
+      "cliente_id": 8,
+      "fecha": "2025-12-11T22:37:57.493Z",
+      "monto": 73,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 269,
+      "cliente_id": 2,
+      "fecha": "2025-12-12T22:37:57.493Z",
+      "monto": 74,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 270,
+      "cliente_id": 5,
+      "fecha": "2025-12-13T22:37:57.493Z",
+      "monto": 80,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 271,
+      "cliente_id": 2,
+      "fecha": "2025-12-14T22:37:57.493Z",
+      "monto": 108,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 272,
+      "cliente_id": 8,
+      "fecha": "2025-12-15T22:37:57.493Z",
+      "monto": 30,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 273,
+      "cliente_id": 6,
+      "fecha": "2025-12-16T22:37:57.493Z",
+      "monto": 47,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 274,
+      "cliente_id": 7,
+      "fecha": "2025-12-17T22:37:57.493Z",
+      "monto": 106,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 275,
+      "cliente_id": 1,
+      "fecha": "2025-12-18T22:37:57.493Z",
+      "monto": 98,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 276,
+      "cliente_id": 7,
+      "fecha": "2025-12-24T22:37:57.493Z",
+      "monto": 116,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 277,
+      "cliente_id": 1,
+      "fecha": "2025-12-25T22:37:57.493Z",
+      "monto": 23,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 278,
+      "cliente_id": 6,
+      "fecha": "2025-12-26T22:37:57.493Z",
+      "monto": 44,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 279,
+      "cliente_id": 5,
+      "fecha": "2025-12-27T22:37:57.493Z",
+      "monto": 115,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 280,
+      "cliente_id": 7,
+      "fecha": "2025-12-28T22:37:57.493Z",
+      "monto": 57,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 281,
+      "cliente_id": 5,
+      "fecha": "2025-12-29T22:37:57.493Z",
+      "monto": 107,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 282,
+      "cliente_id": 2,
+      "fecha": "2025-12-30T22:37:57.493Z",
+      "monto": 95,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 283,
+      "cliente_id": 3,
+      "fecha": "2025-12-31T22:37:57.493Z",
+      "monto": 75,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 284,
+      "cliente_id": 6,
+      "fecha": "2026-01-01T22:37:57.493Z",
+      "monto": 23,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 285,
+      "cliente_id": 7,
+      "fecha": "2026-01-02T22:37:57.493Z",
+      "monto": 114,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 286,
+      "cliente_id": 7,
+      "fecha": "2026-01-03T22:37:57.493Z",
+      "monto": 94,
+      "metodo_pago": "efectivo",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 287,
+      "cliente_id": 5,
+      "fecha": "2026-01-04T22:37:57.493Z",
+      "monto": 99,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 288,
+      "cliente_id": 7,
+      "fecha": "2026-01-05T22:37:57.493Z",
+      "monto": 64,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 289,
+      "cliente_id": 5,
+      "fecha": "2026-01-06T22:37:57.493Z",
+      "monto": 83,
+      "metodo_pago": "transferencia",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 290,
+      "cliente_id": 1,
+      "fecha": "2026-01-07T22:37:57.493Z",
+      "monto": 85,
+      "metodo_pago": "efectivo",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 291,
+      "cliente_id": 5,
+      "fecha": "2026-01-08T22:37:57.493Z",
+      "monto": 97,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 292,
+      "cliente_id": 6,
+      "fecha": "2026-01-09T22:37:57.493Z",
+      "monto": 93,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 293,
+      "cliente_id": 3,
+      "fecha": "2026-01-10T22:37:57.493Z",
+      "monto": 108,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Corte",
+      "estado": "completada"
+    },
+    {
+      "id": 294,
+      "cliente_id": 5,
+      "fecha": "2026-01-11T22:37:57.493Z",
+      "monto": 68,
+      "metodo_pago": "efectivo",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 295,
+      "cliente_id": 3,
+      "fecha": "2026-01-12T22:37:57.493Z",
+      "monto": 38,
+      "metodo_pago": "efectivo",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 296,
+      "cliente_id": 4,
+      "fecha": "2026-01-13T22:37:57.493Z",
+      "monto": 29,
+      "metodo_pago": "transferencia",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    },
+    {
+      "id": 297,
+      "cliente_id": 3,
+      "fecha": "2026-01-14T22:37:57.493Z",
+      "monto": 72,
+      "metodo_pago": "transferencia",
+      "descripcion": "Mechas",
+      "estado": "completada"
+    },
+    {
+      "id": 298,
+      "cliente_id": 8,
+      "fecha": "2026-01-15T22:37:57.493Z",
+      "monto": 67,
+      "metodo_pago": "transferencia",
+      "descripcion": "Tinte",
+      "estado": "completada"
+    },
+    {
+      "id": 299,
+      "cliente_id": 5,
+      "fecha": "2026-01-16T22:37:57.493Z",
+      "monto": 39,
+      "metodo_pago": "transferencia",
+      "descripcion": "Alisado",
+      "estado": "completada"
+    },
+    {
+      "id": 300,
+      "cliente_id": 5,
+      "fecha": "2026-01-17T22:37:57.493Z",
+      "monto": 81,
+      "metodo_pago": "tarjeta",
+      "descripcion": "Peinado",
+      "estado": "completada"
+    }
+  ],
+  "citas_demo": [
+    {
+      "id": 1,
+      "cliente_id": 7,
+      "fecha": "2025-01-28",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 66
+    },
+    {
+      "id": 2,
+      "cliente_id": 5,
+      "fecha": "2025-01-29",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 22
+    },
+    {
+      "id": 3,
+      "cliente_id": 8,
+      "fecha": "2025-01-30",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 97
+    },
+    {
+      "id": 4,
+      "cliente_id": 1,
+      "fecha": "2025-01-31",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 26
+    },
+    {
+      "id": 5,
+      "cliente_id": 6,
+      "fecha": "2025-02-01",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 67
+    },
+    {
+      "id": 6,
+      "cliente_id": 1,
+      "fecha": "2025-02-02",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 29
+    },
+    {
+      "id": 7,
+      "cliente_id": 7,
+      "fecha": "2025-02-03",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 50
+    },
+    {
+      "id": 8,
+      "cliente_id": 3,
+      "fecha": "2025-02-04",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 45
+    },
+    {
+      "id": 9,
+      "cliente_id": 6,
+      "fecha": "2025-02-05",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 68
+    },
+    {
+      "id": 10,
+      "cliente_id": 1,
+      "fecha": "2025-02-06",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 46
+    },
+    {
+      "id": 11,
+      "cliente_id": 5,
+      "fecha": "2025-02-07",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 45
+    },
+    {
+      "id": 12,
+      "cliente_id": 6,
+      "fecha": "2025-02-08",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 56
+    },
+    {
+      "id": 13,
+      "cliente_id": 5,
+      "fecha": "2025-02-09",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 32
+    },
+    {
+      "id": 14,
+      "cliente_id": 4,
+      "fecha": "2025-02-10",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 47
+    },
+    {
+      "id": 15,
+      "cliente_id": 1,
+      "fecha": "2025-02-11",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 64
+    },
+    {
+      "id": 16,
+      "cliente_id": 8,
+      "fecha": "2025-02-12",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 51
+    },
+    {
+      "id": 17,
+      "cliente_id": 3,
+      "fecha": "2025-02-13",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 47
+    },
+    {
+      "id": 18,
+      "cliente_id": 7,
+      "fecha": "2025-02-14",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 94
+    },
+    {
+      "id": 19,
+      "cliente_id": 3,
+      "fecha": "2025-02-15",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 86
+    },
+    {
+      "id": 20,
+      "cliente_id": 4,
+      "fecha": "2025-02-16",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 50
+    },
+    {
+      "id": 21,
+      "cliente_id": 6,
+      "fecha": "2025-02-27",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 72
+    },
+    {
+      "id": 22,
+      "cliente_id": 2,
+      "fecha": "2025-02-28",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 38
+    },
+    {
+      "id": 23,
+      "cliente_id": 8,
+      "fecha": "2025-03-01",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 85
+    },
+    {
+      "id": 24,
+      "cliente_id": 6,
+      "fecha": "2025-03-02",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 82
+    },
+    {
+      "id": 25,
+      "cliente_id": 8,
+      "fecha": "2025-03-03",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 73
+    },
+    {
+      "id": 26,
+      "cliente_id": 5,
+      "fecha": "2025-03-04",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 41
+    },
+    {
+      "id": 27,
+      "cliente_id": 5,
+      "fecha": "2025-03-05",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 92
+    },
+    {
+      "id": 28,
+      "cliente_id": 5,
+      "fecha": "2025-03-06",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 95
+    },
+    {
+      "id": 29,
+      "cliente_id": 4,
+      "fecha": "2025-03-07",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 30
+    },
+    {
+      "id": 30,
+      "cliente_id": 5,
+      "fecha": "2025-03-08",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 61
+    },
+    {
+      "id": 31,
+      "cliente_id": 2,
+      "fecha": "2025-03-09",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 48
+    },
+    {
+      "id": 32,
+      "cliente_id": 3,
+      "fecha": "2025-03-10",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 85
+    },
+    {
+      "id": 33,
+      "cliente_id": 8,
+      "fecha": "2025-03-11",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 53
+    },
+    {
+      "id": 34,
+      "cliente_id": 2,
+      "fecha": "2025-03-12",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 67
+    },
+    {
+      "id": 35,
+      "cliente_id": 4,
+      "fecha": "2025-03-13",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 49
+    },
+    {
+      "id": 36,
+      "cliente_id": 8,
+      "fecha": "2025-03-14",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 97
+    },
+    {
+      "id": 37,
+      "cliente_id": 5,
+      "fecha": "2025-03-15",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 82
+    },
+    {
+      "id": 38,
+      "cliente_id": 8,
+      "fecha": "2025-03-16",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "completada",
+      "monto": 36
+    },
+    {
+      "id": 39,
+      "cliente_id": 5,
+      "fecha": "2025-03-17",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 39
+    },
+    {
+      "id": 40,
+      "cliente_id": 4,
+      "fecha": "2025-03-18",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 86
+    },
+    {
+      "id": 41,
+      "cliente_id": 8,
+      "fecha": "2025-03-29",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 84
+    },
+    {
+      "id": 42,
+      "cliente_id": 5,
+      "fecha": "2025-03-30",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 38
+    },
+    {
+      "id": 43,
+      "cliente_id": 7,
+      "fecha": "2025-03-31",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 91
+    },
+    {
+      "id": 44,
+      "cliente_id": 3,
+      "fecha": "2025-04-01",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 74
+    },
+    {
+      "id": 45,
+      "cliente_id": 6,
+      "fecha": "2025-04-02",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "completada",
+      "monto": 81
+    },
+    {
+      "id": 46,
+      "cliente_id": 8,
+      "fecha": "2025-04-03",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 25
+    },
+    {
+      "id": 47,
+      "cliente_id": 1,
+      "fecha": "2025-04-04",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 31
+    },
+    {
+      "id": 48,
+      "cliente_id": 5,
+      "fecha": "2025-04-05",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 77
+    },
+    {
+      "id": 49,
+      "cliente_id": 8,
+      "fecha": "2025-04-06",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 40
+    },
+    {
+      "id": 50,
+      "cliente_id": 3,
+      "fecha": "2025-04-07",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 40
+    },
+    {
+      "id": 51,
+      "cliente_id": 5,
+      "fecha": "2025-04-08",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 60
+    },
+    {
+      "id": 52,
+      "cliente_id": 4,
+      "fecha": "2025-04-09",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 57
+    },
+    {
+      "id": 53,
+      "cliente_id": 1,
+      "fecha": "2025-04-10",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 74
+    },
+    {
+      "id": 54,
+      "cliente_id": 4,
+      "fecha": "2025-04-11",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 99
+    },
+    {
+      "id": 55,
+      "cliente_id": 5,
+      "fecha": "2025-04-12",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 44
+    },
+    {
+      "id": 56,
+      "cliente_id": 1,
+      "fecha": "2025-04-13",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 57
+    },
+    {
+      "id": 57,
+      "cliente_id": 2,
+      "fecha": "2025-04-14",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 27
+    },
+    {
+      "id": 58,
+      "cliente_id": 6,
+      "fecha": "2025-04-15",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 45
+    },
+    {
+      "id": 59,
+      "cliente_id": 2,
+      "fecha": "2025-04-16",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 30
+    },
+    {
+      "id": 60,
+      "cliente_id": 5,
+      "fecha": "2025-04-17",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 88
+    },
+    {
+      "id": 61,
+      "cliente_id": 8,
+      "fecha": "2025-04-28",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 31
+    },
+    {
+      "id": 62,
+      "cliente_id": 7,
+      "fecha": "2025-04-29",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 94
+    },
+    {
+      "id": 63,
+      "cliente_id": 3,
+      "fecha": "2025-04-30",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 24
+    },
+    {
+      "id": 64,
+      "cliente_id": 8,
+      "fecha": "2025-05-01",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 73
+    },
+    {
+      "id": 65,
+      "cliente_id": 6,
+      "fecha": "2025-05-02",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 59
+    },
+    {
+      "id": 66,
+      "cliente_id": 8,
+      "fecha": "2025-05-03",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 57
+    },
+    {
+      "id": 67,
+      "cliente_id": 7,
+      "fecha": "2025-05-04",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 40
+    },
+    {
+      "id": 68,
+      "cliente_id": 3,
+      "fecha": "2025-05-05",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 89
+    },
+    {
+      "id": 69,
+      "cliente_id": 1,
+      "fecha": "2025-05-06",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 26
+    },
+    {
+      "id": 70,
+      "cliente_id": 5,
+      "fecha": "2025-05-07",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 67
+    },
+    {
+      "id": 71,
+      "cliente_id": 6,
+      "fecha": "2025-05-08",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 62
+    },
+    {
+      "id": 72,
+      "cliente_id": 5,
+      "fecha": "2025-05-09",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 70
+    },
+    {
+      "id": 73,
+      "cliente_id": 7,
+      "fecha": "2025-05-10",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 58
+    },
+    {
+      "id": 74,
+      "cliente_id": 5,
+      "fecha": "2025-05-11",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 52
+    },
+    {
+      "id": 75,
+      "cliente_id": 5,
+      "fecha": "2025-05-12",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 61
+    },
+    {
+      "id": 76,
+      "cliente_id": 7,
+      "fecha": "2025-05-13",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 70
+    },
+    {
+      "id": 77,
+      "cliente_id": 6,
+      "fecha": "2025-05-14",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 22
+    },
+    {
+      "id": 78,
+      "cliente_id": 3,
+      "fecha": "2025-05-15",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 60
+    },
+    {
+      "id": 79,
+      "cliente_id": 4,
+      "fecha": "2025-05-16",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 93
+    },
+    {
+      "id": 80,
+      "cliente_id": 8,
+      "fecha": "2025-05-17",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 99
+    },
+    {
+      "id": 81,
+      "cliente_id": 7,
+      "fecha": "2025-05-28",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 38
+    },
+    {
+      "id": 82,
+      "cliente_id": 7,
+      "fecha": "2025-05-29",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 73
+    },
+    {
+      "id": 83,
+      "cliente_id": 8,
+      "fecha": "2025-05-30",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 21
+    },
+    {
+      "id": 84,
+      "cliente_id": 8,
+      "fecha": "2025-05-31",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 72
+    },
+    {
+      "id": 85,
+      "cliente_id": 1,
+      "fecha": "2025-06-01",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 26
+    },
+    {
+      "id": 86,
+      "cliente_id": 1,
+      "fecha": "2025-06-02",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 54
+    },
+    {
+      "id": 87,
+      "cliente_id": 5,
+      "fecha": "2025-06-03",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 47
+    },
+    {
+      "id": 88,
+      "cliente_id": 8,
+      "fecha": "2025-06-04",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 39
+    },
+    {
+      "id": 89,
+      "cliente_id": 4,
+      "fecha": "2025-06-05",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 42
+    },
+    {
+      "id": 90,
+      "cliente_id": 1,
+      "fecha": "2025-06-06",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 81
+    },
+    {
+      "id": 91,
+      "cliente_id": 1,
+      "fecha": "2025-06-07",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 55
+    },
+    {
+      "id": 92,
+      "cliente_id": 5,
+      "fecha": "2025-06-08",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 89
+    },
+    {
+      "id": 93,
+      "cliente_id": 2,
+      "fecha": "2025-06-09",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 56
+    },
+    {
+      "id": 94,
+      "cliente_id": 2,
+      "fecha": "2025-06-10",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 44
+    },
+    {
+      "id": 95,
+      "cliente_id": 2,
+      "fecha": "2025-06-11",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 76
+    },
+    {
+      "id": 96,
+      "cliente_id": 1,
+      "fecha": "2025-06-12",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 33
+    },
+    {
+      "id": 97,
+      "cliente_id": 6,
+      "fecha": "2025-06-13",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 34
+    },
+    {
+      "id": 98,
+      "cliente_id": 8,
+      "fecha": "2025-06-14",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 93
+    },
+    {
+      "id": 99,
+      "cliente_id": 4,
+      "fecha": "2025-06-15",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 35
+    },
+    {
+      "id": 100,
+      "cliente_id": 3,
+      "fecha": "2025-06-16",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 32
+    },
+    {
+      "id": 101,
+      "cliente_id": 1,
+      "fecha": "2025-06-27",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 45
+    },
+    {
+      "id": 102,
+      "cliente_id": 1,
+      "fecha": "2025-06-28",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 89
+    },
+    {
+      "id": 103,
+      "cliente_id": 5,
+      "fecha": "2025-06-29",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "completada",
+      "monto": 46
+    },
+    {
+      "id": 104,
+      "cliente_id": 1,
+      "fecha": "2025-06-30",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 52
+    },
+    {
+      "id": 105,
+      "cliente_id": 1,
+      "fecha": "2025-07-01",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 30
+    },
+    {
+      "id": 106,
+      "cliente_id": 8,
+      "fecha": "2025-07-02",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 37
+    },
+    {
+      "id": 107,
+      "cliente_id": 7,
+      "fecha": "2025-07-03",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 26
+    },
+    {
+      "id": 108,
+      "cliente_id": 8,
+      "fecha": "2025-07-04",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 43
+    },
+    {
+      "id": 109,
+      "cliente_id": 8,
+      "fecha": "2025-07-05",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 81
+    },
+    {
+      "id": 110,
+      "cliente_id": 4,
+      "fecha": "2025-07-06",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 50
+    },
+    {
+      "id": 111,
+      "cliente_id": 7,
+      "fecha": "2025-07-07",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 61
+    },
+    {
+      "id": 112,
+      "cliente_id": 3,
+      "fecha": "2025-07-08",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 75
+    },
+    {
+      "id": 113,
+      "cliente_id": 4,
+      "fecha": "2025-07-09",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 21
+    },
+    {
+      "id": 114,
+      "cliente_id": 6,
+      "fecha": "2025-07-10",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 80
+    },
+    {
+      "id": 115,
+      "cliente_id": 3,
+      "fecha": "2025-07-11",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 56
+    },
+    {
+      "id": 116,
+      "cliente_id": 8,
+      "fecha": "2025-07-12",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 71
+    },
+    {
+      "id": 117,
+      "cliente_id": 4,
+      "fecha": "2025-07-13",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 49
+    },
+    {
+      "id": 118,
+      "cliente_id": 3,
+      "fecha": "2025-07-14",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 63
+    },
+    {
+      "id": 119,
+      "cliente_id": 5,
+      "fecha": "2025-07-15",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 42
+    },
+    {
+      "id": 120,
+      "cliente_id": 3,
+      "fecha": "2025-07-16",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 45
+    },
+    {
+      "id": 121,
+      "cliente_id": 2,
+      "fecha": "2025-07-27",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "completada",
+      "monto": 36
+    },
+    {
+      "id": 122,
+      "cliente_id": 6,
+      "fecha": "2025-07-28",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 97
+    },
+    {
+      "id": 123,
+      "cliente_id": 3,
+      "fecha": "2025-07-29",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 24
+    },
+    {
+      "id": 124,
+      "cliente_id": 4,
+      "fecha": "2025-07-30",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 61
+    },
+    {
+      "id": 125,
+      "cliente_id": 7,
+      "fecha": "2025-07-31",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 63
+    },
+    {
+      "id": 126,
+      "cliente_id": 6,
+      "fecha": "2025-08-01",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 82
+    },
+    {
+      "id": 127,
+      "cliente_id": 6,
+      "fecha": "2025-08-02",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 23
+    },
+    {
+      "id": 128,
+      "cliente_id": 5,
+      "fecha": "2025-08-03",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 69
+    },
+    {
+      "id": 129,
+      "cliente_id": 2,
+      "fecha": "2025-08-04",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 24
+    },
+    {
+      "id": 130,
+      "cliente_id": 1,
+      "fecha": "2025-08-05",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 52
+    },
+    {
+      "id": 131,
+      "cliente_id": 1,
+      "fecha": "2025-08-06",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 93
+    },
+    {
+      "id": 132,
+      "cliente_id": 8,
+      "fecha": "2025-08-07",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 92
+    },
+    {
+      "id": 133,
+      "cliente_id": 8,
+      "fecha": "2025-08-08",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 74
+    },
+    {
+      "id": 134,
+      "cliente_id": 5,
+      "fecha": "2025-08-09",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 91
+    },
+    {
+      "id": 135,
+      "cliente_id": 1,
+      "fecha": "2025-08-10",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 71
+    },
+    {
+      "id": 136,
+      "cliente_id": 2,
+      "fecha": "2025-08-11",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 60
+    },
+    {
+      "id": 137,
+      "cliente_id": 5,
+      "fecha": "2025-08-12",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 25
+    },
+    {
+      "id": 138,
+      "cliente_id": 6,
+      "fecha": "2025-08-13",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 78
+    },
+    {
+      "id": 139,
+      "cliente_id": 8,
+      "fecha": "2025-08-14",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 64
+    },
+    {
+      "id": 140,
+      "cliente_id": 5,
+      "fecha": "2025-08-15",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 75
+    },
+    {
+      "id": 141,
+      "cliente_id": 2,
+      "fecha": "2025-08-26",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 99
+    },
+    {
+      "id": 142,
+      "cliente_id": 4,
+      "fecha": "2025-08-27",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 57
+    },
+    {
+      "id": 143,
+      "cliente_id": 2,
+      "fecha": "2025-08-28",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 78
+    },
+    {
+      "id": 144,
+      "cliente_id": 4,
+      "fecha": "2025-08-29",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 36
+    },
+    {
+      "id": 145,
+      "cliente_id": 8,
+      "fecha": "2025-08-30",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 93
+    },
+    {
+      "id": 146,
+      "cliente_id": 2,
+      "fecha": "2025-08-31",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 52
+    },
+    {
+      "id": 147,
+      "cliente_id": 4,
+      "fecha": "2025-09-01",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 59
+    },
+    {
+      "id": 148,
+      "cliente_id": 1,
+      "fecha": "2025-09-02",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 49
+    },
+    {
+      "id": 149,
+      "cliente_id": 3,
+      "fecha": "2025-09-03",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 67
+    },
+    {
+      "id": 150,
+      "cliente_id": 7,
+      "fecha": "2025-09-04",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 51
+    },
+    {
+      "id": 151,
+      "cliente_id": 4,
+      "fecha": "2025-09-05",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 57
+    },
+    {
+      "id": 152,
+      "cliente_id": 7,
+      "fecha": "2025-09-06",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 72
+    },
+    {
+      "id": 153,
+      "cliente_id": 5,
+      "fecha": "2025-09-07",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 56
+    },
+    {
+      "id": 154,
+      "cliente_id": 5,
+      "fecha": "2025-09-08",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 42
+    },
+    {
+      "id": 155,
+      "cliente_id": 6,
+      "fecha": "2025-09-09",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 50
+    },
+    {
+      "id": 156,
+      "cliente_id": 3,
+      "fecha": "2025-09-10",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 93
+    },
+    {
+      "id": 157,
+      "cliente_id": 2,
+      "fecha": "2025-09-11",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 77
+    },
+    {
+      "id": 158,
+      "cliente_id": 2,
+      "fecha": "2025-09-12",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 29
+    },
+    {
+      "id": 159,
+      "cliente_id": 1,
+      "fecha": "2025-09-13",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 39
+    },
+    {
+      "id": 160,
+      "cliente_id": 4,
+      "fecha": "2025-09-14",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 78
+    },
+    {
+      "id": 161,
+      "cliente_id": 8,
+      "fecha": "2025-09-25",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 72
+    },
+    {
+      "id": 162,
+      "cliente_id": 8,
+      "fecha": "2025-09-26",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 21
+    },
+    {
+      "id": 163,
+      "cliente_id": 2,
+      "fecha": "2025-09-27",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 57
+    },
+    {
+      "id": 164,
+      "cliente_id": 7,
+      "fecha": "2025-09-28",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 51
+    },
+    {
+      "id": 165,
+      "cliente_id": 5,
+      "fecha": "2025-09-29",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 35
+    },
+    {
+      "id": 166,
+      "cliente_id": 3,
+      "fecha": "2025-09-30",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 49
+    },
+    {
+      "id": 167,
+      "cliente_id": 5,
+      "fecha": "2025-10-01",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 40
+    },
+    {
+      "id": 168,
+      "cliente_id": 8,
+      "fecha": "2025-10-02",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 93
+    },
+    {
+      "id": 169,
+      "cliente_id": 3,
+      "fecha": "2025-10-03",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 95
+    },
+    {
+      "id": 170,
+      "cliente_id": 3,
+      "fecha": "2025-10-04",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 86
+    },
+    {
+      "id": 171,
+      "cliente_id": 4,
+      "fecha": "2025-10-05",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 36
+    },
+    {
+      "id": 172,
+      "cliente_id": 1,
+      "fecha": "2025-10-06",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 91
+    },
+    {
+      "id": 173,
+      "cliente_id": 7,
+      "fecha": "2025-10-07",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 94
+    },
+    {
+      "id": 174,
+      "cliente_id": 4,
+      "fecha": "2025-10-08",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "completada",
+      "monto": 48
+    },
+    {
+      "id": 175,
+      "cliente_id": 3,
+      "fecha": "2025-10-09",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 29
+    },
+    {
+      "id": 176,
+      "cliente_id": 4,
+      "fecha": "2025-10-10",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 37
+    },
+    {
+      "id": 177,
+      "cliente_id": 3,
+      "fecha": "2025-10-11",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 50
+    },
+    {
+      "id": 178,
+      "cliente_id": 8,
+      "fecha": "2025-10-12",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 41
+    },
+    {
+      "id": 179,
+      "cliente_id": 5,
+      "fecha": "2025-10-13",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 51
+    },
+    {
+      "id": 180,
+      "cliente_id": 8,
+      "fecha": "2025-10-14",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 50
+    },
+    {
+      "id": 181,
+      "cliente_id": 4,
+      "fecha": "2025-10-25",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 66
+    },
+    {
+      "id": 182,
+      "cliente_id": 1,
+      "fecha": "2025-10-26",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 48
+    },
+    {
+      "id": 183,
+      "cliente_id": 7,
+      "fecha": "2025-10-27",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 62
+    },
+    {
+      "id": 184,
+      "cliente_id": 1,
+      "fecha": "2025-10-28",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 70
+    },
+    {
+      "id": 185,
+      "cliente_id": 7,
+      "fecha": "2025-10-29",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 63
+    },
+    {
+      "id": 186,
+      "cliente_id": 1,
+      "fecha": "2025-10-30",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 37
+    },
+    {
+      "id": 187,
+      "cliente_id": 8,
+      "fecha": "2025-10-31",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 23
+    },
+    {
+      "id": 188,
+      "cliente_id": 2,
+      "fecha": "2025-11-01",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 31
+    },
+    {
+      "id": 189,
+      "cliente_id": 1,
+      "fecha": "2025-11-02",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 79
+    },
+    {
+      "id": 190,
+      "cliente_id": 7,
+      "fecha": "2025-11-03",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 51
+    },
+    {
+      "id": 191,
+      "cliente_id": 3,
+      "fecha": "2025-11-04",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 65
+    },
+    {
+      "id": 192,
+      "cliente_id": 8,
+      "fecha": "2025-11-05",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 57
+    },
+    {
+      "id": 193,
+      "cliente_id": 2,
+      "fecha": "2025-11-06",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 66
+    },
+    {
+      "id": 194,
+      "cliente_id": 5,
+      "fecha": "2025-11-07",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 95
+    },
+    {
+      "id": 195,
+      "cliente_id": 6,
+      "fecha": "2025-11-08",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "completada",
+      "monto": 32
+    },
+    {
+      "id": 196,
+      "cliente_id": 3,
+      "fecha": "2025-11-09",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 30
+    },
+    {
+      "id": 197,
+      "cliente_id": 7,
+      "fecha": "2025-11-10",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 39
+    },
+    {
+      "id": 198,
+      "cliente_id": 3,
+      "fecha": "2025-11-11",
+      "hora": ":",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 81
+    },
+    {
+      "id": 199,
+      "cliente_id": 7,
+      "fecha": "2025-11-12",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 44
+    },
+    {
+      "id": 200,
+      "cliente_id": 5,
+      "fecha": "2025-11-13",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 75
+    },
+    {
+      "id": 201,
+      "cliente_id": 7,
+      "fecha": "2025-11-24",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 47
+    },
+    {
+      "id": 202,
+      "cliente_id": 2,
+      "fecha": "2025-11-25",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 58
+    },
+    {
+      "id": 203,
+      "cliente_id": 5,
+      "fecha": "2025-11-26",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 74
+    },
+    {
+      "id": 204,
+      "cliente_id": 7,
+      "fecha": "2025-11-27",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 98
+    },
+    {
+      "id": 205,
+      "cliente_id": 2,
+      "fecha": "2025-11-28",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 43
+    },
+    {
+      "id": 206,
+      "cliente_id": 4,
+      "fecha": "2025-11-29",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 83
+    },
+    {
+      "id": 207,
+      "cliente_id": 6,
+      "fecha": "2025-11-30",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 78
+    },
+    {
+      "id": 208,
+      "cliente_id": 5,
+      "fecha": "2025-12-01",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "cancelada",
+      "monto": 84
+    },
+    {
+      "id": 209,
+      "cliente_id": 5,
+      "fecha": "2025-12-02",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 65
+    },
+    {
+      "id": 210,
+      "cliente_id": 7,
+      "fecha": "2025-12-03",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 76
+    },
+    {
+      "id": 211,
+      "cliente_id": 4,
+      "fecha": "2025-12-04",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 42
+    },
+    {
+      "id": 212,
+      "cliente_id": 5,
+      "fecha": "2025-12-05",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 74
+    },
+    {
+      "id": 213,
+      "cliente_id": 7,
+      "fecha": "2025-12-06",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 95
+    },
+    {
+      "id": 214,
+      "cliente_id": 4,
+      "fecha": "2025-12-07",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "completada",
+      "monto": 73
+    },
+    {
+      "id": 215,
+      "cliente_id": 3,
+      "fecha": "2025-12-08",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 59
+    },
+    {
+      "id": 216,
+      "cliente_id": 2,
+      "fecha": "2025-12-09",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 81
+    },
+    {
+      "id": 217,
+      "cliente_id": 4,
+      "fecha": "2025-12-10",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 44
+    },
+    {
+      "id": 218,
+      "cliente_id": 4,
+      "fecha": "2025-12-11",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 36
+    },
+    {
+      "id": 219,
+      "cliente_id": 3,
+      "fecha": "2025-12-12",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 92
+    },
+    {
+      "id": 220,
+      "cliente_id": 3,
+      "fecha": "2025-12-13",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Peinado",
+      "estado": "completada",
+      "monto": 74
+    },
+    {
+      "id": 221,
+      "cliente_id": 1,
+      "fecha": "2025-12-24",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "completada",
+      "monto": 31
+    },
+    {
+      "id": 222,
+      "cliente_id": 8,
+      "fecha": "2025-12-25",
+      "hora": ":",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "cancelada",
+      "monto": 73
+    },
+    {
+      "id": 223,
+      "cliente_id": 4,
+      "fecha": "2025-12-26",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "completada",
+      "monto": 41
+    },
+    {
+      "id": 224,
+      "cliente_id": 1,
+      "fecha": "2025-12-27",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 26
+    },
+    {
+      "id": 225,
+      "cliente_id": 8,
+      "fecha": "2025-12-28",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 45
+    },
+    {
+      "id": 226,
+      "cliente_id": 2,
+      "fecha": "2025-12-29",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 87
+    },
+    {
+      "id": 227,
+      "cliente_id": 5,
+      "fecha": "2025-12-30",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Alisado",
+      "estado": "no_asistio",
+      "monto": 20
+    },
+    {
+      "id": 228,
+      "cliente_id": 6,
+      "fecha": "2025-12-31",
+      "hora": "9",
+      "duracion": 120,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 29
+    },
+    {
+      "id": 229,
+      "cliente_id": 2,
+      "fecha": "2026-01-01",
+      "hora": "9",
+      "duracion": 60,
+      "servicio": "Corte",
+      "estado": "cancelada",
+      "monto": 41
+    },
+    {
+      "id": 230,
+      "cliente_id": 1,
+      "fecha": "2026-01-02",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 84
+    },
+    {
+      "id": 231,
+      "cliente_id": 6,
+      "fecha": "2026-01-03",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 80
+    },
+    {
+      "id": 232,
+      "cliente_id": 2,
+      "fecha": "2026-01-04",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 73
+    },
+    {
+      "id": 233,
+      "cliente_id": 2,
+      "fecha": "2026-01-05",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Mechas",
+      "estado": "cancelada",
+      "monto": 93
+    },
+    {
+      "id": 234,
+      "cliente_id": 7,
+      "fecha": "2026-01-06",
+      "hora": "0",
+      "duracion": 60,
+      "servicio": "Tinte Completo",
+      "estado": "completada",
+      "monto": 55
+    },
+    {
+      "id": 235,
+      "cliente_id": 6,
+      "fecha": "2026-01-07",
+      "hora": "0",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "cancelada",
+      "monto": 47
+    },
+    {
+      "id": 236,
+      "cliente_id": 7,
+      "fecha": "2026-01-08",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Corte",
+      "estado": "no_asistio",
+      "monto": 96
+    },
+    {
+      "id": 237,
+      "cliente_id": 6,
+      "fecha": "2026-01-09",
+      "hora": "9",
+      "duracion": 30,
+      "servicio": "Peinado",
+      "estado": "no_asistio",
+      "monto": 71
+    },
+    {
+      "id": 238,
+      "cliente_id": 7,
+      "fecha": "2026-01-10",
+      "hora": ":",
+      "duracion": 60,
+      "servicio": "Mechas",
+      "estado": "no_asistio",
+      "monto": 38
+    },
+    {
+      "id": 239,
+      "cliente_id": 3,
+      "fecha": "2026-01-11",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 98
+    },
+    {
+      "id": 240,
+      "cliente_id": 5,
+      "fecha": "2026-01-12",
+      "hora": "0",
+      "duracion": 120,
+      "servicio": "Tinte Completo",
+      "estado": "no_asistio",
+      "monto": 98
     }
   ]
 }
