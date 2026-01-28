@@ -50,7 +50,7 @@ module.exports = {
       },
       
       limitations: {
-        api_calls_monthly: 500,
+        api_calls_monthly: 10000,
         concurrent_users: 2,
         file_upload_size_mb: 5,
         custom_fields: false,

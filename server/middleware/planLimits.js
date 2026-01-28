@@ -124,6 +124,11 @@ function rateLimitByPlan(req, res, next) {
     // Obtener plan actual del tenant
     const tenantPlan = req.tenantPlan || 'basic'; // Default a basic
     
+    // ⭐ Plan Trial sin límites durante los 7 días
+    if (tenantPlan === 'trial') {
+      return next();
+    }
+    
     // Obtener límite de API calls para este plan
     const limit = getApiCallLimit(tenantPlan);
     
