@@ -51,6 +51,7 @@
     "url": "privado"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.93.2",
     "bcryptjs": "^2.4.3",
     "bull": "^4.16.5",
     "compression": "^1.8.1",
