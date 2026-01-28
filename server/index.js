@@ -46,6 +46,8 @@ const plansRouter = require('./routes/plans'); // PASO 14 - SaaS Plans & Monetiz
 const usageRouter = require('./routes/usage'); // PASO 15 - Usage & Rate Limiting
 const webhooksRouter = require('./routes/webhooks'); // PASO 17 - Webhooks y Eventos
 const authRouter = require('./routes/auth'); // 🔐 DUAL AUTH SYSTEM - Profesionales vs Clientes
+const authSupabaseRouter = require('./routes/auth-supabase'); // 🐘 Auth con Supabase PostgreSQL
+const supabase = require('./database/supabase'); // Supabase Database
 const { backupService, createBackupRoutes } = require('./services/backupService'); // PASO 48
 const { facturacionService, createFacturacionRoutes } = require('./services/facturacionService'); // PASO 50
 const { contabilidadService, createContabilidadRoutes } = require('./services/contabilidadService'); // PASO 51
@@ -2529,7 +2531,14 @@ app.use('/api/usage', usageRouter); // PASO 15 - Usage statistics & Rate Limitin
 app.use('/api/subscriptions', subscriptionsRouter); // Sistema de Suscripciones y Pagos (ruta pública para checkout)
 
 // 🔐 DUAL AUTH SYSTEM - Profesionales vs Clientes
-app.use('/api/auth', authRouter);
+// Usar Supabase como base de datos principal
+if (supabase.isConfigured()) {
+  console.log('🐘 Usando Supabase PostgreSQL para autenticación');
+  app.use('/api/auth', authSupabaseRouter);
+} else {
+  console.log('📦 Usando JSON local para autenticación (fallback)');
+  app.use('/api/auth', authRouter);
+}
 
 // Sistema de Reservas Públicas - Marketplace de Salones
 const publicRouter = require('./routes/public');
