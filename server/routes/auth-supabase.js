@@ -392,101 +392,102 @@ router.post('/register-client', async (req, res) => {
 });
 
 // ==================== REGISTRO PROFESIONAL ====================
-router.post('/register-professional', async (req, res) => {
-  try {
-    const { nombreEmpresa, nombreDueno, email, password, passwordConfirm, telefono } = req.body;
-
-    // Validaciones
-    if (!nombreEmpresa || !nombreDueno || !email || !password || !passwordConfirm) {
-      return res.status(400).json({
-        success: false,
-        message: 'Todos los campos son requeridos'
-      });
-    }
-
-    if (password !== passwordConfirm) {
-      return res.status(400).json({
-        success: false,
-        message: 'Las contraseñas no coinciden'
-      });
-    }
-
-    if (password.length < 6) {
-      return res.status(400).json({
-        success: false,
-        message: 'La contraseña debe tener al menos 6 caracteres'
-      });
-    }
-
-    // Verificar si el email ya existe
-    const existingUser = await supabase.getUserByEmail(email);
-    if (existingUser) {
-      return res.status(400).json({
-        success: false,
-        message: 'El email ya está registrado'
-      });
-    }
-
-    // Crear username único
-    const username = nombreDueno.toLowerCase().replace(/\s+/g, '') + Math.floor(Math.random() * 1000);
-
-    // Hash de la contraseña
-    const hashedPassword = await bcrypt.hash(password, 12);
-
-    // Crear usuario profesional en Supabase
-    const newUser = await supabase.createUser({
-      email: email,
-      username: username,
-      password: hashedPassword,
-      nombre: nombreDueno,
-      telefono: telefono || null,
-      rol: 'profesional',
-      plan: 'trial',
-      is_active: true,
-      is_verified: false
-    });
-
-    // Crear suscripción trial
-    await supabase.createSubscription({
-      user_id: newUser.id,
-      plan: 'trial',
-      status: 'active'
-    });
-
-    // Generar tokens
-    const accessToken = generateAccessToken(newUser);
-    const refreshToken = generateRefreshToken(newUser);
-
-    // Guardar refresh token
-    const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 7);
-    await supabase.saveRefreshToken(newUser.id, refreshToken, expiresAt.toISOString());
-
-    res.status(201).json({
-      success: true,
-      message: 'Cuenta de empresa creada exitosamente',
-      token: accessToken,
-      refreshToken: refreshToken,
-      usuario: {
-        id: newUser.id,
-        username: newUser.username,
-        nombre: newUser.nombre,
-        email: newUser.email,
-        nombreEmpresa: nombreEmpresa,
-        rol: 'profesional',
-        plan: 'trial',
-        diasTrial: 7
-      }
-    });
-
-  } catch (error) {
-    console.error('Error en registro profesional:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Error al registrar empresa'
-    });
-  }
-});
+// COMENTADO - Usar /api/auth/register-professional del router auth.js en su lugar
+// router.post('/register-professional', async (req, res) => {
+//   try {
+//     const { nombreEmpresa, nombreDueno, email, password, passwordConfirm, telefono } = req.body;
+//
+//     // Validaciones
+//     if (!nombreEmpresa || !nombreDueno || !email || !password || !passwordConfirm) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'Todos los campos son requeridos'
+//       });
+//     }
+//
+//     if (password !== passwordConfirm) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'Las contraseñas no coinciden'
+//       });
+//     }
+//
+//     if (password.length < 6) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'La contraseña debe tener al menos 6 caracteres'
+//       });
+//     }
+//
+//     // Verificar si el email ya existe
+//     const existingUser = await supabase.getUserByEmail(email);
+//     if (existingUser) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'El email ya está registrado'
+//       });
+//     }
+//
+//     // Crear username único
+//     const username = nombreDueno.toLowerCase().replace(/\s+/g, '') + Math.floor(Math.random() * 1000);
+//
+//     // Hash de la contraseña
+//     const hashedPassword = await bcrypt.hash(password, 12);
+//
+//     // Crear usuario profesional en Supabase
+//     const newUser = await supabase.createUser({
+//       email: email,
+//       username: username,
+//       password: hashedPassword,
+//       nombre: nombreDueno,
+//       telefono: telefono || null,
+//       rol: 'profesional',
+//       plan: 'trial',
+//       is_active: true,
+//       is_verified: false
+//     });
+//
+//     // Crear suscripción trial
+//     await supabase.createSubscription({
+//       user_id: newUser.id,
+//       plan: 'trial',
+//       status: 'active'
+//     });
+//
+//     // Generar tokens
+//     const accessToken = generateAccessToken(newUser);
+//     const refreshToken = generateRefreshToken(newUser);
+//
+//     // Guardar refresh token
+//     const expiresAt = new Date();
+//     expiresAt.setDate(expiresAt.getDate() + 7);
+//     await supabase.saveRefreshToken(newUser.id, refreshToken, expiresAt.toISOString());
+//
+//     res.status(201).json({
+//       success: true,
+//       message: 'Cuenta de empresa creada exitosamente',
+//       token: accessToken,
+//       refreshToken: refreshToken,
+//       usuario: {
+//         id: newUser.id,
+//         username: newUser.username,
+//         nombre: newUser.nombre,
+//         email: newUser.email,
+//         nombreEmpresa: nombreEmpresa,
+//         rol: 'profesional',
+//         plan: 'trial',
+//         diasTrial: 7
+//       }
+//     });
+//
+//   } catch (error) {
+//     console.error('Error en registro profesional:', error);
+//     res.status(500).json({
+//       success: false,
+//       message: 'Error al registrar empresa'
+//     });
+//   }
+// });
 
 // ==================== REFRESH TOKEN ====================
 router.post('/refresh-token', async (req, res) => {

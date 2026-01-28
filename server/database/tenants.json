@@ -1,0 +1,97 @@
+{
+  "tenants": [
+    {
+      "id": "default",
+      "uuid": "03781f4d-dd85-414f-9ddd-c01629b77f35",
+      "nombre": "Demo NEURIAX",
+      "slug": "demo",
+      "email": "demo@neuriax.com",
+      "telefono": "",
+      "plan_id": "professional",
+      "estado": "activo",
+      "fecha_creacion": "2026-01-28T00:37:04.727Z",
+      "fecha_expiracion": null,
+      "configuracion": {
+        "nombre_negocio": "NEURIAX Salon Manager",
+        "logo_url": null,
+        "color_primario": "#8b5cf6",
+        "color_secundario": "#a855f7",
+        "timezone": "Europe/Madrid",
+        "idioma": "es",
+        "moneda": "EUR",
+        "formato_fecha": "DD/MM/YYYY",
+        "formato_hora": "24h"
+      },
+      "limites_uso": {
+        "usuarios_actuales": 1,
+        "clientes_actuales": 0,
+        "citas_este_mes": 0,
+        "almacenamiento_usado_mb": 0
+      },
+      "metadata": {
+        "ip_registro": null,
+        "user_agent": null,
+        "referral": null,
+        "utm_source": null,
+        "utm_medium": null,
+        "utm_campaign": null
+      }
+    }
+  ],
+  "plans": [
+    {
+      "id": "basic",
+      "nombre": "Básico",
+      "precio_mensual": 39,
+      "precio_anual": 390,
+      "limites": {
+        "usuarios": 2,
+        "clientes": 100,
+        "citas_mes": 500,
+        "empleados": 2,
+        "almacenamiento_mb": 5000,
+        "integraciones": false,
+        "soporte": "email",
+        "api_access": false,
+        "white_label": false,
+        "backups": "semanal"
+      }
+    },
+    {
+      "id": "pro",
+      "nombre": "Profesional",
+      "precio_mensual": 79,
+      "precio_anual": 790,
+      "limites": {
+        "usuarios": 10,
+        "clientes": -1,
+        "citas_mes": -1,
+        "empleados": 10,
+        "almacenamiento_mb": 50000,
+        "integraciones": true,
+        "soporte": "prioritario",
+        "api_access": true,
+        "white_label": false,
+        "backups": "diario"
+      }
+    },
+    {
+      "id": "enterprise",
+      "nombre": "Enterprise",
+      "precio_mensual": 149,
+      "precio_anual": 1490,
+      "limites": {
+        "usuarios": -1,
+        "clientes": -1,
+        "citas_mes": -1,
+        "empleados": -1,
+        "almacenamiento_mb": 100000,
+        "integraciones": true,
+        "soporte": "telefono",
+        "api_access": true,
+        "white_label": true,
+        "backups": "tiempo_real"
+      }
+    }
+  ]
+}

@@ -309,7 +309,7 @@ const RegisterBusinessForm = () => {
         </form>
 
         <div className="register-business-footer">
-          <p>¿Ya tienes cuenta? <button className="link-btn" onClick={() => navigate('/login')}>Inicia sesión</button></p>
+          <p>¿Ya tienes cuenta? <button className="link-btn" onClick={() => navigate('/login-profesional')}>Inicia sesión</button></p>
         </div>
       </div>
     </div>
