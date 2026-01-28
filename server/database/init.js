@@ -92,12 +92,145 @@ function initDatabase() {
     saveDatabase();
   }
 
+  // Crear usuario profesional de demo si no existe
+  const demoProExists = db.usuarios.find(u => u.email === 'demo@profesional.com');
+  if (!demoProExists) {
+    const hashedPassword = bcrypt.hashSync('demo123', 12);
+    const tenantId = 'tenant_demo_pro';
+    
+    // Fecha de creación hace 5 horas (para que tenga menos de 2 horas de prueba visible)
+    const createdAtTime = new Date(Date.now() - 5 * 60 * 60 * 1000);
+    
+    db.usuarios.push({
+      id: 999,
+      username: 'demopro',
+      password: hashedPassword,
+      nombre_completo: 'Demo Profesional',
+      nombre_empresa: 'Salón de Belleza Premium Demo',
+      email: 'demo@profesional.com',
+      telefono: '600123456',
+      tipo_usuario: 'profesional',
+      rol: 'owner',
+      plan: 'trial',
+      tenant_id: tenantId,
+      tenantId: tenantId,
+      dias_prueba: 2,
+      activo: 1,
+      verificado: 1,
+      fecha_creacion: createdAtTime.toISOString(),
+      ultimo_acceso: new Date().toISOString(),
+      perfil_completado: 1
+    });
+
+    // Crear tenant para el profesional de demo
+    if (!db.tenants) db.tenants = [];
+    db.tenants.push({
+      id: tenantId,
+      nombre: 'Salón de Belleza Premium Demo',
+      plan: 'trial',
+      dias_trial: 2,
+      activo: 1,
+      fecha_creacion: createdAtTime.toISOString()
+    });
+
+    // Agregar datos de demo específicos para el profesional
+    if (!db.servicios_profesional) db.servicios_profesional = [];
+    db.servicios_profesional.push(
+      { id: 1, tenant_id: tenantId, nombre: 'Corte de Cabello', precio: 20, duracion: 30, activo: 1 },
+      { id: 2, tenant_id: tenantId, nombre: 'Tinte Completo', precio: 60, duracion: 120, activo: 1 },
+      { id: 3, tenant_id: tenantId, nombre: 'Mechas Balayage', precio: 80, duracion: 150, activo: 1 },
+      { id: 4, tenant_id: tenantId, nombre: 'Alisado Brasileño', precio: 100, duracion: 180, activo: 1 }
+    );
+
+    saveDatabase();
+    
+    console.log('✅ Usuario profesional de demo creado:');
+    console.log('   Email: demo@profesional.com');
+    console.log('   Contraseña: demo123');
+    console.log('   Plan: Trial (2 horas)');
+  }
+
   if (db.clientes.length === 0) {
     db.clientes = [
       { id: 1, nombre: 'María García', telefono: '666111222', email: 'maria@email.com', fecha_registro: new Date().toISOString(), activo: 1 },
       { id: 2, nombre: 'Carmen López', telefono: '666333444', email: 'carmen@email.com', fecha_registro: new Date().toISOString(), activo: 1 },
-      { id: 3, nombre: 'Ana Martínez', telefono: '666555666', email: 'ana@email.com', fecha_registro: new Date().toISOString(), activo: 1 }
+      { id: 3, nombre: 'Ana Martínez', telefono: '666555666', email: 'ana@email.com', fecha_registro: new Date().toISOString(), activo: 1 },
+      // Clientes para el profesional de demo
+      { id: 101, tenant_id: 'tenant_demo_pro', nombre: 'Sofía Rodríguez', telefono: '601234567', email: 'sofia@email.com', fecha_registro: new Date().toISOString(), activo: 1 },
+      { id: 102, tenant_id: 'tenant_demo_pro', nombre: 'Lorena Fernández', telefono: '601234568', email: 'lorena@email.com', fecha_registro: new Date().toISOString(), activo: 1 },
+      { id: 103, tenant_id: 'tenant_demo_pro', nombre: 'Elena Pérez', telefono: '601234569', email: 'elena@email.com', fecha_registro: new Date().toISOString(), activo: 1 },
+      { id: 104, tenant_id: 'tenant_demo_pro', nombre: 'Patricia Jiménez', telefono: '601234570', email: 'patricia@email.com', fecha_registro: new Date().toISOString(), activo: 1 }
     ];
+    
+    // Agregar citas de demo
+    if (!db.citas) db.citas = [];
+    const hoy = new Date();
+    const mañana = new Date(hoy.getTime() + 24 * 60 * 60 * 1000);
+    
+    db.citas.push(
+      {
+        id: 1,
+        tenant_id: 'tenant_demo_pro',
+        cliente_id: 101,
+        servicio_id: 1,
+        fecha: mañana.toISOString().split('T')[0],
+        hora: '10:00',
+        duracion: 30,
+        estado: 'confirmada',
+        notas: 'Corte estilo bob',
+        fecha_creacion: new Date().toISOString()
+      },
+      {
+        id: 2,
+        tenant_id: 'tenant_demo_pro',
+        cliente_id: 102,
+        servicio_id: 2,
+        fecha: mañana.toISOString().split('T')[0],
+        hora: '14:00',
+        duracion: 120,
+        estado: 'confirmada',
+        notas: 'Tinte cobertura completa',
+        fecha_creacion: new Date().toISOString()
+      },
+      {
+        id: 3,
+        tenant_id: 'tenant_demo_pro',
+        cliente_id: 103,
+        servicio_id: 3,
+        fecha: hoy.toISOString().split('T')[0],
+        hora: '11:30',
+        duracion: 150,
+        estado: 'completada',
+        notas: 'Mechas balayage',
+        fecha_creacion: new Date().toISOString()
+      }
+    );
+    
+    // Agregar ventas de demo
+    if (!db.ventas) db.ventas = [];
+    db.ventas.push(
+      {
+        id: 1,
+        tenant_id: 'tenant_demo_pro',
+        cliente_id: 101,
+        fecha: hoy.toISOString(),
+        monto: 20,
+        metodo_pago: 'efectivo',
+        descripcion: 'Corte de cabello',
+        estado: 'completada'
+      },
+      {
+        id: 2,
+        tenant_id: 'tenant_demo_pro',
+        cliente_id: 103,
+        fecha: hoy.toISOString(),
+        monto: 80,
+        metodo_pago: 'tarjeta',
+        descripcion: 'Mechas Balayage',
+        estado: 'completada'
+      }
+    );
+    
     saveDatabase();
   }
 
