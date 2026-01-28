@@ -147,12 +147,12 @@ export default function LandingPage() {
             <li><a href="#features" onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}>Funciones</a></li>
             <li><a href="#pricing" onClick={(e) => { e.preventDefault(); scrollToSection('pricing'); }}>Precios</a></li>
             <li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }}>FAQ</a></li>
-            <li><a href="#marketplace" onClick={(e) => { e.preventDefault(); navigate('/marketplace'); }}>🏪 Marketplace</a></li>
           </ul>
           <div className="navbar-buttons">
-            <button className="btn-navbar btn-login" onClick={() => navigate('/login-cliente')}>Soy Cliente</button>
-            <button className="btn-navbar btn-login-pro" onClick={() => navigate('/login-profesional')}>Soy Profesional</button>
-            <button className="btn-navbar btn-profesional" onClick={() => navigate('/register-business')}>Prueba Gratis</button>
+            <button className="btn-navbar btn-marketplace" onClick={() => navigate('/marketplace')}>
+              <span className="navbar-marketplace-icon">🔍</span>
+              Buscar Peluquerías
+            </button>
           </div>
         </div>
       </nav>
