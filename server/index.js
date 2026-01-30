@@ -57,6 +57,7 @@ const salonRouter = require('./routes/salon'); // Setup de perfil de salón
 
 // 🔔 SEMANA 1: Nuevas rutas para Stripe y Cambio de Citas
 const stripeRouter = require('./routes/stripe'); // SEMANA 1 - Pagos con Stripe
+const stripeWebhookRouter = require('./routes/stripe-webhook'); // SEMANA 1 - Webhooks de Stripe (ENTERPRISE)
 const cambioCitasRouter = require('./routes/cambio-citas'); // SEMANA 1 - Cambio de citas online
 
 const app = express();
@@ -77,6 +78,11 @@ const corsOptions = {
 app.use(compression()); // Compression middleware - GZIP enabled
 app.use(helmet()); // Helmet security middleware - HTTP headers protection
 app.use(cors(corsOptions));
+
+// ⚠️ WEBHOOK STRIPE - MUST BE BEFORE express.json()
+// El webhook necesita el raw body sin parsear para verificar la firma
+app.use('/api/stripe/webhook', stripeWebhookRouter);
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 

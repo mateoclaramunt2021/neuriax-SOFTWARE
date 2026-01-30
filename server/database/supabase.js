@@ -7,9 +7,9 @@
 const { createClient } = require('@supabase/supabase-js');
 
 // Configuración de Supabase
-const SUPABASE_URL = process.env.SUPABASE_URL || 'https://qvytccklrpckewuusnkl.supabase.co';
-const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable_ypFE4trWlvUyOKDtUU19iQ_oYKk3cE1';
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || 'sb_secret_LrMgnkrtgAM0GLGX6qzjRA_Lq2aEd14';
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
 
 // Cliente de Supabase con service_role key (acceso completo)
 let supabase = null;
