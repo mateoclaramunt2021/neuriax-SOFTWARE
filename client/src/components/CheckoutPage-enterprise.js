@@ -1,8 +1,8 @@
 /**
- * CHECKOUT PAGE - Sistema de Pagos Profesional con Stripe Elements
- * ================================================================
+ * CHECKOUT PAGE - Sistema de Pagos Profesional con Stripe
+ * ========================================================
  * ENTERPRISE SECURITY:
- * ✅ PCI-DSS Compliant - Usa Stripe Elements para datos de tarjeta
+ * ✅ PCI-DSS Compliant - Usa Stripe.js v3 desde CDN
  * ✅ Nunca almacena datos de tarjeta en estado local
  * ✅ Cliente crea Payment Method, nunca envía card raw al backend
  * ✅ Soporta 3D Secure para autenticación adicional
@@ -10,7 +10,7 @@
  * 
  * FLOW:
  * 1. Usuario completa datos de registro
- * 2. Usuario completa form de pago (CardElement de Stripe)
+ * 2. Usuario completa form de pago (Card Element de Stripe)
  * 3. Cliente crea Payment Method con Stripe (datos nunca van a backend)
  * 4. Backend crea Payment Intent con el Payment Method
  * 5. Si requiere 3D Secure, se confirma en el cliente
@@ -19,27 +19,41 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { loadStripe } from '@stripe/stripe-js';
-import {
-  Elements,
-  CardElement,
-  useStripe,
-  useElements,
-} from '@stripe/react-stripe-js';
 import '../styles/checkout.css';
 
-// Inicializar Stripe en el nivel de aplicación
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY || 'pk_test_51234567890');
+// Inicializar Stripe en el nivel de aplicación (sin dependencia npm)
+let stripePromise = null;
+
+const getStripe = async () => {
+  if (!stripePromise) {
+    stripePromise = new Promise((resolve) => {
+      if (window.Stripe) {
+        resolve(window.Stripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY || 'pk_test_51234567890'));
+      } else {
+        const script = document.createElement('script');
+        script.src = 'https://js.stripe.com/v3/';
+        script.async = true;
+        script.onload = () => {
+          resolve(window.Stripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY || 'pk_test_51234567890'));
+        };
+        document.head.appendChild(script);
+      }
+    });
+  }
+  return stripePromise;
+};
 
 /**
- * Componente de Formulario de Pago (dentro de Elements provider)
+ * Componente de Formulario de Pago
  */
 function PaymentForm({ plan, billingCycle, loading, onSuccess, onError }) {
-  const stripe = useStripe();
-  const elements = useElements();
   const [processing, setProcessing] = useState(false);
   const [clientSecret, setClientSecret] = useState('');
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
+  const [stripe, setStripe] = useState(null);
+  const [elements, setElements] = useState(null);
+  const [cardElement, setCardElement] = useState(null);
+
 
   const [formData, setFormData] = useState({
     nombre_completo: '',

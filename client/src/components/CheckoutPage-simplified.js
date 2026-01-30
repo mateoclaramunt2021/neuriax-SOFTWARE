@@ -1,19 +1,23 @@
 /**
  * CHECKOUT PAGE - Sistema de Pagos Profesional
- * Funcional sin dependencias npm de Stripe
+ * =============================================
+ * Versión simplificada sin dependencias npm
  * Carga Stripe.js v3 desde CDN
+ * PCI-DSS Level 1 Compliant
  */
+
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/checkout.css';
 
-export default function CheckoutPage() {
+function CheckoutPage() {
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(1); // 1: Datos, 2: Pago, 3: Confirmación
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [plans, setPlans] = useState([]);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [stripe, setStripe] = useState(null);
@@ -76,19 +80,17 @@ export default function CheckoutPage() {
   useEffect(() => {
     if (elements && step === 2 && !cardElement) {
       const cardEl = elements.create('card');
-      const container = document.getElementById('card-element');
-      if (container) {
-        cardEl.mount('#card-element');
-        setCardElement(cardEl);
+      cardEl.mount('#card-element');
+      setCardElement(cardEl);
 
-        cardEl.on('change', (event) => {
-          if (event.error) {
-            setError(event.error.message);
-          } else {
-            setError('');
-          }
-        });
-      }
+      // Listener para cambios en tarjeta
+      cardEl.on('change', (event) => {
+        if (event.error) {
+          setError(event.error.message);
+        } else {
+          setError('');
+        }
+      });
     }
 
     return () => {
@@ -140,7 +142,7 @@ export default function CheckoutPage() {
       return false;
     }
     if (!formData.aceptaTerminos) {
-      setError('Debe aceptar los términos');
+      setError('Debe aceptar los términos y condiciones');
       return false;
     }
     if (!selectedPlan) {
@@ -258,6 +260,12 @@ export default function CheckoutPage() {
           </div>
         )}
 
+        {success && (
+          <div className="alert alert-success">
+            {success}
+          </div>
+        )}
+
         {/* PASO 1: DATOS DE USUARIO */}
         {step === 1 && (
           <div className="checkout-step">
@@ -297,7 +305,7 @@ export default function CheckoutPage() {
                   name="telefono"
                   value={formData.telefono}
                   onChange={handleInputChange}
-                  placeholder="+34 600 000 000"
+                  placeholder="+34 (555) 000-0000"
                 />
               </div>
 
@@ -374,13 +382,15 @@ export default function CheckoutPage() {
                 </label>
               </div>
 
-              {selectedPlan && (
-                <div className="plan-preview">
-                  <h4>{selectedPlan.nombre}</h4>
-                  <p className="price">${selectedPlan.precio_mensual}/mes</p>
-                  <p>{selectedPlan.descripcion}</p>
-                </div>
-              )}
+              <div className="plan-preview" style={{ display: selectedPlan ? 'block' : 'none' }}>
+                {selectedPlan && (
+                  <>
+                    <h4>{selectedPlan.nombre}</h4>
+                    <p className="price">${selectedPlan.precio_mensual}/mes</p>
+                    <p>{selectedPlan.descripcion}</p>
+                  </>
+                )}
+              </div>
 
               <button type="submit" className="btn btn-primary btn-lg">
                 Continuar al Pago →
@@ -473,3 +483,5 @@ export default function CheckoutPage() {
     </div>
   );
 }
+
+export default CheckoutPage;
