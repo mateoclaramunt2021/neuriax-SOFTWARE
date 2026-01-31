@@ -157,6 +157,7 @@ router.post('/login', async (req, res) => {
         nombre_completo: usuario.nombre_completo,
         email: usuario.email,
         rol: usuario.rol,
+        tenantId: usuario.tenantId || 'demo',
         permissions: permissions,
         has2FA: has2FA
       }

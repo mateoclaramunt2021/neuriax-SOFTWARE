@@ -5,7 +5,7 @@ const { verificarToken } = require('../middleware/auth');
 const router = express.Router();
 
 // Helper para obtener tenantId
-const getTenantId = (req) => req.user?.tenantId || req.usuario?.tenantId || req.headers['x-tenant-id'] || 'demo';
+const getTenantId = (req) => req.tenantId || req.user?.tenantId || req.usuario?.tenantId || req.headers['x-tenant-id'] || 'demo';
 
 // Endpoint principal de reportes con tipo dinámico
 router.get('/', verificarToken, (req, res) => {

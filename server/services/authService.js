@@ -128,12 +128,14 @@ loadRefreshTokens();
  * Generar Access Token
  */
 const generateAccessToken = (user, tenantId = null) => {
+  const effectiveTenantId = tenantId || user.tenantId || user.tenant_id || 'demo';
   const payload = {
     id: user.id,
     username: user.username,
     email: user.email,
     rol: user.rol,
-    tenant_id: tenantId || user.tenant_id,
+    tenantId: effectiveTenantId,
+    tenant_id: effectiveTenantId,
     permissions: getPermissionsForRole(user.rol),
     type: 'access'
   };

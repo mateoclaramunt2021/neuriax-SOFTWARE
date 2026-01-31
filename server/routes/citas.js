@@ -5,7 +5,7 @@ const { verificarToken } = require('../middleware/auth');
 const router = express.Router();
 
 // Helper para obtener tenantId
-const getTenantId = (req) => req.user?.tenantId || req.headers['x-tenant-id'] || 'demo';
+const getTenantId = (req) => req.tenantId || req.user?.tenantId || req.usuario?.tenantId || req.headers['x-tenant-id'] || 'demo';
 
 // Obtener todas las citas
 router.get('/', verificarToken, (req, res) => {
@@ -14,7 +14,7 @@ router.get('/', verificarToken, (req, res) => {
     const tenantId = getTenantId(req);
     const { fecha, empleado_id, cliente_id, estado } = req.query;
 
-    let citas = [...(db.citas || [])].filter(c => c.tenantId === tenantId);
+    let citas = [...(db.citas || [])].filter(c => c.tenantId === tenantId || c.tenant_id === tenantId);
 
     // Filtros
     if (fecha) {
@@ -32,8 +32,8 @@ router.get('/', verificarToken, (req, res) => {
 
     // Enriquecer con datos de cliente, empleado y servicios
     const citasEnriquecidas = citas.map(cita => {
-      const cliente = (db.clientes || []).find(c => c.id === cita.cliente_id && c.tenantId === tenantId);
-      const empleado = (db.empleados || []).find(e => e.id === cita.empleado_id && e.tenantId === tenantId);
+      const cliente = (db.clientes || []).find(c => c.id === cita.cliente_id && (c.tenantId === tenantId || c.tenant_id === tenantId));
+      const empleado = (db.empleados || []).find(e => e.id === cita.empleado_id && (e.tenantId === tenantId || e.tenant_id === tenantId));
       const servicios = (cita.servicios_ids || []).map(sid => {
         const servicio = (db.servicios || []).find(s => s.id === sid);
         return servicio ? { id: servicio.id, nombre: servicio.nombre, duracion: servicio.duracion } : null;

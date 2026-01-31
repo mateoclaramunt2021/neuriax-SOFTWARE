@@ -2183,11 +2183,16 @@ app.delete('/api/servicios/:id', verifyToken, (req, res) => {
 app.get('/api/clientes', verifyToken, (req, res) => {
   try {
     loadDatabase();
-    const tenantId = req.user?.tenantId || req.headers['x-tenant-id'] || 'demo';
-    // En modo demo, mostrar clientes sin tenantId O con tenantId='demo'
-    const clientesTenant = (db.clientes || []).filter(c => 
-      !c.tenantId || c.tenantId === tenantId || tenantId === 'demo'
-    );
+    const tenantId = req.user?.tenantId || req.user?.tenant_id || req.headers['x-tenant-id'] || 'demo';
+    // Filtrar clientes: sin tenant asignado, O con tenantId/tenant_id que coincida
+    const clientesTenant = (db.clientes || []).filter(c => {
+      const clienteTenantId = c.tenantId || c.tenant_id;
+      // Incluir clientes sin tenant (legacy) O clientes del tenant actual O si es demo incluir tenant_demo_pro
+      if (!clienteTenantId) return true;
+      if (clienteTenantId === tenantId) return true;
+      if (tenantId === 'tenant_demo_pro' && clienteTenantId === 'tenant_demo_pro') return true;
+      return false;
+    });
     res.json({
       success: true,
       data: clientesTenant,

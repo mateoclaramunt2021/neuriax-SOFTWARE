@@ -6,7 +6,7 @@ const { getTenantFromRequest } = require('../middleware/tenantMiddleware');
 const router = express.Router();
 
 // Helper para obtener tenantId de manera consistente
-const getTenantId = (req) => req.tenant?.id || req.user?.tenantId || req.usuario?.tenantId || req.headers['x-tenant-id'] || 'demo';
+const getTenantId = (req) => req.tenantId || req.tenant?.id || req.user?.tenantId || req.usuario?.tenantId || req.headers['x-tenant-id'] || 'demo';
 
 // Obtener todas las ventas
 router.get('/', verificarToken, getTenantFromRequest, (req, res) => {

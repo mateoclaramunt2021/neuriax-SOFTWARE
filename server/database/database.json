@@ -18,6 +18,7 @@
       "nombre_completo": "Demo Profesional",
       "email": "demo@salon.com",
       "rol": "owner",
+      "tenantId": "tenant_demo_pro",
       "activo": 1,
       "fecha_creacion": "2026-01-29T13:10:47.804Z",
       "ultimo_acceso": null
