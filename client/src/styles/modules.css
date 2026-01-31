@@ -1449,6 +1449,12 @@
   font-size: 14px;
   transition: all 0.3s ease;
   font-family: inherit;
+  color: var(--gray-900);
+}
+
+.form-group input::placeholder,
+.form-group select::placeholder {
+  color: var(--gray-500);
 }
 
 .form-group input:focus,
@@ -1590,7 +1596,8 @@
 .header-subtitle {
   margin: 4px 0 0 0;
   font-size: 14px;
-  color: var(--gray-500);
+  color: var(--gray-700);
+  font-weight: 500;
 }
 
 /* STATS */
@@ -2028,9 +2035,10 @@
 .service-description {
   margin: 0 0 16px 0;
   font-size: 13px;
-  color: var(--gray-600);
+  color: var(--gray-700);
   line-height: 1.5;
   flex: 1;
+  font-weight: 500;
 }
 
 .service-details-row {
@@ -2043,8 +2051,8 @@
 }
 
 .detail-label {
-  color: var(--gray-600);
-  font-weight: 500;
+  color: var(--gray-700);
+  font-weight: 600;
 }
 
 .detail-value {

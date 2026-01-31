@@ -33,8 +33,9 @@
 
 .header-subtitle {
   font-size: 0.875rem;
-  color: var(--color-gray-500);
+  color: var(--color-gray-700);
   margin: 0.5rem 0 0 0;
+  font-weight: 500;
 }
 
 .header-right {
